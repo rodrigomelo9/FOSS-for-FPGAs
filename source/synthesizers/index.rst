@@ -1,9 +1,8 @@
-Implementation tools
-====================
+Synthesizers
+============
 
 * GHDL (VHDL synthesizer)
 * ghdl-yosys-plugin (VHDL in Yosys)
-* SimbiFlow (synthesis to bitstream)
 * Yosys (Verilog synthesizer)
 
 .. toctree::
@@ -11,6 +10,4 @@ Implementation tools
 
    ghdl
    ghdl-yosys-plugin
-   icestorm
-   symbiflow
    yosys

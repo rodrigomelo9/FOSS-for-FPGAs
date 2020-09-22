@@ -1,5 +1,5 @@
-Package managers
-================
+SoC generators
+==============
 
 .. toctree::
    :maxdepth: 1

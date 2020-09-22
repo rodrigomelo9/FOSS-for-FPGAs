@@ -4,3 +4,4 @@ author = 'Rodrigo A. Melo'
 release = 'master'
 html_theme = 'sphinx_rtd_theme'
 extensions = ['recommonmark']
+exclude_patterns = ['README.md']

@@ -1,5 +1,5 @@
-Project managers
-================
+Project/Toolchain management
+============================
 
 .. toctree::
    :maxdepth: 1

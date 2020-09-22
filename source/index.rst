@@ -6,10 +6,12 @@ Getting started with FOSS for digital hardware design
 
    introduction/index
    simulation/index
-   implementation/index
-   verification/index
-   prj-managers/index
-   pkg-managers/index
+   synthesizers/index
+   fpga-tools/index
+   asic-tools/index
+   frameworks/index
+   prj-management/index
+   soc-generators/index
    languages/index
    ides/index
    linters/index
