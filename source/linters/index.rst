@@ -7,6 +7,7 @@ Linters
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
    ghdl
    verible

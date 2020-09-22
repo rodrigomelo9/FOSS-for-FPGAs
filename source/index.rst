@@ -3,6 +3,7 @@ Getting started with FOSS for digital hardware design
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
    introduction/index
    simulation/index

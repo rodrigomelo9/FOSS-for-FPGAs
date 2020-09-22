@@ -1,5 +1,5 @@
-Development languages
-=====================
+Languages
+=========
 
 * `Chisel <https://github.com/freechipsproject/chisel3>`_ (Scala based)
 * `Magma <https://github.com/phanrahan/magma>`_ (Python based)
@@ -11,6 +11,7 @@ Development languages
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
    chisel
    magma

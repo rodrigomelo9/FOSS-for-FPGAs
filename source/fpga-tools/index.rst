@@ -7,6 +7,7 @@ FPGA tools
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
    icestorm
    openfpgaloader

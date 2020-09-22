@@ -7,6 +7,7 @@ Synthesizers
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
    ghdl
    ghdl-yosys-plugin
