@@ -1,5 +1,5 @@
-Testing/Verification frameworks
-===============================
+Frameworks
+==========
 
 .. toctree::
    :maxdepth: 1

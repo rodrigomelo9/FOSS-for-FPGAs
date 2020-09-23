@@ -1,5 +1,5 @@
-Development Environments
-========================
+IDEs
+====
 
 .. toctree::
    :maxdepth: 1

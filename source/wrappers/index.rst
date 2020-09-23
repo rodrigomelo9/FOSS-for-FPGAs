@@ -1,5 +1,5 @@
-Project/Toolchain management
-============================
+Wrappers
+========
 
 .. toctree::
    :maxdepth: 1
