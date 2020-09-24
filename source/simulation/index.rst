@@ -1,18 +1,26 @@
 Simulation tools
 ================
 
-* GHDL (VHDL simulator)
-* iVerilog (Verilog simulator)
-* `NVC <https://github.com/nickg/nvc>`_ (VHDL 2020 simulator)
-* Verilator (Verilog simulator)
-* GTKwave (waveform viewer)
+Verilog Simulators:
+
+* :doc:`iverilog` (`repo <https://github.com/steveicarus/iverilog>`__, `doc <https://iverilog.fandom.com/wiki/User_Guide>`__):
+* :doc:`verilator` (`repo <https://github.com/verilator/verilator>`__, `doc <https://www.veripool.org/wiki/verilator/Manual-verilator>`__):
+
+VHDL Simulators:
+
+* :doc:`ghdl` (`repo <https://github.com/ghdl/ghdl>`__, `doc <https://ghdl.readthedocs.io/en/latest/>`__):
+* :doc:`nvc` (`repo <https://github.com/nickg/nvc>`__, `doc <https://github.com/nickg/nvc/blob/master/nvc.1.md>`__):
+
+Waveform viewers:
+
+* :doc:`gtkwave` (`repo <https://github.com/gtkwave/gtkwave>`__, `doc <http://gtkwave.sourceforge.net/gtkwave.pdf>`__):
 
 .. toctree::
    :maxdepth: 1
    :hidden:
 
-   ghdl
    iverilog
-   nvc
    verilator
+   ghdl
+   nvc
    gtkwave
