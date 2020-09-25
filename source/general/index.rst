@@ -1,4 +1,4 @@
-General-purpose
+General purpose
 ===============
 
 .. toctree::

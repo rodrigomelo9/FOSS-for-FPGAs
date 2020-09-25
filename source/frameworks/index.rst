@@ -7,6 +7,7 @@ Frameworks
 
    cocotb
    osvvm
+   svunit
    symbiyosys
    uvvm
    vunit
