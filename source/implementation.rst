@@ -13,11 +13,7 @@ Implementation
    :maxdepth: 1
    :hidden:
 
-   ghdl
-   ghdl-yosys-plugin
-   icestorm
+   hdl-to-bitstream
    icestudio
-   nextpnr
-   trellis
    symbiflow
    yosys
