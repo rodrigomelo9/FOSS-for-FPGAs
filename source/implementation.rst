@@ -18,7 +18,6 @@ Implementation
    icestorm
    icestudio
    nextpnr
-   openfpgaloader
    trellis
    symbiflow
    yosys

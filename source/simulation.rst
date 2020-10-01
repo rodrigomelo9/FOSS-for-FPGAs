@@ -9,7 +9,6 @@ Verilog Simulators:
 VHDL Simulators:
 
 * :doc:`ghdl` (`repo <https://github.com/ghdl/ghdl>`__, `doc <https://ghdl.readthedocs.io/en/latest/>`__):
-* :doc:`nvc` (`repo <https://github.com/nickg/nvc>`__, `doc <https://github.com/nickg/nvc/blob/master/nvc.1.md>`__):
 
 Waveform viewers:
 
@@ -23,7 +22,6 @@ Waveform viewers:
    ghdl
    gtkwave
    iverilog
-   nvc
    osvvm
    svunit
    symbiyosys
