@@ -1,12 +1,13 @@
-General purpose
-===============
+Introduction
+============
 
 .. toctree::
    :maxdepth: 1
    :hidden:
 
-   command-line
+   shell
    docker
    git
    make
    python
+   ci

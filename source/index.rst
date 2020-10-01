@@ -3,7 +3,7 @@ Getting started with FOSS for FPGAs
 
 The content is distributed in the following categories:
 
-* :doc:`general/index`: the FOSS digital hardware design tools are based on general-purpose FOSS tools that you should know.
+* :doc:`introduction`: the FOSS digital hardware design tools are based on general-purpose FOSS tools that you should know.
 * :doc:`simulation/index`: here you will found VHDL and Verilog simulators, as well as waveform viewers.
 * :doc:`frameworks/index`: a sofware framework joins proven tools, libraries and metodologies, to reach a particular technical goal easier. HDL testing and verification is a software task, and as such, there are frameworks for that.
 * :doc:`synthesizers/index`: a Synthesizer takes a hierarchical HDL and creates a structural description (a netlist of basic structures) based on it. It is the first step of an FPGA or ASIC toolchain.
@@ -18,7 +18,7 @@ The content is distributed in the following categories:
    :maxdepth: 1
    :hidden:
 
-   general/index
+   introduction
    simulation/index
    frameworks/index
    synthesizers/index
