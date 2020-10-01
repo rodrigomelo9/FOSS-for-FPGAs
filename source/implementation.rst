@@ -16,6 +16,7 @@ Implementation
    ghdl
    ghdl-yosys-plugin
    icestorm
+   icestudio
    nextpnr
    openfpgaloader
    trellis
