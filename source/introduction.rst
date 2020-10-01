@@ -6,8 +6,8 @@ Introduction
    :hidden:
 
    shell
+   ci
    docker
    git
    make
    python
-   ci

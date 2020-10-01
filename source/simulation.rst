@@ -1,5 +1,5 @@
-Simulation tools
-================
+Simulation
+==========
 
 Verilog Simulators:
 
@@ -19,8 +19,14 @@ Waveform viewers:
    :maxdepth: 1
    :hidden:
 
-   iverilog
-   verilator
+   cocotb
    ghdl
-   nvc
    gtkwave
+   iverilog
+   nvc
+   osvvm
+   svunit
+   symbiyosys
+   uvvm
+   verilator
+   vunit
