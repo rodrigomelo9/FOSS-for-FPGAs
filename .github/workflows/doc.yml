@@ -2,6 +2,8 @@ name: 'doc'
 
 on:
   push:
+    branches:
+      - master
 
 jobs:
   linux:
