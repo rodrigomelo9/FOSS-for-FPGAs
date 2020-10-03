@@ -1,3 +1,4 @@
+from json import loads
 from pathlib import Path
 
 project = 'Getting started with FOSS for FPGAs'
