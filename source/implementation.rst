@@ -1,5 +1,9 @@
-FPGA tools
-==========
+Implementation
+==============
+
+* GHDL (VHDL synthesizer)
+* ghdl-yosys-plugin (VHDL in Yosys)
+* Yosys (Verilog synthesizer)
 
 * icestorm
 * `openFPGALoader <https://github.com/trabucayre/openFPGALoader>`_
@@ -9,7 +13,7 @@ FPGA tools
    :maxdepth: 1
    :hidden:
 
-   icestorm
-   openfpgaloader
+   hdl-to-bitstream
+   icestudio
    symbiflow
-
+   yosys
