@@ -2,18 +2,22 @@ name: 'doc'
 
 on:
   push:
-    branches:
-      - master
+#    branches: [master]
 
 jobs:
   linux:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: buildthedocs/btd@v0
+    - uses: actions/setup-node@v2
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-    - uses: actions/upload-artifact@master
+        node-version: '14'
+    - name: Install dependencies
+      run: npm install -g reveal-md
+    - name: Build
+      run: make -C slides
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
       with:
-        name: source
-        path: source/_build/html
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: slides/_build
