@@ -1,336 +1,249 @@
+<!-- .slide: data-background="#145A32" -->
+
 # FOSS for FPGA development
 
 by Rodrigo A. Melo
 
 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
-<!-- ###################################################################### -->
 ---
 <!-- ###################################################################### -->
-
 ## Outline
+<!-- ###################################################################### -->
 
 * [Introduction](#/2)
-* [General-purpose](#/3)
-* [Simulation](#/4)
-* [Frameworks and methodologies for testing and verification](#/5)
-* [Implementation](#/6)
-* [Other tools/projects](#/7)
-* [Boards](#/8)
-* [Final words](#/9)
+* [General-purpose](#/5)
+* [Simulation](#/12)
+* [Testing and Verification](#/16)
+* [Implementation](#/21)
+* [Others](#/28)
+* [Open Hardware](#/33)
+* [Final words](#/38)
 
-<!-- ###################################################################### -->
 ---
 <!-- ###################################################################### -->
-
 ## Introduction
+<!-- .slide: data-background="#581845" -->
+<!-- ###################################################################### -->
 
 [⌂](#/1)
 
-----
+---
 
 ### What means FOSS?
 
-[⇑](#/2)
-
-----
+---
 
 ### Why to use FOSS?
 
-[⇑](#/2)
-
-<!-- ###################################################################### -->
 ---
 <!-- ###################################################################### -->
-
 ## General-purpose
+<!-- .slide: data-background="#581845" -->
+<!-- ###################################################################### -->
 
 [⌂](#/1)
 
-----
+---
 
-## Command-line shell
+### Command-line shell
 
-[⇑](#/3)
+---
 
-----
+### Git
 
-## Git
+---
 
-[⇑](#/3)
-
-----
-
-## Docker
-
-[⇑](#/3)
+### Docker
 
 ----
 
-## Continuous integration, Delivery and Deployment (CI/CD)
-
-[⇑](#/3)
+#### hdl/containers
 
 ----
 
-## Make
+#### Example
 
-[⇑](#/3)
+---
 
-----
+### Continuous integration (CI)
 
-## Python
+---
 
-[⇑](#/3)
+### Make
 
-<!-- ###################################################################### -->
+---
+
+### Python
+
 ---
 <!-- ###################################################################### -->
-
 ## Simulation
+<!-- .slide: data-background="#581845" -->
+<!-- ###################################################################### -->
 
 [⌂](#/1)
 
-----
+---
 
-## VHDL simulator
+### VHDL simulator
 
-[⇑](#/4)
+---
 
-----
+### Verilog simulators
 
-## Verilog simulators
+---
 
-[⇑](#/4)
+### Waveforms viewer
 
-----
-
-## Waveforms viewer
-
-[⇑](#/4)
-
-<!-- ###################################################################### -->
 ---
 <!-- ###################################################################### -->
-
-## Frameworks and methodologies for testing and verification
+## Testing and Verification
+<!-- .slide: data-background="#581845" -->
+<!-- ###################################################################### -->
 
 [⌂](#/1)
 
-----
+---
 
-## HDL based frameworks/methodologies
+### HDL based frameworks/methodologies
 
-[⇑](#/5)
+---
 
-----
+### Python based testbenches
 
-## Python based testbenches
+---
 
-[⇑](#/5)
+### Formal verification
 
-----
+---
 
-## Verification trends
+### Verification trends
 
-[⇑](#/5)
-
-----
-
-## Formal verification
-
-[⇑](#/5)
-
-<!-- ###################################################################### -->
 ---
 <!-- ###################################################################### -->
-
 ## Implementation
+<!-- .slide: data-background="#581845" -->
+<!-- ###################################################################### -->
 
 [⌂](#/1)
 
-----
+---
 
-## HDL-to-Bitstream main related tools
+### HDL-to-Bitstream
 
-[⇑](#/6)
+---
 
-----
+### Languages
 
-## Languages
+---
 
-[⇑](#/6)
-
-----
-
-## Synthesis - Yosys
-
-[⇑](#/6)
+### Synthesis
 
 ----
 
-## Synthesis - GHDL
-
-[⇑](#/6)
+#### Yosys
 
 ----
 
-## Place & Route
+#### GHDL
 
-[⇑](#/6)
+---
 
-----
+### Place & Route
 
-## Bitstream Generation
+---
 
-[⇑](#/6)
+### Bitstream Generation
 
-----
+---
 
-## Formal verification
+### Programming
 
-[⇑](#/6)
-
-----
-
-## Programming
-
-[⇑](#/6)
-
-<!-- ###################################################################### -->
 ---
 <!-- ###################################################################### -->
-
-## Other tools/projects
+## Others
+<!-- .slide: data-background="#581845" -->
+<!-- ###################################################################### -->
 
 [⌂](#/1)
 
-----
+---
 
-## Project Managers
+### Project Managers
 
-[⇑](#/7)
+---
 
-----
+### Libraries, Collections, IP Cores
 
-## Libraries, Collections, IP Cores
+---
 
-[⇑](#/7)
-
-----
-
-## Softcores
-
-[⇑](#/7)
+### Softcores
 
 ----
 
-## Softcores - Legacy
-
-[⇑](#/7)
+#### Legacy
 
 ----
 
-## Softcores - RISC V
+#### RISC V
 
-[⇑](#/7)
+---
 
-----
-
-## Softcores - RISC V
-
-[⇑](#/7)
+### Miscellaneous
 
 ----
 
-## Softcores - RISC V
-
-[⇑](#/7)
+#### TerosHDL
 
 ----
 
-## TerosHDL
+#### Icestudio
 
-[⇑](#/7)
-
-----
-
-## Icestudio
-
-[⇑](#/7)
-
-<!-- ###################################################################### -->
 ---
 <!-- ###################################################################### -->
-
-## Boards (Open Hardware)
+## Open Hardware
+<!-- .slide: data-background="#581845" -->
+<!-- ###################################################################### -->
 
 [⌂](#/1)
 
-----
+---
 
-## Kicad
+### Kicad
 
-[⇑](#/8)
+---
 
-----
+### Some ICE40 based boards
 
-## Kicad - CIAA ACC
+---
 
-[⇑](#/8)
+### Some ECP5 based boards
 
-----
+---
 
-## Some ICE40 based boards
+### Some other boards
 
-[⇑](#/8)
-
-----
-
-## Some ECP5 based boards
-
-[⇑](#/8)
-
-----
-
-## Some other boards
-
-[⇑](#/8)
-
-<!-- ###################################################################### -->
 ---
 <!-- ###################################################################### -->
-
 ## Final words
+<!-- .slide: data-background="#581845" -->
+<!-- ###################################################################### -->
 
 [⌂](#/1)
 
-----
+---
 
-## How to find projects and be updated? Organizations
-
-[⇑](#/9)
+### How to be updated?
 
 ----
 
-## How to find projects and be updated? People
-
-[⇑](#/9)
+#### Organizations
 
 ----
 
-## How to find projects and be updated? hdl/awesome
-
-[⇑](#/9)
+#### People
 
 ----
 
-## How to obtain updated tools
-
-[⇑](#/9)
-
-----
-
-## Docker example
-
-[⇑](#/9)
+#### hdl/awesome
