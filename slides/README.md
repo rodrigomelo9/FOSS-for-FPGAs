@@ -30,11 +30,32 @@ by Rodrigo A. Melo
 
 ---
 
-### What means FOSS?
+### What is FOSS?
+
+* Free (as freedom) and Open Source (you can access the source code) Software (programs).
+* Solves the disambiguation between FREE and OPEN-SOURCE software.
+* Anyone is freely licensed to USE, COPY, STUDY, and CHANGE the software.
+
+![GPL3](images/logos/gpl3.png)&nbsp;&nbsp;&nbsp;
+![Creative Commons](images/logos/cc.png)&nbsp;&nbsp;&nbsp;
+![BSD](images/logos/bsd.png)&nbsp;&nbsp;&nbsp;
+![Apache](images/logos/apache.png)&nbsp;&nbsp;&nbsp;
+![MIT](images/logos/mit.png)
 
 ---
 
 ### Why to use FOSS?
+
+* **GENERAL**
+  * Personal control, customization and freedom
+  * Privacy and security
+  * Low or no costs (solutions and support)
+  * Quality, collaboration and efficiency
+  * Flexibility and open-standars adherence
+  * Innovation
+* **SPECIFIC**
+  * Vendor-independence
+  * Lightweight (size and speed)
 
 ---
 <!-- ###################################################################### -->
@@ -46,7 +67,12 @@ by Rodrigo A. Melo
 
 ---
 
-### Command-line shell
+### Command-line
+
+* Aka shell, terminal, console, bash...
+* Most projects provide a CLI.
+* Common for Linux/Unix distributions.
+* Windows Subsytem for Linux (WSL).
 
 ---
 
