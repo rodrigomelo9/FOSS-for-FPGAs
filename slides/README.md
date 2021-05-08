@@ -36,11 +36,11 @@ by Rodrigo A. Melo
 * Solves the disambiguation between FREE and OPEN-SOURCE software.
 * Anyone is freely licensed to USE, COPY, STUDY, and CHANGE the software.
 
-![GPL3](images/logos/gpl3.png)&nbsp;&nbsp;&nbsp;
-![Creative Commons](images/logos/cc.png)&nbsp;&nbsp;&nbsp;
-![BSD](images/logos/bsd.png)&nbsp;&nbsp;&nbsp;
-![Apache](images/logos/apache.png)&nbsp;&nbsp;&nbsp;
-![MIT](images/logos/mit.png)
+![GPL3](images/licenses/gpl3.png)&nbsp;&nbsp;&nbsp;
+![Creative Commons](images/licenses/cc.png)&nbsp;&nbsp;&nbsp;
+![BSD](images/licenses/bsd.png)&nbsp;&nbsp;&nbsp;
+![Apache](images/licenses/apache.png)&nbsp;&nbsp;&nbsp;
+![MIT](images/licenses/mit.png)
 
 ---
 
@@ -77,6 +77,15 @@ by Rodrigo A. Melo
 ---
 
 ### Git
+
+* A distributed version control system.
+* Created in 2005 by Linus Torvalds, for the development of the Linux kernel.
+* Is the de facto standard for FOSS projects.
+* Allows you to deal with a software repository, managing versions and multiple users.
+
+![GPL3](images/git/git.png)&nbsp;&nbsp;&nbsp;
+![Creative Commons](images/git/github.png)&nbsp;&nbsp;&nbsp;
+![BSD](images/git/gitlab.png)&nbsp;&nbsp;&nbsp;
 
 ---
 
