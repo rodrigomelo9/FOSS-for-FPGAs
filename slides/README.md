@@ -2,9 +2,9 @@
 
 # FOSS for FPGA development
 
-by Rodrigo A. Melo
+https://rodrigomelo9.github.io/FOSS-for-FPGAs/
 
-[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+by Rodrigo A. Melo - [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 ---
 <!-- ###################################################################### -->
@@ -87,9 +87,49 @@ by Rodrigo A. Melo
 ![Creative Commons](images/git/github.png)&nbsp;&nbsp;&nbsp;
 ![BSD](images/git/gitlab.png)&nbsp;&nbsp;&nbsp;
 
+----
+
+#### Commands
+
+```bash
+git init
+git clone <REPOSITORY>
+```
+
+```bash
+git log <NONE_OR_FILEs_OR_PATHs>
+git diff <NONE_OR_FILEs_OR_PATHs>
+git status <NONE_OR_FILEs_OR_PATHs>
+```
+
+```bash
+git add <DOT_OR_FILEs>
+git commit <NONE_OR_FILEs_OR_PATHs>
+git push
+git pull
+```
+
+
+```bash
+git checkout -b <NEW_BRANCH>
+git checkout <BRANCH>
+```
+
+----
+
+#### Clone the repository of this presentation
+
+```bash
+git clone https://github.com/rodrigomelo9/FOSS-for-FPGAs.git
+```
+
 ---
 
 ### Docker
+
+OS-level virtualization to deliver software in packages called containers, which are isolated one from another and bundle their own software, libraries and configuration files.
+
+![Docker](images/docker.png)
 
 ----
 
