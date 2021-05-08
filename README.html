@@ -17,9 +17,9 @@
 
 # FOSS for FPGA development
 
-by Rodrigo A. Melo
+https://rodrigomelo9.github.io/FOSS-for-FPGAs/
 
-[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+by Rodrigo A. Melo - [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 </script></section><section  data-markdown><script type="text/template"><!-- ###################################################################### -->
 ## Outline
 <!-- ###################################################################### -->
@@ -76,7 +76,7 @@ by Rodrigo A. Melo
 * Most projects provide a CLI.
 * Common for Linux/Unix distributions.
 * Windows Subsytem for Linux (WSL).
-</script></section><section  data-markdown><script type="text/template">
+</script></section><section ><section data-markdown><script type="text/template">
 ### Git
 
 * A distributed version control system.
@@ -87,8 +87,44 @@ by Rodrigo A. Melo
 ![GPL3](images/git/git.png)&nbsp;&nbsp;&nbsp;
 ![Creative Commons](images/git/github.png)&nbsp;&nbsp;&nbsp;
 ![BSD](images/git/gitlab.png)&nbsp;&nbsp;&nbsp;
-</script></section><section ><section data-markdown><script type="text/template">
+</script></section><section data-markdown><script type="text/template">
+#### Commands
+
+```bash
+git init
+git clone <REPOSITORY>
+```
+
+```bash
+git log <NONE_OR_FILEs_OR_PATHs>
+git diff <NONE_OR_FILEs_OR_PATHs>
+git status <NONE_OR_FILEs_OR_PATHs>
+```
+
+```bash
+git add <DOT_OR_FILEs>
+git commit <NONE_OR_FILEs_OR_PATHs>
+git push
+git pull
+```
+
+
+```bash
+git checkout -b <NEW_BRANCH>
+git checkout <BRANCH>
+```
+</script></section><section data-markdown><script type="text/template">
+#### Clone the repository of this presentation
+
+```bash
+git clone https://github.com/rodrigomelo9/FOSS-for-FPGAs.git
+```
+</script></section></section><section ><section data-markdown><script type="text/template">
 ### Docker
+
+OS-level virtualization to deliver software in packages called containers, which are isolated one from another and bundle their own software, libraries and configuration files.
+
+![Docker](images/docker.png)
 </script></section><section data-markdown><script type="text/template">
 #### hdl/containers
 </script></section><section data-markdown><script type="text/template">
