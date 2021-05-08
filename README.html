@@ -127,14 +127,50 @@ OS-level virtualization to deliver software in packages called containers, which
 ![Docker](images/docker.png)
 </script></section><section data-markdown><script type="text/template">
 #### hdl/containers
+
+https://hdl.github.io/containers/
+
+* `hdlc/sim:osvb` (GHDL, Verilator, cocotb, OSVVM and VUnit)
+* `hdlc/impl` (nextpnr-ice40, nextpnr-ecp5, nextpnr-generic, icestorm and prjtrellis)
+* `hdlc/prog` (icestorm, openocd)
 </script></section><section data-markdown><script type="text/template">
-#### Example
+#### Examples
+
+```bash
+$ docker run --rm hdlc/sim:osvb ghdl -v
+GHDL 2.0.0-dev (v1.0.0-252-gc14fc372) [Dunoon edition]
+ Compiled with GNAT Version: 8.3.0
+ llvm code generator
+Written by Tristan Gingold.
+```
+
+```bash
+$ docker run --rm hdlc/impl yosys --version
+Yosys 0.9+4052 (git sha1 5c1e6a0e, clang 7.0.1-8+deb10u2 -fPIC -Os)
+```
 </script></section></section><section  data-markdown><script type="text/template">
 ### Continuous integration (CI)
+
+Is to automatically perform an action based on a repository event (push, merge, cron, etc).
+* **Continuous Integration:** run linters, unit and/or integration tests, Hardware-in-the loop simulation.
+* **Continuous Delivery:** build binaries, documentation, packages, etc.
+* **Continuous Deployment:** build and install in production.
 </script></section><section  data-markdown><script type="text/template">
 ### Make
+
+* Is a build automation tool.
+* A Makefile contains a set of directives (targets, dependencies and rules) which are used by make to generate a target/goal.
+* It works upon the principle that files only needs to be recreated if their dependencies are newer than the file being re/created.
+* There are other newer tools such as CMake and Scons, but make is definitively the building tool, and sometimes part of the execution, in the FPGA ecosystem.
 </script></section><section  data-markdown><script type="text/template">
 ### Python
+
+* Is an interpreted, high-level and general-purpose programming language (one of the most used in general, and the main in certain fields such as Machine/Deep Learning).
+* A lot of its libraries are written in C (performance).
+* Easy to read and learn.
+* Most FOSS FPGA tools are written in Python, or C/C++ with a Python binding/wrapper.
+* There are several HDL languages based on Python.
+* Is also being used as verification language.
 </script></section><section  data-markdown><script type="text/template"><!-- ###################################################################### -->
 ## Simulation
 <!-- .slide: data-background="#581845" -->
