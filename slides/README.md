@@ -199,13 +199,37 @@ Is to automatically perform an action based on a repository event (push, merge, 
 
 ### VHDL simulator
 
+|   |   |
+|---|---|
+| ![GHDL](images/ghdl.png) | Analyzer, compiler, simulator and (experimental) synthesizer for VHDL |
+|   |   |
+
+* Full support for IEEE 1076 standard 1987, 1993, 2002 and partial for 2008.
+* It generates binaries to perform a simulation.
+* Can dump waveforms to VCD or GHW (recommended for VHDL) files.
+
 ---
 
 ### Verilog simulators
 
+|   |   |
+|---|---|
+| ![iVerilog](images/iverilog.png) | IEEE-1364 simulator</br>It generates an intermediate file format wich is then interpreted |
+|   |   |
+
+|   |   |
+|---|---|
+| Verilog/SystemVerilog simulator</br>Compiles into multithreaded C++</br>Performs lint code-quality checks | ![Verilator](images/verilator.png) |
+|   |   |
+
 ---
 
 ### Waveforms viewer
+
+|   |   |
+|---|---|
+| A fully featured wave viewer which reads</br>LXT, LXT2, VZT, FST, and GHW files as</br>well as standard Verilog VCD/EVCD | ![GTKwave](images/gtkwave.png) |
+|   |   |
 
 ---
 <!-- ###################################################################### -->
