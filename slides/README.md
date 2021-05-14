@@ -36,11 +36,10 @@ by Rodrigo A. Melo - [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 * Solves the disambiguation between FREE and OPEN-SOURCE software.
 * Anyone is freely licensed to USE, COPY, STUDY, and CHANGE the software.
 
-![GPL3](images/licenses/gpl3.png)&nbsp;&nbsp;&nbsp;
-![Creative Commons](images/licenses/cc.png)&nbsp;&nbsp;&nbsp;
-![BSD](images/licenses/bsd.png)&nbsp;&nbsp;&nbsp;
-![Apache](images/licenses/apache.png)&nbsp;&nbsp;&nbsp;
-![MIT](images/licenses/mit.png)
+|   |   |   |   |   |
+|---|---|---|---|---|
+| ![GPL3](images/licenses/gpl3.png) | ![Creative Commons](images/licenses/cc.png) | ![BSD](images/licenses/bsd.png) | ![Apache](images/licenses/apache.png) | ![MIT](images/licenses/mit.png) |
+|   |   |   |   |   |
 
 ---
 
@@ -83,9 +82,10 @@ by Rodrigo A. Melo - [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 * Is the de facto standard for FOSS projects.
 * Allows you to deal with a software repository, managing versions and multiple users.
 
-![GPL3](images/git/git.png)&nbsp;&nbsp;&nbsp;
-![Creative Commons](images/git/github.png)&nbsp;&nbsp;&nbsp;
-![BSD](images/git/gitlab.png)&nbsp;&nbsp;&nbsp;
+|   |   |   |
+|---|---|---|
+| ![Git](images/git/git.png) | ![GitHub](images/git/github.png) | ![GitLab](images/git/gitlab.png) |
+|   |   |   |
 
 ----
 
@@ -243,17 +243,51 @@ Is to automatically perform an action based on a repository event (push, merge, 
 
 ### HDL based frameworks/methodologies
 
+* **OSVVM:** Open Source VHDL Verification Methodology
+* **UVVM:** Universal VHDL Verification Methodology
+* **VUnit:** unit testing framework for VHDL/SystemVerilog
+* **SVUnit:** unit testing framework for Verilog/SystemVerilog
+
+|   |   |   |   |
+|---|---|---|---|
+| ![OSVVM](images/osvvm.png) | ![UVVM](images/uvvm.png) | ![VUnit](images/vunit.png) | ![SVUnit](images/svunit.png) |
+|   |   |   |   |
+
 ---
 
 ### Python based testbenches
+
+![cocotb](images/cocotb.png)
+
+* **cocotb:** Coroutine Co-simulation Test Bench
+* A coroutine based cosimulation library for writing VHDL and Verilog testbenches in Python
+* Supported simulators: ghdl, iverilog, verilator, Synopsys VCS, Aldec Riviera-PRO, Aldec Active-HDL, Mentor Questa, Mentor ModelSim, Cadence Incisive, Cadence Xcelium, Tachyon DA CVC.
+
+----
+
+#### How does cocotb work?
+
+![cocotb overview](images/cocotb_overview.png)
+
+**Source:** https://docs.cocotb.org/en/stable
 
 ---
 
 ### Formal verification
 
+The act of proving the correctness of intended algorithms underlying a system with respect to a certain formal specification or property, using formal methods of mathematics (assumptions and assertions).
+* **SymbiYosys (sby):** front-end driver program for Yosys-based formal hardware verification flows.
+* Supports Verilog (free), VHDL and SystemVerilog (through verific with a license).
+
+![YosysHQ](images/yosys-hq.png)
+
 ---
 
 ### Verification trends
+
+![Verification trends](images/verification-trends.png)
+
+**Source:** [ The 2020 Wilson Research Group Functional Verification Study](https://blogs.sw.siemens.com/verificationhorizons/2020/12/16/part-6-the-2020-wilson-research-group-functional-verification-study/)
 
 ---
 <!-- ###################################################################### -->
