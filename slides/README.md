@@ -301,6 +301,10 @@ The act of proving the correctness of intended algorithms underlying a system wi
 
 ### HDL-to-Bitstream
 
+![Implementation](images/implementation.png)
+
+**Source:** https://github.com/hdl/awesome/issues/98
+
 ---
 
 ### Languages
@@ -321,6 +325,14 @@ The act of proving the correctness of intended algorithms underlying a system wi
 
 ### Place & Route
 
+|   |   |
+|---|---|
+| ![NextPnR](images/nextpnr.png) | The stage where the logic elements are placed and interconnected on the FPGA |
+|   |   |
+
+* NextPnR (Arachne-pnr)
+* VPR (part of VTR)
+
 ---
 
 ### Bitstream Generation
@@ -328,6 +340,13 @@ The act of proving the correctness of intended algorithms underlying a system wi
 ---
 
 ### Programming
+
+* **OpenOCD:** **Open** **O**n-**C**hip **D**ebugging, In-System Programming and Boundary-Scan Testing
+* **UrJTAG:** universal JTAG library, server and tools
+* **iceprog:** programmer of the IceStorm project (FTDI-based programmers)
+* **ecpprog:** programmer for the Lattice ECP5 series  (FTDI-based programmers)
+* **openFPGALoader:** universal utility for programming FPGA
+* **dfu-util:** **D**evice **F**irmware **U**pgrade **Uti**lities (USB)
 
 ---
 <!-- ###################################################################### -->
