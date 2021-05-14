@@ -432,6 +432,38 @@ The act of proving the correctness of intended algorithms underlying a system wi
 
 #### People
 
+|   |   |   |
+|---|---|---|
+| Tim 'mithro' Ansell                | ![GitHub icon](images/icons/github.png)   |  [mithro](https://github.com/mithro) |
+| ![Symbiflow](images/symbiflow.png) | ![Twitter icon](images/icons/twitter.png) | [mithro](https://twitter.com/mithro) |
+<!--| Verilog | Synthesis | Yosys |-->
+
+|   |   |   |
+|---|---|---|
+| ![GitHub icon](images/icons/github.png)   | [umarcor](https://github.com/umarcor)        | Unai Martinez-Corral                                |
+| ![Twitter icon](images/icons/twitter.png) | [unaimarcor](https://twitter.com/unaimarcor) | ![GHDL](images/ghdl.png) ![VUnit](images/vunit.png) |
+<!--| Verilog | Synthesis | Yosys |-->
+
 ----
 
 #### hdl/awesome
+
+|   |   |
+|---|---|
+| ![HDL awesome](images/hdl-awesome.png) | ![GHDL in HDL awesome](images/hdl-awesome-ghdl.png) |
+|   |   |
+
+https://hdl.github.io/awesome
+
+---
+<!-- ###################################################################### -->
+# Questions?
+<!-- .slide: data-background="#1F618D" -->
+<!-- ###################################################################### -->
+
+|   |   |
+|---|---|
+| ![GitHub icon](images/icons/github.png) | [rodrigomelo9](https://github.com/rodrigomelo9) |
+| ![Twitter icon](images/icons/twitter.png) | [rodrigomelo9ok](https://twitter.com/rodrigomelo9ok) |
+| ![LinkedIn icon](images/icons/linkedin.png) | [rodrigoalejandromelo](https://www.linkedin.com/in/rodrigoalejandromelo/) |
+|   |   |
