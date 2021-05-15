@@ -384,9 +384,19 @@ The act of proving the correctness of intended algorithms underlying a system wi
 
 #### TerosHDL
 
+|   |   |
+|---|---|
+| ![TerosHDL](images/screens/teroshdl.png) | Atom & VS code</br></br>Suports:</br>GHDL, VUnit & GTKwave</br></br>Coming soon:</br>Verilator, cocotb, edalize |
+|   |   |
+
 ----
 
 #### Icestudio
+
+![Icestudio](images/screens/icestudio.png)
+
+https://github.com/FPGAwars/icestudio
+https://github.com/juanmard/icestudio
 
 ---
 <!-- ###################################################################### -->
