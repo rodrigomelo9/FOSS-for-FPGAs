@@ -1,21 +1,26 @@
+PROJECT=counter
+SOURCE=../vhdl
 BUILD=_build
-DOCKER=docker run --rm -v $(PWD)/..:$(PWD)/.. -w $(PWD)
 
-sim:
-	$(DOCKER) hdlc/sim:osvb mkdir -p $(BUILD)
-	$(DOCKER) hdlc/sim:osvb ghdl -a --workdir=$(BUILD) --work=COUNTER_LIB ../vhdl/counter.vhdl ../vhdl/counter_pkg.vhdl
-	$(DOCKER) hdlc/sim:osvb ghdl -a --workdir=$(BUILD) -P$(BUILD) ../vhdl/counter_tb.vhdl
-	$(DOCKER) hdlc/sim:osvb ghdl -e --workdir=$(BUILD) -P$(BUILD) -o $(BUILD)/counter_tb counter_tb
-	$(DOCKER) hdlc/sim:osvb $(BUILD)/counter_tb --wave=$(BUILD)/counter.ghw
+DOCKER=docker run --rm -v $(PWD)/..:$(PWD)/.. -w $(PWD)
+SIM_IMG=hdlc/sim:osvb
+SYN_IMG=hdlc/impl
+
+sim $(BUILD)/$(PROJECT).ghw:
+	$(DOCKER) $(SIM_IMG) mkdir -p $(BUILD)
+	$(DOCKER) $(SIM_IMG) ghdl -a --workdir=$(BUILD) --work=$(PROJECT)_lib $(SOURCE)/$(PROJECT).vhdl $(SOURCE)/$(PROJECT)_pkg.vhdl
+	$(DOCKER) $(SIM_IMG) ghdl -a --workdir=$(BUILD) -P$(BUILD) $(SOURCE)/$(PROJECT)_tb.vhdl
+	$(DOCKER) $(SIM_IMG) ghdl -e --workdir=$(BUILD) -P$(BUILD) -o $(BUILD)/$(PROJECT)_tb $(PROJECT)_tb
+	$(DOCKER) $(SIM_IMG) $(BUILD)/$(PROJECT)_tb --wave=$(BUILD)/$(PROJECT).ghw
 
 syn:
-	$(DOCKER) hdlc/impl mkdir -p $(BUILD)
-	$(DOCKER) hdlc/impl ghdl -a --workdir=$(BUILD) ../vhdl/counter.vhdl
-	$(DOCKER) hdlc/impl bash -c 'ghdl --synth --workdir=$(BUILD) -P$(BUILD) counter > $(BUILD)/counter_syn.vhdl'
-	$(DOCKER) hdlc/impl bash -c 'ghdl --synth --workdir=$(BUILD) -P$(BUILD) --out=verilog counter > $(BUILD)/counter_syn.v'
+	$(DOCKER) $(SYN_IMG) mkdir -p $(BUILD)
+	$(DOCKER) $(SYN_IMG) ghdl -a --workdir=$(BUILD) $(SOURCE)/$(PROJECT).vhdl
+	$(DOCKER) $(SYN_IMG) bash -c 'ghdl --synth --workdir=$(BUILD) -P$(BUILD) $(PROJECT) > $(BUILD)/$(PROJECT)_syn.vhdl'
+	$(DOCKER) $(SYN_IMG) bash -c 'ghdl --synth --workdir=$(BUILD) -P$(BUILD) --out=verilog $(PROJECT) > $(BUILD)/$(PROJECT)_syn.v'
 
-view:
-	gtkwave $(BUILD)/counter.ghw
+view: $(BUILD)/$(PROJECT).ghw
+	gtkwave $(BUILD)/$(PROJECT).ghw
 
 clean:
-	$(DOCKER) hdlc/sim:osvb rm -fr build
+	$(DOCKER) $(SIM_IMG) rm -fr $(BUILD)
