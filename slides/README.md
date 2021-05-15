@@ -390,9 +390,26 @@ Is to convert an abstract specification of a circuit (being an HDL a common inpu
 
 ### Project Managers
 
+* **HDLmake:** tool for generating multi-purpose Makefiles for FPGA projects
+* **edalize:** a Python Library for interacting with EDA tools (was part of FuseSoC, now its build backend).
+* **PyFPGA:** A Python package to use FPGA development tools programmatically
+
+|   |   |   |   |
+|---|---|---|---|
+| ![PyFPGA](images/logos/pyfpga.png) | Synthesis</br>Implementation</br>Bitstream</br>Programming | ISE, Vivado</br>Quartus</br>Libero-SoC</br>FOSS | **Helpers**</br>hdl2bit</br>prj2bit</br>bitprog |
+|   |   |   |   |
+
 ---
 
 ### Libraries, Collections, IP Cores
+
+* **PoC (Pile of Cores Library):** a library of free, open-source and platform independent IP cores.
+* **FuseSoC:** package manager and build abstraction tool (edalize) for FPGA/ASIC development.
+* **Litex:** a Migen/MiSoC based SoC builder to easily create Cores/SoCs
+* **OpenCores** and **LibreCores:** collections of IPs.
+* Several FOSS projects at GitHub and GitLab.
+
+![LiteX](images/logos/litex.png)&nbsp;&nbsp;&nbsp;&nbsp;![OpenCores](images/logos/opencores.png)&nbsp;&nbsp;&nbsp;&nbsp;![LibreCores](images/logos/librecores.png)
 
 ---
 
@@ -402,9 +419,21 @@ Is to convert an abstract specification of a circuit (being an HDL a common inpu
 
 #### Legacy
 
+**Leon 3** (Gaisler)
+* 32-bit VHDL processor compliant with the SPARC V8 architecture
+* GNU GPL license for research and education
+* Part of the GRLIB
+
+**OpenRISC**
+* Specification OpenRISC 1000 (32/64 bits)
+* The flagship implementation, the OR1200, is written in Verilog
+* Part of OpenRISC Reference Platform System-on-Chip (ORPSoC)
+
 ----
 
 #### RISC V
+
+![RISC-V](images/diagrams/risc-v.png)
 
 ---
 
