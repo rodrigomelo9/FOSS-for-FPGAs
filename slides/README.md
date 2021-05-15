@@ -410,17 +410,37 @@ https://github.com/juanmard/icestudio
 
 ### Kicad
 
+![Kicad](images/screens/kicad.png)
+
 ---
 
 ### Some ICE40 based boards
+
+|   |   |   |
+|---|---|---|
+| Fomu</br>![Fomu](images/boards/fomu.png) | iCEBreaker</br>![iCEBreaker](images/boards/icebreaker.png) | iCESugar</br>![iCESugar](images/boards/icesugar.png) |
+
+|   |   |
+|---|---|
+| TinyFPGA BX</br>![TinyFPGA BX](images/boards/tinyfpga-bx.png) | EDU CIAA FPGA</br>![EDU-CIAA-FPGA](images/boards/edu-ciaa-fpga.png) |
 
 ---
 
 ### Some ECP5 based boards
 
+|   |   |   |
+|---|---|---|
+| ULX3S</br>![ULX3S](images/boards/ulx3s.png) |OrangeCrab</br>![OrangeCrab](images/boards/orangecrab.png) | TinyFPGA EX</br>![TinyFPGA EX](images/boards/tinyfpga-ex.png) |
+|   |   |   |
+
 ---
 
-### Some other boards
+### Some EOS S3 based boards
+
+|   |   |
+|---|---|
+| Qomu</br>![Qomu](images/boards/qomu.png) | Quickfeather</br>![QuickFeather](images/boards/quickfeather.png) |
+|   |   |
 
 ---
 <!-- ###################################################################### -->
