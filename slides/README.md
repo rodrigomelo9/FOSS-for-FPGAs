@@ -456,7 +456,11 @@ https://github.com/juanmard/icestudio
 
 ----
 
-#### Organizations
+#### Projects - Organizations
+
+![SymbiFlow](images/logos/symbiflow.png)&nbsp;&nbsp;&nbsp;&nbsp;![GHDL](images/logos/ghdl.png)
+
+![FOSSi](images/logos/fossi.png)&nbsp;&nbsp;&nbsp;&nbsp;![OSFPGA](images/logos/osfpga.png)
 
 ----
 
