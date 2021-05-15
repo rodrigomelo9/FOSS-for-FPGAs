@@ -309,17 +309,40 @@ The act of proving the correctness of intended algorithms underlying a system wi
 
 ### Languages
 
+|   |   |
+|---|---|
+| ![Python](images/logos/python.png) | * nMigen</br>* migen</br> * MyHDL                       |
+| ![Scala](images/logos/scala.png)   | * SpinalHDL</br>* Chisel                                |
+| Others                             | * Bluespec</br>* Silice</br> * Synthesijer</br> * Clash |
+|   |   |
+
 ---
 
 ### Synthesis
+
+Is to convert an abstract specification of a circuit (being an HDL a common input) into a design implementation in terms of the basic blocks supported by the chosen technology (being a netlist the output)
 
 ----
 
 #### Yosys
 
+* Is a framework for RTL synthesis tools
+* It currently has extensive Verilog-2005 support and provides a basic set of synthesis algorithms for various application domains
+* It was the first useful FOSS synthesizer
+* Supports devices from Lattice (iCE40 and ECP5), Xilinx (Series 7, Ultrascale, and others), Gowin, Achronix, Intel, Microsemi, etc
+
+![Yosys](images/logos/yosys.png)
+
 ----
 
 #### GHDL
+
+* Analyzer, compiler, simulator and (experimental) synthesizer for VHDL
+* Generates a generic (technology independent) synthesized VHDL (and recently, also Verilog)
+
+* **ghdl-yosys-plugin:** VHDL synthesis, based on GHDL and Yosys.
+
+![GHDL](images/logos/ghdl.png)
 
 ---
 
@@ -336,6 +359,13 @@ The act of proving the correctness of intended algorithms underlying a system wi
 ---
 
 ### Bitstream Generation
+
+|   |   |
+|---|---|
+| Is to pack the result</br>of the P&R into a</br>FPGA configuration</br>file | ![Bitstream](images/diagrams/bitstream.png) |
+|   |   |
+
+<!--http://www.fabienm.eu/flf/materiel/liberation-des-fpga/-->
 
 ---
 
