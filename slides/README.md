@@ -4,9 +4,7 @@
 
 [rodrigomelo9.github.io/FOSS-for-FPGAs](https://rodrigomelo9.github.io/FOSS-for-FPGAs/)
 
-Rodrigo A. Melo
-
-(joint work with Unai Martinez-Corral)
+**Rodrigo A. Melo**, Unai Martinez-Corral
 
 [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/)
 
@@ -278,10 +276,8 @@ make clean
 
 ### Python aided framework
 
-|   |   |
-|---|---|
-| ![VUnit](images/logos/vunit.png) | [vunit.github.io](http://vunit.github.io/) |
-|   |   |
+![VUnit](images/logos/vunit.png)
+
 * **VUnit:** unit testing framework for VHDL/SystemVerilog.
 * A Python build and simulator manager together with VHDL libraries.
 * Supported simulators: GHDL, Aldec Riviera-PRO, Aldec Active-HDL, Mentor Questa, Mentor ModelSim, Cadence Incisive, Cadence Xcelium.
