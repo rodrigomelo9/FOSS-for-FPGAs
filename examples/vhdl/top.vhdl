@@ -12,16 +12,17 @@ entity top is
 end entity top;
 
 architecture RTL of top is
-    signal cnt : std_logic_vector(11 downto 0);
+    constant WIDTH : positive := 26; -- 24;
+    signal   cnt   : std_logic_vector(WIDTH-1 downto 0);
 begin
 
     counter_i : entity work.counter
-    generic map(WIDTH => 12)
+    generic map(WIDTH => WIDTH)
     port map(clk_i => clk_i, rst_i => '0', cnt_o => cnt);
 
-    led1_o <= cnt(8);
-    led2_o <= cnt(9);
-    led3_o <= cnt(10);
-    led4_o <= cnt(11);
+    led1_o <= cnt(WIDTH-4);
+    led2_o <= cnt(WIDTH-3);
+    led3_o <= cnt(WIDTH-2);
+    led4_o <= cnt(WIDTH-1);
 
 end architecture RTL;
