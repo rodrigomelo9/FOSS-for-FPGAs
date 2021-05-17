@@ -4,6 +4,9 @@ use IEEE.std_logic_1164.all;
 package COUNTER_PKG is
 
     component counter is
+        generic (
+            WIDTH  : positive := 4
+        );
         port (
             clk_i : in  std_logic;
             rst_i : in  std_logic;

@@ -1,0 +1,6 @@
+set_io clk_i  94
+
+set_io led1_o 1
+set_io led2_o 2
+set_io led3_o 3
+set_io led4_o 4

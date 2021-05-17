@@ -45,7 +45,7 @@ begin
             report "Error! not 0"
                 severity failure;
         -- Test of the intermediate values
-        for I in 0 to 11 loop
+        for I in 0 to 15 loop
             wait until rising_edge(clk);
             assert unsigned(cnt)=I
                 report "Error! cnt = ("&integer'image(to_integer(unsigned(cnt)))&")"
@@ -54,7 +54,7 @@ begin
         wait until rising_edge(clk);
         -- Test cicle restart
         assert unsigned(cnt)=0
-            report "Error! Mod-12 ("&integer'image(to_integer(unsigned(cnt)))&")"
+            report "Error! cnt = ("&integer'image(to_integer(unsigned(cnt)))&")"
                 severity failure;
         -- Print to STDOUT
         write(L,NOW);

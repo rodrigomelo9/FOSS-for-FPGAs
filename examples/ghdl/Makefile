@@ -2,9 +2,11 @@ PROJECT=counter
 SOURCE=../vhdl
 BUILD=_build
 
+PWD = $(shell pwd)
+
 DOCKER=docker run --rm -v $(PWD)/..:$(PWD)/.. -w $(PWD)
 SIM_IMG=hdlc/sim:osvb
-SYN_IMG=hdlc/impl
+SYN_IMG=hdlc/ghdl:yosys
 
 sim $(BUILD)/$(PROJECT).ghw:
 	$(DOCKER) $(SIM_IMG) mkdir -p $(BUILD)
