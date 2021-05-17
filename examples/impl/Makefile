@@ -6,6 +6,8 @@ VHDLS=../vhdl/counter.vhdl ../vhdl/top.vhdl
 PCF=../constraints/edu-ciaa-fpga.pcf
 PNRFLAGS = --hx8k --package tq144:4k
 
+PWD = $(shell pwd)
+
 DOCKER=docker run --rm -v $(PWD)/..:$(PWD)/.. -w $(PWD)
 YOSYS_IMG   = hdlc/ghdl:yosys
 NEXTPNR_IMG = hdlc/nextpnr:ice40
