@@ -117,8 +117,10 @@ git checkout <BRANCH>
 
 ----
 
-#### Clone the repository of this presentation
+#### Exercise
+<!-- .slide: data-background="#D4AC0D" -->
 
+Clone the repository of this presentation
 ```bash
 git clone https://github.com/rodrigomelo9/FOSS-for-FPGAs.git
 ```
@@ -143,19 +145,13 @@ https://hdl.github.io/containers/
 
 ----
 
-#### Examples
+#### Exercise
+<!-- .slide: data-background="#D4AC0D" -->
 
+Check the last versions of GHDL and Yosys at [hdl/containers](https://hdl.github.io/containers/)
 ```bash
 $ docker run --rm hdlc/sim:osvb ghdl -v
-GHDL 2.0.0-dev (v1.0.0-252-gc14fc372) [Dunoon edition]
- Compiled with GNAT Version: 8.3.0
- llvm code generator
-Written by Tristan Gingold.
-```
-
-```bash
 $ docker run --rm hdlc/impl yosys --version
-Yosys 0.9+4052 (git sha1 5c1e6a0e, clang 7.0.1-8+deb10u2 -fPIC -Os)
 ```
 
 ---
@@ -207,6 +203,24 @@ Is to automatically perform an action based on a repository event (push, merge, 
 * Full support for IEEE 1076 standard 1987, 1993, 2002 and partial for 2008.
 * It generates binaries to perform a simulation.
 * Can dump waveforms to VCD or GHW (recommended for VHDL) files.
+
+----
+
+#### Exercise
+<!-- .slide: data-background="#D4AC0D" -->
+
+```bash
+cd examples/ghdl
+make sim
+# Must ends with:
+# 0 ns --> Start of test
+# 300 ns-> End of test
+make syn
+# Check the content of _build/counter_syn.v[hdl]
+make view
+# Check waveforms
+make clean
+```
 
 ---
 
