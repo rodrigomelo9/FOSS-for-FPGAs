@@ -154,7 +154,7 @@ Containers are isolated one from another and bundle their own software, librarie
 #### Exercise
 <!-- .slide: data-background="#D4AC0D" -->
 
-Check the last versions of GHDL and Yosys at [hdl/containers](https://hdl.github.io/containers/)
+Install Docker (instructions [here](https://github.com/rodrigomelo9/FOSS-for-FPGAs#docker-installation)) and check the latest versions of GHDL and Yosys at [hdl/containers](https://hdl.github.io/containers/)
 ```bash
 $ docker run --rm hdlc/sim:osvb ghdl -v
 $ docker run --rm hdlc/impl yosys --version
@@ -216,7 +216,7 @@ Automatically executing actions based on repository events (push, merge, cron, e
 <!-- .slide: data-background="#D4AC0D" -->
 
 ```bash
-cd examples/ghdl
+cd FOSS-for-FPGAs/examples/ghdl
 make sim
 # Must ends with:
 # 0 ns --> Start of test

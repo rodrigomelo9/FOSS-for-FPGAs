@@ -6,9 +6,7 @@
 The Free and Open-Source Software (FOSS) ecosystem for digital hardware design, to work with devices such as FPGAs and ASICs, is growing and can be difficult to know the alternatives and be up-to-date.
 Our aim is to provide a gentle introduction to the main development tools, in a common place.
 
-## Requisites to reproduce the presentation and run examples
-
-> **NOTE:** this instructions are for x86_64/amd64 architectures of Ubuntu (>= 16.04) and Debian (>= 9)
+## Requisites to reproduce the presentation and run the exercises
 
 ### To create the presentation
 
@@ -18,7 +16,18 @@ apt install npm
 npm install -g reveal-md
 ```
 
-### To run examples
+Then create the presentation:
+```bash
+cd slides
+make
+```
+
+And open `_build/index.html` eith a web browser.
+
+### To run the exercises
+
+> **NOTE:** this instructions are for x86_64/amd64 architectures of Ubuntu (>= 16.04) and Debian (>= 9).
+> Other alternatives or more details at [Install Docker Engine](https://docs.docker.com/engine/install).
 
 #### Docker installation
 
@@ -31,7 +40,7 @@ apt update
 apt install -y docker-ce docker-ce-cli containerd.io
 ```
 
-> More info at [Install Docker Engine](https://docs.docker.com/engine/install)
+> **NOTE:** or with the alternative `curl -fsSL https://get.docker.com/ | sh -`.
 
 #### Docker post-installation
 
