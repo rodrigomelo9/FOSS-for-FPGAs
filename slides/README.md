@@ -2,9 +2,13 @@
 
 # FOSS for FPGA development
 
-https://rodrigomelo9.github.io/FOSS-for-FPGAs/
+[rodrigomelo9.github.io/FOSS-for-FPGAs](https://rodrigomelo9.github.io/FOSS-for-FPGAs/)
 
-by Rodrigo A. Melo - [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+Rodrigo A. Melo
+
+(joint work with Unai Martinez-Corral)
+
+[Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/)
 
 ---
 <!-- ###################################################################### -->
@@ -12,13 +16,13 @@ by Rodrigo A. Melo - [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 <!-- ###################################################################### -->
 
 * [Introduction](#/2)
-* [General-purpose](#/5)
+* [Work environment](#/5)
 * [Simulation](#/12)
 * [Testing and Verification](#/16)
-* [Implementation](#/21)
-* [Others](#/28)
-* [Open Hardware](#/33)
-* [Final words](#/38)
+* [Implementation](#/23)
+* [Others](#/30)
+* [Open Hardware](#/35)
+* [Final words](#/41)
 
 ---
 <!-- ###################################################################### -->
@@ -32,8 +36,7 @@ by Rodrigo A. Melo - [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 ### What is FOSS?
 
-* Free (as freedom) and Open Source (you can access the source code) Software (programs).
-* Solves the disambiguation between FREE and OPEN-SOURCE software.
+* Free/Libre and/or Open Source (you can access the source code) Software (programs).
 * Anyone is freely licensed to USE, COPY, STUDY, and CHANGE the software.
 
 |   |   |   |   |   |
@@ -43,7 +46,7 @@ by Rodrigo A. Melo - [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 ---
 
-### Why to use FOSS?
+### Why use FOSS?
 
 * **GENERAL**
   * Personal control, customization and freedom
@@ -58,7 +61,7 @@ by Rodrigo A. Melo - [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 ---
 <!-- ###################################################################### -->
-## General-purpose
+## Work environment
 <!-- .slide: data-background="#581845" -->
 <!-- ###################################################################### -->
 
@@ -70,8 +73,10 @@ by Rodrigo A. Melo - [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 * Aka shell, terminal, console, bash...
 * Most projects provide a CLI.
-* Common for Linux/Unix distributions.
-* Windows Subsytem for Linux (WSL).
+* Common on Linux/Unix distributions.
+* On Windows:
+  * [MSYS2](https://www.msys2.org/) ([hdl.github.io/MINGW-packages](https://hdl.github.io/MINGW-packages/)).
+  * Windows Subsytem for Linux (WSL).
 
 ---
 
@@ -79,8 +84,8 @@ by Rodrigo A. Melo - [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 * A distributed version control system.
 * Created in 2005 by Linus Torvalds, for the development of the Linux kernel.
-* Is the de facto standard for FOSS projects.
-* Allows you to deal with a software repository, managing versions and multiple users.
+* De facto standard for FOSS projects.
+* Allows dealing with a software repository and managing versions in multi-user workflows.
 
 |   |   |   |
 |---|---|---|
@@ -109,11 +114,12 @@ git push
 git pull
 ```
 
-
 ```bash
 git checkout -b <NEW_BRANCH>
 git checkout <BRANCH>
 ```
+
+[try.github.io: Resources to learn Git](https://try.github.io/)
 
 ----
 
@@ -129,15 +135,17 @@ git clone https://github.com/rodrigomelo9/FOSS-for-FPGAs.git
 
 ### Docker
 
-OS-level virtualization to deliver software in packages called containers, which are isolated one from another and bundle their own software, libraries and configuration files.
+OS-level virtualization to deliver software in packages called **containers**.
 
 ![Docker](images/diagrams/docker.png)
+
+Containers are isolated one from another and bundle their own software, libraries and configuration files.
 
 ----
 
 #### hdl/containers
 
-https://hdl.github.io/containers/
+[hdl.github.io/containers](https://hdl.github.io/containers/)
 
 * `hdlc/sim:osvb` (GHDL, Verilator, cocotb, OSVVM and VUnit)
 * `hdlc/impl` (nextpnr-ice40, nextpnr-ecp5, nextpnr-generic, icestorm and prjtrellis)
@@ -156,32 +164,32 @@ $ docker run --rm hdlc/impl yosys --version
 
 ---
 
-### Continuous integration (CI)
+### Continuous Integration/Delivery/Deployment (CI/CD)
 
-Is to automatically perform an action based on a repository event (push, merge, cron, etc).
-* **Continuous Integration:** run linters, unit and/or integration tests, Hardware-in-the loop simulation.
-* **Continuous Delivery:** build binaries, documentation, packages, etc.
-* **Continuous Deployment:** build and install in production.
+Automatically executing actions based on repository events (push, merge, cron, etc).
+
+* **Integration:** run linters, unit and/or integration tests, Hardware-in-the loop simulation.
+* **Delivery:** build binaries, documentation, packages, etc.
+* **Deployment:** build and install in production.
 
 ---
 
 ### Make
 
-* Is a build automation tool.
-* A Makefile contains a set of directives (targets, dependencies and rules) which are used by make to generate a target/goal.
-* It works upon the principle that files only needs to be recreated if their dependencies are newer than the file being re/created.
-* There are other newer tools such as CMake and Scons, but make is definitively the building tool, and sometimes part of the execution, in the FPGA ecosystem.
+* A build automation tool: a Makefile contains a set of directives (targets, dependencies and rules) which are used by `make` for generating a target/goal.
+* It works upon the principle that files only need to be recreated if their dependencies are newer than the file being re/created.
+* There are newer alternatives (such as CMake, Scons, Ninja, etc.), but `make` is the most used automation tool in the FPGA ecosystem.
 
 ---
 
 ### Python
 
-* Is an interpreted, high-level and general-purpose programming language (one of the most used in general, and the main in certain fields such as Machine/Deep Learning).
-* A lot of its libraries are written in C (performance).
-* Easy to read and learn.
+* An interpreted, high-level and general-purpose programming language.
+* One of the most used and fastest growing languages in all fields, especially in scientific computing and Machine/Deep Learning.
+* Many of its libraries are written in C/C++ (performance).
 * Most FOSS FPGA tools are written in Python, or C/C++ with a Python binding/wrapper.
 * There are several HDL languages based on Python.
-* Is also being used as verification language.
+* It's also being used as a verification language.
 
 ---
 <!-- ###################################################################### -->
@@ -201,8 +209,8 @@ Is to automatically perform an action based on a repository event (push, merge, 
 |   |   |
 
 * Full support for IEEE 1076 standard 1987, 1993, 2002 and partial for 2008.
-* It generates binaries to perform a simulation.
-* Can dump waveforms to VCD or GHW (recommended for VHDL) files.
+* It can generate executable binary models of the VHDL design, for (co-)simulation.
+* It can dump waveforms to multiple formats: VCD, FST or GHW (recommended for VHDL).
 
 ----
 
@@ -238,7 +246,7 @@ make clean
 
 ---
 
-### Waveforms viewer
+### Waveform viewer
 
 |   |   |
 |---|---|
@@ -259,13 +267,24 @@ make clean
 
 * **OSVVM:** Open Source VHDL Verification Methodology
 * **UVVM:** Universal VHDL Verification Methodology
-* **VUnit:** unit testing framework for VHDL/SystemVerilog
 * **SVUnit:** unit testing framework for Verilog/SystemVerilog
 
-|   |   |   |   |
-|---|---|---|---|
-| ![OSVVM](images/logos/osvvm.png) | ![UVVM](images/logos/uvvm.png) | ![VUnit](images/logos/vunit.png) | ![SVUnit](images/logos/svunit.png) |
-|   |   |   |   |
+|   |   |   |
+|---|---|---|
+| ![OSVVM](images/logos/osvvm.png) | ![UVVM](images/logos/uvvm.png) | ![SVUnit](images/logos/svunit.png) |
+|   |   |   |
+
+---
+
+### Python aided framework
+
+|   |   |
+|---|---|
+| ![VUnit](images/logos/vunit.png) | [vunit.github.io](http://vunit.github.io/) |
+|   |   |
+* **VUnit:** unit testing framework for VHDL/SystemVerilog.
+* A Python build and simulator manager together with VHDL libraries.
+* Supported simulators: GHDL, Aldec Riviera-PRO, Aldec Active-HDL, Mentor Questa, Mentor ModelSim, Cadence Incisive, Cadence Xcelium.
 
 ---
 
@@ -273,9 +292,9 @@ make clean
 
 ![cocotb](images/logos/cocotb.png)
 
-* **cocotb:** Coroutine Co-simulation Test Bench
-* A coroutine based cosimulation library for writing VHDL and Verilog testbenches in Python
-* Supported simulators: ghdl, iverilog, verilator, Synopsys VCS, Aldec Riviera-PRO, Aldec Active-HDL, Mentor Questa, Mentor ModelSim, Cadence Incisive, Cadence Xcelium, Tachyon DA CVC.
+* **cocotb:** Coroutine Co-simulation Test Bench.
+* A coroutine based cosimulation library for writing VHDL and Verilog testbenches in Python, through VPI/VHPI interfaces.
+* Supported simulators: GHDL, iverilog, verilator, Synopsys VCS, Aldec Riviera-PRO, Aldec Active-HDL, Mentor Questa, Mentor ModelSim, Cadence Incisive, Cadence Xcelium, Tachyon DA CVC.
 
 ----
 
@@ -287,13 +306,29 @@ make clean
 
 ---
 
+### Open Source Verification Bundle (OSVB)
+
+![OSVB](images/diagrams/OSVB.png)
+
+[umarcor.github.io/osvb](https://umarcor.github.io/osvb/)
+
+---
+
 ### Formal verification
 
-The act of proving the correctness of intended algorithms underlying a system with respect to a certain formal specification or property, using formal methods of mathematics (assumptions and assertions).
+Using formal mathematic methods (assumptions and assertions) for proving the correctness of intended algorithms/designs.
+
 * **SymbiYosys (sby):** front-end driver program for Yosys-based formal hardware verification flows.
 * Supports Verilog (free), VHDL and SystemVerilog (through verific with a license).
 
 ![YosysHQ](images/logos/yosys-hq.png)
+
+----
+
+#### Property Specification Language (PSL)
+
+* GHDL provides VHDL support for Yosys/SymbiYosys for free, through ghdl-yosys-plugin.
+* Moreover, PSL is supported.
 
 ---
 
@@ -302,6 +337,8 @@ The act of proving the correctness of intended algorithms underlying a system wi
 ![Verification trends](images/diagrams/verification-trends.png)
 
 **Source:** [ The 2020 Wilson Research Group Functional Verification Study](https://blogs.sw.siemens.com/verificationhorizons/2020/12/16/part-6-the-2020-wilson-research-group-functional-verification-study/) - SIEMENS
+
+See also [GitHub Facts About the HDL Industry](https://larsasplund.github.io/github-facts/)
 
 ---
 <!-- ###################################################################### -->
@@ -317,7 +354,7 @@ The act of proving the correctness of intended algorithms underlying a system wi
 
 ![Implementation](images/diagrams/implementation.png)
 
-**Source:** https://github.com/hdl/awesome/issues/98
+**Source:** [hdl/awesome#98](https://github.com/hdl/awesome/issues/98)
 
 ---
 
@@ -334,16 +371,16 @@ The act of proving the correctness of intended algorithms underlying a system wi
 
 ### Synthesis
 
-Is to convert an abstract specification of a circuit (being an HDL a common input) into a design implementation in terms of the basic blocks supported by the chosen technology (being a netlist the output)
+Converting an abstract specification of a circuit (being an HDL a common input) into a design implementation in terms of the basic blocks supported by the chosen technology (being a netlist the output).
 
 ----
 
 #### Yosys
 
-* Is a framework for RTL synthesis tools
-* It currently has extensive Verilog-2005 support and provides a basic set of synthesis algorithms for various application domains
-* It was the first useful FOSS synthesizer
-* Supports devices from Lattice (iCE40 and ECP5), Xilinx (Series 7, Ultrascale, and others), Gowin, Achronix, Intel, Microsemi, etc
+* A FOSS framework for RTL synthesis tools.
+* It currently has extensive Verilog-2005 support and provides a basic set of synthesis algorithms for various application domains.
+* It was the first usable FOSS synthesizer targeting commercially available devices.
+* Supports devices from Lattice (iCE40 and ECP5), Xilinx (Series 7, Ultrascale, and others), Gowin, Achronix, Intel, Microsemi, etc.
 
 ![Yosys](images/logos/yosys.png)
 
@@ -368,7 +405,7 @@ Is to convert an abstract specification of a circuit (being an HDL a common inpu
 |   |   |
 
 * NextPnR (Arachne-pnr)
-* VPR (part of VTR)
+* VPR, part of Verilog-to-Routing (VTR)
 
 ---
 
@@ -376,7 +413,7 @@ Is to convert an abstract specification of a circuit (being an HDL a common inpu
 
 |   |   |
 |---|---|
-| Is to pack the result</br>of the P&R into a</br>FPGA configuration</br>file | ![Bitstream](images/diagrams/bitstream.png) |
+| Packing the result</br>of the P&R into an</br>FPGA configuration</br>file | ![Bitstream](images/diagrams/bitstream.png) |
 |   |   |
 
 <!--http://www.fabienm.eu/flf/materiel/liberation-des-fpga/-->
@@ -468,8 +505,9 @@ Is to convert an abstract specification of a circuit (being an HDL a common inpu
 
 ![Icestudio](images/screens/icestudio.png)
 
-https://github.com/FPGAwars/icestudio
-https://github.com/juanmard/icestudio
+[FPGAwars/icestudio](https://github.com/FPGAwars/icestudio)
+
+[juanmard/icestudio](https://github.com/juanmard/icestudio) ([nightly](https://github.com/juanmard/icestudio/releases/tag/nightly) builds)
 
 ---
 <!-- ###################################################################### -->
@@ -516,6 +554,13 @@ https://github.com/juanmard/icestudio
 |   |   |
 
 ---
+
+### HDL/constraints
+
+* [hdl/constraints](https://github.com/hdl/constraints): constraint files for Hardware Description Language (HDL) designs targeting FPGA boards.
+* [hdl.github.io/awesome/boards](https://hdl.github.io/awesome/boards/): list of FPGA developments boards.
+
+---
 <!-- ###################################################################### -->
 ## Final words
 <!-- .slide: data-background="#581845" -->
@@ -531,7 +576,9 @@ https://github.com/juanmard/icestudio
 
 #### Projects - Organizations
 
-![SymbiFlow](images/logos/symbiflow.png)&nbsp;&nbsp;&nbsp;&nbsp;![GHDL](images/logos/ghdl.png)
+![HDL](images/logos/HDL.png)&nbsp;&nbsp;&nbsp;&nbsp;![SymbiFlow](images/logos/symbiflow.png)
+
+![GHDL](images/logos/ghdl.png)&nbsp;&nbsp;&nbsp;&nbsp;![IEEE-P1076.gitlab.io](images/logos/VASG.png)
 
 ![FOSSi](images/logos/fossi.png)&nbsp;&nbsp;&nbsp;&nbsp;![OSFPGA](images/logos/osfpga.png)
 
@@ -541,15 +588,10 @@ https://github.com/juanmard/icestudio
 
 |   |   |   |
 |---|---|---|
-| Tim 'mithro' Ansell                      | ![GitHub icon](images/icons/github.png)   |  [mithro](https://github.com/mithro) |
-| ![Symbiflow](images/logos/symbiflow.png) | ![Twitter icon](images/icons/twitter.png) | [mithro](https://twitter.com/mithro) |
-<!--| Verilog | Synthesis | Yosys |-->
-
-|   |   |   |
-|---|---|---|
-| ![GitHub icon](images/icons/github.png)   | [umarcor](https://github.com/umarcor)        | Unai Martinez-Corral                                            |
-| ![Twitter icon](images/icons/twitter.png) | [unaimarcor](https://twitter.com/unaimarcor) | ![GHDL](images/logos/ghdl.png) ![VUnit](images/logos/vunit.png) |
-<!--| Verilog | Synthesis | Yosys |-->
+| ![GitHub icon](images/icons/github.png)   |  [mithro](https://github.com/mithro) | Tim 'mithro' Ansell                      |
+| ![Twitter icon](images/icons/twitter.png) | [mithro](https://twitter.com/mithro) | ![Symbiflow](images/logos/symbiflow.png) |
+| ![GitHub icon](images/icons/github.png)   | [umarcor](https://github.com/umarcor)        | Unai Martinez-Corral                 |
+| ![Twitter icon](images/icons/twitter.png) | [unaimarcor](https://twitter.com/unaimarcor) | ![umarcor](images/logos/umarcor.png) |
 
 ----
 
@@ -560,7 +602,7 @@ https://github.com/juanmard/icestudio
 | ![HDL awesome](images/screens/hdl-awesome.png) | ![GHDL in HDL awesome](images/screens/hdl-awesome-ghdl.png) |
 |   |   |
 
-https://hdl.github.io/awesome
+[hdl.github.io/awesome](https://hdl.github.io/awesome)
 
 ---
 <!-- ###################################################################### -->
