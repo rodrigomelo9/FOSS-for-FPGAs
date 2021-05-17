@@ -1,7 +1,8 @@
 # Getting started with FOSS for FPGAs
 
-[![License](https://img.shields.io/github/license/rodrigomelo9/FOSS-for-FPGAs.svg?longCache=true)](https://github.com/rodrigomelo9/FOSS-for-FPGAs/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/rodrigomelo9/FOSS-for-FPGAs.svg?longCache=true)](https://github.com/rodrigomelo9/FOSS-for-FPGAs/blob/main/LICENSE)
 [![Doc generation status](https://img.shields.io/github/workflow/status/rodrigomelo9/FOSS-for-FPGAs/doc?longCache=true&label=doc)](https://github.com/rodrigomelo9/FOSS-for-FPGAs/actions/workflows/doc.yml)
+[![Examples status](https://img.shields.io/github/workflow/status/rodrigomelo9/FOSS-for-FPGAs/doc?longCache=true&label=examples)](https://github.com/rodrigomelo9/FOSS-for-FPGAs/actions/workflows/examples.yml)
 
 The Free and Open-Source Software (FOSS) ecosystem for digital hardware design, to work with devices such as FPGAs and ASICs, is growing and can be difficult to know the alternatives and be up-to-date.
 Our aim is to provide a gentle introduction to the main development tools, in a common place.
