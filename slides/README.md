@@ -160,6 +160,39 @@ Automatically executing actions based on repository events (push, merge, cron, e
 * **Delivery:** build binaries, documentation, packages, etc.
 * **Deployment:** build and install in production.
 
+----
+
+#### Example
+<!-- .slide: data-background="#D4AC0D" -->
+
+```yaml
+name: 'examples'
+
+on:
+  push:
+
+jobs:
+  examples:
+    name: 'Running examples'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: true
+        fetch-depth: 0
+    - name: Pull container images
+      run: |
+        docker pull hdlc/sim:osvb
+        docker pull hdlc/ghdl:yosys
+        docker pull hdlc/nextpnr:ice40
+        docker pull hdlc/icestorm
+    - run: make -C examples/ghdl sim
+    - run: make -C examples/ghdl syn
+    - run: make -C examples/impl
+```
+
+**Source:** [rodrigomelo9/FOSS-for-FPGAs/.github/workflows/examples.yml](https://github.com/rodrigomelo9/FOSS-for-FPGAs/blob/main/.github/workflows/examples.yml)
+
 ---
 
 ### Make
