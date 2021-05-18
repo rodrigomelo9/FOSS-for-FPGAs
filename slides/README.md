@@ -135,9 +135,9 @@ Containers are isolated one from another and bundle their own software, librarie
 
 [hdl.github.io/containers](https://hdl.github.io/containers/)
 
-* `hdlc/sim:osvb` (GHDL, Verilator, cocotb, OSVVM and VUnit)
-* `hdlc/impl` (nextpnr-ice40, nextpnr-ecp5, nextpnr-generic, icestorm and prjtrellis)
-* `hdlc/prog` (icestorm, openocd)
+* **hdlc/sim:osvb** (GHDL, Verilator, cocotb, OSVVM and VUnit)
+* **hdlc/impl** (GHDL, Yosys, nextpnr-ice40, nextpnr-ecp5, nextpnr-generic, icestorm and prjtrellis)
+* **hdlc/prog** (icestorm, openocd)
 
 ----
 
