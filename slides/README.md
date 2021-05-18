@@ -119,16 +119,6 @@ git checkout <BRANCH>
 
 [try.github.io: Resources to learn Git](https://try.github.io/)
 
-----
-
-#### Exercise
-<!-- .slide: data-background="#D4AC0D" -->
-
-Clone the repository of this presentation
-```bash
-git clone https://github.com/rodrigomelo9/FOSS-for-FPGAs.git
-```
-
 ---
 
 ### Docker
@@ -151,12 +141,12 @@ Containers are isolated one from another and bundle their own software, librarie
 
 ----
 
-#### Exercise
+#### Example
 <!-- .slide: data-background="#D4AC0D" -->
 
 Install Docker (instructions [here](https://github.com/rodrigomelo9/FOSS-for-FPGAs#docker-installation)) and check the latest versions of GHDL and Yosys at [hdl/containers](https://hdl.github.io/containers/)
 ```bash
-$ docker run --rm hdlc/sim:osvb ghdl -v
+$ docker run --rm hdlc/impl ghdl -v
 $ docker run --rm hdlc/impl yosys --version
 ```
 
@@ -210,24 +200,6 @@ Automatically executing actions based on repository events (push, merge, cron, e
 * It can generate executable binary models of the VHDL design, for (co-)simulation.
 * It can dump waveforms to multiple formats: VCD, FST or GHW (recommended for VHDL).
 
-----
-
-#### Exercise
-<!-- .slide: data-background="#D4AC0D" -->
-
-```bash
-cd FOSS-for-FPGAs/examples/ghdl
-make sim
-# Must ends with:
-# 0 ns --> Start of test
-# 300 ns-> End of test
-make syn
-# Check the content of _build/counter_syn.v[hdl]
-make view
-# Check waveforms
-make clean
-```
-
 ---
 
 ### Verilog simulators
@@ -250,6 +222,25 @@ make clean
 |---|---|
 | A fully featured wave viewer which reads</br>LXT, LXT2, VZT, FST, and GHW files as</br>well as standard Verilog VCD/EVCD | ![GTKwave](images/screens/gtkwave.png) |
 |   |   |
+
+---
+
+### Example
+<!-- .slide: data-background="#D4AC0D" -->
+
+```bash
+git clone https://github.com/rodrigomelo9/FOSS-for-FPGAs.git
+cd FOSS-for-FPGAs/examples/ghdl
+make sim
+# Must ends with:
+# 0 ns --> Start of test
+# 380 ns-> End of test
+make syn
+# Check the content of _build/counter_syn.v[hdl]
+make view
+# Check waveforms
+make clean
+```
 
 ---
 <!-- ###################################################################### -->
@@ -425,6 +416,18 @@ Converting an abstract specification of a circuit (being an HDL a common input) 
 * **openFPGALoader:** universal utility for programming FPGA
 * **dfu-util:** **D**evice **F**irmware **U**pgrade **Uti**lities (USB)
 
+----
+
+#### Example
+<!-- .slide: data-background="#D4AC0D" -->
+
+```bash
+# From FOSS-for-FPGAs/examples/ghdl
+cd ../impl
+make
+make prog
+```
+
 ---
 <!-- ###################################################################### -->
 ## Others
@@ -445,6 +448,23 @@ Converting an abstract specification of a circuit (being an HDL a common input) 
 |---|---|---|---|
 | ![PyFPGA](images/logos/pyfpga.png) | Synthesis</br>Implementation</br>Bitstream</br>Programming | ISE, Vivado</br>Quartus</br>Libero-SoC</br>FOSS | **Helpers**</br>hdl2bit</br>prj2bit</br>bitprog |
 |   |   |   |   |
+
+----
+
+#### Demo
+<!-- .slide: data-background="#D4AC0D" -->
+
+```bash
+git clone https://github.com/PyFPGA/pyfpga.git
+cd pyfpga
+sudo pip3 install -e .
+fpga-hdl2bit --tool openflow -p hx4k-tq144 \
+    -f hdl/blinking.vhdl,examples \
+    -f hdl/examples_pkg.vhdl,examples \
+    -f examples/openflow/edu-ciaa-fpga.pcf \
+    hdl/top.vhdl
+fpga-bitprog --tool openflow temp/openflow.bit
+```
 
 ---
 
