@@ -146,8 +146,8 @@ Containers are isolated one from another and bundle their own software, librarie
 
 Install Docker (instructions [here](https://github.com/rodrigomelo9/FOSS-for-FPGAs#docker-installation)) and check the latest versions of GHDL and Yosys at [hdl/containers](https://hdl.github.io/containers/)
 ```bash
-$ docker run --rm hdlc/impl ghdl -v
-$ docker run --rm hdlc/impl yosys --version
+$ docker run --rm hdlc/ghdl:yosys ghdl -v
+$ docker run --rm hdlc/ghdl:yosys yosys --version
 ```
 
 ---
