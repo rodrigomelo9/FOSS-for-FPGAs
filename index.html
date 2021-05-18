@@ -142,7 +142,7 @@ Install Docker (instructions [here](https://github.com/rodrigomelo9/FOSS-for-FPG
 $ docker run --rm hdlc/impl ghdl -v
 $ docker run --rm hdlc/impl yosys --version
 ```
-</script></section></section><section  data-markdown><script type="text/template">
+</script></section></section><section ><section data-markdown><script type="text/template">
 ### Continuous Integration/Delivery/Deployment (CI/CD)
 
 Automatically executing actions based on repository events (push, merge, cron, etc).
@@ -150,7 +150,38 @@ Automatically executing actions based on repository events (push, merge, cron, e
 * **Integration:** run linters, unit and/or integration tests, Hardware-in-the loop simulation.
 * **Delivery:** build binaries, documentation, packages, etc.
 * **Deployment:** build and install in production.
-</script></section><section  data-markdown><script type="text/template">
+</script></section><section data-markdown><script type="text/template">
+#### Example
+<!-- .slide: data-background="#D4AC0D" -->
+
+```yaml
+name: 'examples'
+
+on:
+  push:
+
+jobs:
+  examples:
+    name: 'Running examples'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: true
+        fetch-depth: 0
+    - name: Pull container images
+      run: |
+        docker pull hdlc/sim:osvb
+        docker pull hdlc/ghdl:yosys
+        docker pull hdlc/nextpnr:ice40
+        docker pull hdlc/icestorm
+    - run: make -C examples/ghdl sim
+    - run: make -C examples/ghdl syn
+    - run: make -C examples/impl
+```
+
+**Source:** [rodrigomelo9/FOSS-for-FPGAs/.github/workflows/examples.yml](https://github.com/rodrigomelo9/FOSS-for-FPGAs/blob/main/.github/workflows/examples.yml)
+</script></section></section><section  data-markdown><script type="text/template">
 ### Make
 
 * A build automation tool: a Makefile contains a set of directives (targets, dependencies and rules) which are used by `make` for generating a target/goal.
