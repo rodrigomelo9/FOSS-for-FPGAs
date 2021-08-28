@@ -1,2 +1,5 @@
-_build
+*_build
 ignore
+__pycache__
+*.vcd
+*.xml

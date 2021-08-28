@@ -17,4 +17,11 @@ module counter #(
 
     assign cnt_o = cnt;
 
+    `ifdef COCOTB_SIM
+    initial begin
+        $dumpfile ("counter.vcd");
+        $dumpvars (0, counter);
+    end
+    `endif
+
 endmodule
