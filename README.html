@@ -28,11 +28,13 @@
 <!-- ###################################################################### -->
 
 * [Introduction](#/2)
-* [Testing / Verification](#/6)
-* [HDL-to-Bitstream](#/16)
-* [Others](#/23)
-* [Hardware](#/28)
-* [Final remarks](#/34)
+* [Work environment](#/5)
+* [Simulation](#/12)
+* [Testing and Verification](#/16)
+* [Implementation](#/23)
+* [Others](#/30)
+* [Open Hardware](#/35)
+* [Final words](#/41)
 </script></section><section  data-markdown><script type="text/template"><!-- ###################################################################### -->
 ## Introduction
 <!-- .slide: data-background="#581845" -->
@@ -42,34 +44,34 @@
 </script></section><section  data-markdown><script type="text/template">
 ### What is FOSS?
 
-* Free/Libre and Open Source Software
-* Users have the freedom to **run**, **copy**, **distribute**, **study**, **change** and **improve** the software
+* Free/Libre and/or Open Source (you can access the source code) Software (programs).
+* Anyone is freely licensed to USE, COPY, STUDY, and CHANGE the software.
 
-|   |   |   |
-|---|---|---|
-| ![GPL3](images/licenses/gpl3.png)   | ![Creative Commons](images/licenses/cc.png) | ![Apache](images/licenses/apache.png) |
-| ![MPL](images/licenses/mozilla.png) | ![BSD](images/licenses/bsd.png)             | ![MIT](images/licenses/mit.png)       |
-|   |   |   |
+|   |   |   |   |   |
+|---|---|---|---|---|
+| ![GPL3](images/licenses/gpl3.png) | ![Creative Commons](images/licenses/cc.png) | ![BSD](images/licenses/bsd.png) | ![Apache](images/licenses/apache.png) | ![MIT](images/licenses/mit.png) |
+|   |   |   |   |   |
 </script></section><section  data-markdown><script type="text/template">
 ### Why use FOSS?
 
-* Freedom matters!
-* Flexibility and Independence
-* Knowledge sharing
-* Innovation
-* Privacy and security
-* And [several others](https://www.softwarefreedomday.org/about/why-foss)
-</script></section><section ><section data-markdown><script type="text/template">
-### Previous considerations
+* **GENERAL**
+  * Personal control, customization and freedom
+  * Privacy and security
+  * Low or no costs (solutions and support)
+  * Quality, collaboration and efficiency
+  * Flexibility and open-standars adherence
+  * Innovation
+* **SPECIFIC**
+  * Vendor-independence
+  * Lightweight (size and speed)
+</script></section><section  data-markdown><script type="text/template"><!-- ###################################################################### -->
+## Work environment
+<!-- .slide: data-background="#581845" -->
+<!-- ###################################################################### -->
 
-* Most projects are *command-line* based (common on Linux/Unix, or you can use WSL2)
-* Git is the prefered *Version Control System*, and most projects are in *GitHub* (some in *GitLab*)
-* Containers (*Docker*, *Podman*) are commonly provided/employed (OS-level virtualization)
-* *Continuous Integration/Delivery* is almost mandatory
-* Several projects employ and/or are based on *make/Makefiles* (build system)
-* *Python* is frequently involved
-</script></section><section data-markdown><script type="text/template">
-#### Command-line
+[⌂](#/1)
+</script></section><section  data-markdown><script type="text/template">
+### Command-line
 
 * Aka shell, terminal, console, bash...
 * Most projects provide a CLI.
@@ -77,8 +79,8 @@
 * On Windows:
   * [MSYS2](https://www.msys2.org/) ([hdl.github.io/MINGW-packages](https://hdl.github.io/MINGW-packages/)).
   * Windows Subsytem for Linux (WSL).
-</script></section><section data-markdown><script type="text/template">
-#### Git
+</script></section><section ><section data-markdown><script type="text/template">
+### Git
 
 * A distributed version control system.
 * Created in 2005 by Linus Torvalds, for the development of the Linux kernel.
@@ -90,7 +92,7 @@
 | ![Git](images/git/git.png) | ![GitHub](images/git/github.png) | ![GitLab](images/git/gitlab.png) |
 |   |   |   |
 </script></section><section data-markdown><script type="text/template">
-#### Git Commands
+#### Commands
 
 ```bash
 git init
@@ -116,8 +118,8 @@ git checkout <BRANCH>
 ```
 
 [try.github.io: Resources to learn Git](https://try.github.io/)
-</script></section><section data-markdown><script type="text/template">
-#### Docker
+</script></section></section><section ><section data-markdown><script type="text/template">
+### Docker
 
 OS-level virtualization to deliver software in packages called **containers**.
 
@@ -133,7 +135,7 @@ Containers are isolated one from another and bundle their own software, librarie
 * **hdlc/impl** (GHDL, Yosys, nextpnr-ice40, nextpnr-ecp5, nextpnr-generic, icestorm and prjtrellis)
 * **hdlc/prog** (icestorm, openocd)
 </script></section><section data-markdown><script type="text/template">
-#### Docker Example
+#### Example
 <!-- .slide: data-background="#D4AC0D" -->
 
 Install Docker (instructions [here](https://github.com/rodrigomelo9/FOSS-for-FPGAs#docker-installation)) and check the latest versions of GHDL and Yosys at [hdl/containers](https://hdl.github.io/containers/)
@@ -141,8 +143,8 @@ Install Docker (instructions [here](https://github.com/rodrigomelo9/FOSS-for-FPG
 $ docker run --rm hdlc/ghdl:yosys ghdl -v
 $ docker run --rm hdlc/ghdl:yosys yosys --version
 ```
-</script></section><section data-markdown><script type="text/template">
-#### Continuous Integration/Delivery/Deployment (CI/CD)
+</script></section></section><section ><section data-markdown><script type="text/template">
+### Continuous Integration/Delivery/Deployment (CI/CD)
 
 Automatically executing actions based on repository events (push, merge, cron, etc).
 
@@ -150,7 +152,7 @@ Automatically executing actions based on repository events (push, merge, cron, e
 * **Delivery:** build binaries, documentation, packages, etc.
 * **Deployment:** build and install in production.
 </script></section><section data-markdown><script type="text/template">
-#### CI/CD Example
+#### Example
 <!-- .slide: data-background="#D4AC0D" -->
 
 ```yaml
@@ -180,14 +182,14 @@ jobs:
 ```
 
 **Source:** [rodrigomelo9/FOSS-for-FPGAs/.github/workflows/examples.yml](https://github.com/rodrigomelo9/FOSS-for-FPGAs/blob/main/.github/workflows/examples.yml)
-</script></section><section data-markdown><script type="text/template">
-#### Make
+</script></section></section><section  data-markdown><script type="text/template">
+### Make
 
 * A build automation tool: a Makefile contains a set of directives (targets, dependencies and rules) which are used by `make` for generating a target/goal.
 * It works upon the principle that files only need to be recreated if their dependencies are newer than the file being re/created.
 * There are newer alternatives (such as CMake, Scons, Ninja, etc.), but `make` is the most used automation tool in the FPGA ecosystem.
-</script></section><section data-markdown><script type="text/template">
-#### Python
+</script></section><section  data-markdown><script type="text/template">
+### Python
 
 * An interpreted, high-level and general-purpose programming language.
 * One of the most used and fastest growing languages in all fields, especially in scientific computing and Machine/Deep Learning.
@@ -195,13 +197,13 @@ jobs:
 * Most FOSS FPGA tools are written in Python, or C/C++ with a Python binding/wrapper.
 * There are several HDL languages based on Python.
 * It's also being used as a verification language.
-</script></section></section><section  data-markdown><script type="text/template"><!-- ###################################################################### -->
-## Testing / Verification
+</script></section><section  data-markdown><script type="text/template"><!-- ###################################################################### -->
+## Simulation
 <!-- .slide: data-background="#581845" -->
 <!-- ###################################################################### -->
 
 [⌂](#/1)
-</script></section><section ><section data-markdown><script type="text/template">
+</script></section><section  data-markdown><script type="text/template">
 ### VHDL simulator
 
 |   |   |
@@ -212,24 +214,7 @@ jobs:
 * Full support for IEEE 1076 standard 1987, 1993, 2002 and partial for 2008.
 * It can generate executable binary models of the VHDL design, for (co-)simulation.
 * It can dump waveforms to multiple formats: VCD, FST or GHW (recommended for VHDL).
-</script></section><section data-markdown><script type="text/template">
-#### GHDL Example
-<!-- .slide: data-background="#D4AC0D" -->
-
-```bash
-git clone https://github.com/rodrigomelo9/FOSS-for-FPGAs.git
-cd FOSS-for-FPGAs/examples/ghdl
-make sim
-# Must ends with:
-# 0 ns --> Start of test
-# 380 ns-> End of test
-make syn
-# Check the content of _build/counter_syn.v[hdl]
-make view
-# Check waveforms
-make clean
-```
-</script></section></section><section  data-markdown><script type="text/template">
+</script></section><section  data-markdown><script type="text/template">
 ### Verilog simulators
 
 |   |   |
@@ -248,6 +233,29 @@ make clean
 |---|---|
 | A fully featured wave viewer which reads</br>LXT, LXT2, VZT, FST, and GHW files as</br>well as standard Verilog VCD/EVCD | ![GTKwave](images/screens/gtkwave.png) |
 |   |   |
+</script></section><section  data-markdown><script type="text/template">
+### Example
+<!-- .slide: data-background="#D4AC0D" -->
+
+```bash
+git clone https://github.com/rodrigomelo9/FOSS-for-FPGAs.git
+cd FOSS-for-FPGAs/examples/ghdl
+make sim
+# Must ends with:
+# 0 ns --> Start of test
+# 380 ns-> End of test
+make syn
+# Check the content of _build/counter_syn.v[hdl]
+make view
+# Check waveforms
+make clean
+```
+</script></section><section  data-markdown><script type="text/template"><!-- ###################################################################### -->
+## Testing and Verification
+<!-- .slide: data-background="#581845" -->
+<!-- ###################################################################### -->
+
+[⌂](#/1)
 </script></section><section  data-markdown><script type="text/template">
 ### HDL based frameworks/methodologies
 
@@ -300,7 +308,7 @@ Using formal mathematic methods (assumptions and assertions) for proving the cor
 #### Property Specification Language (PSL)
 
 * GHDL provides VHDL support for Yosys/SymbiYosys for free, through ghdl-yosys-plugin.
-* GHDL supports PSL.
+* Moreover, PSL is supported.
 </script></section></section><section  data-markdown><script type="text/template">
 ### Verification trends
 
@@ -308,17 +316,17 @@ Using formal mathematic methods (assumptions and assertions) for proving the cor
 
 **Source:** [ The 2020 Wilson Research Group Functional Verification Study](https://blogs.sw.siemens.com/verificationhorizons/2020/12/16/part-6-the-2020-wilson-research-group-functional-verification-study/) - SIEMENS
 
-**See also:** [GitHub Facts About the HDL Industry](https://larsasplund.github.io/github-facts/)
+See also [GitHub Facts About the HDL Industry](https://larsasplund.github.io/github-facts/)
 </script></section><section  data-markdown><script type="text/template"><!-- ###################################################################### -->
-## HDL-to-Bitstream
+## Implementation
 <!-- .slide: data-background="#581845" -->
 <!-- ###################################################################### -->
 
 [⌂](#/1)
 </script></section><section  data-markdown><script type="text/template">
-### Overview
+### HDL-to-Bitstream
 
-![HDL-to-Bitstream Overview](images/diagrams/implementation.png)
+![Implementation](images/diagrams/implementation.png)
 
 **Source:** [hdl/awesome#98](https://github.com/hdl/awesome/issues/98)
 </script></section><section  data-markdown><script type="text/template">
@@ -468,7 +476,7 @@ fpga-bitprog --tool openflow temp/openflow.bit
 
 [juanmard/icestudio](https://github.com/juanmard/icestudio) ([nightly](https://github.com/juanmard/icestudio/releases/tag/nightly) builds)
 </script></section></section><section  data-markdown><script type="text/template"><!-- ###################################################################### -->
-## Hardware
+## Open Hardware
 <!-- .slide: data-background="#581845" -->
 <!-- ###################################################################### -->
 
@@ -507,7 +515,7 @@ fpga-bitprog --tool openflow temp/openflow.bit
 * [hdl/constraints](https://github.com/hdl/constraints): constraint files for Hardware Description Language (HDL) designs targeting FPGA boards.
 * [hdl.github.io/awesome/boards](https://hdl.github.io/awesome/boards/): list of FPGA developments boards.
 </script></section><section  data-markdown><script type="text/template"><!-- ###################################################################### -->
-## Final remarks
+## Final words
 <!-- .slide: data-background="#581845" -->
 <!-- ###################################################################### -->
 
@@ -540,14 +548,12 @@ fpga-bitprog --tool openflow temp/openflow.bit
 |   |   |
 
 [hdl.github.io/awesome](https://hdl.github.io/awesome)
+</script></section><section data-markdown><script type="text/template">
+#### FPGArgentina
 
-<!-- ---- -->
+![FPGArgentina](images/screens/FPGArgentina.png)
 
-<!-- #### FPGArgentina -->
-
-<!-- ![FPGArgentina](images/screens/FPGArgentina.png) -->
-
-<!-- [rodrigomelo9.gitlab.io/fpgargentina](https://rodrigomelo9.gitlab.io/fpgargentina) -->
+[rodrigomelo9.gitlab.io/fpgargentina](https://rodrigomelo9.gitlab.io/fpgargentina)
 </script></section></section><section  data-markdown><script type="text/template"><!-- ###################################################################### -->
 # Questions?
 <!-- .slide: data-background="#1F618D" -->
