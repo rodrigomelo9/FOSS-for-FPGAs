@@ -34,28 +34,25 @@
 
 ### What is FOSS?
 
-* Free/Libre and/or Open Source (you can access the source code) Software (programs).
-* Anyone is freely licensed to USE, COPY, STUDY, and CHANGE the software.
+* Free/Libre and Open Source Software
+* Users have the freedom to **run**, **copy**, **distribute**, **study**, **change** and **improve** the software
 
-|   |   |   |   |   |
-|---|---|---|---|---|
-| ![GPL3](images/licenses/gpl3.png) | ![Creative Commons](images/licenses/cc.png) | ![BSD](images/licenses/bsd.png) | ![Apache](images/licenses/apache.png) | ![MIT](images/licenses/mit.png) |
-|   |   |   |   |   |
+|   |   |   |
+|---|---|---|
+| ![GPL3](images/licenses/gpl3.png)   | ![Creative Commons](images/licenses/cc.png) | ![Apache](images/licenses/apache.png) |
+| ![MPL](images/licenses/mozilla.png) | ![BSD](images/licenses/bsd.png)             | ![MIT](images/licenses/mit.png)       |
+|   |   |   |
 
 ---
 
 ### Why use FOSS?
 
-* **GENERAL**
-  * Personal control, customization and freedom
-  * Privacy and security
-  * Low or no costs (solutions and support)
-  * Quality, collaboration and efficiency
-  * Flexibility and open-standars adherence
-  * Innovation
-* **SPECIFIC**
-  * Vendor-independence
-  * Lightweight (size and speed)
+* Freedom matters!
+* Flexibility and Independence
+* Knowledge sharing
+* Innovation
+* Privacy and security
+* And [several others](https://www.softwarefreedomday.org/about/why-foss)
 
 ---
 <!-- ###################################################################### -->
