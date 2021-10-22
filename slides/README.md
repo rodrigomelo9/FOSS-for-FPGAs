@@ -14,13 +14,11 @@
 <!-- ###################################################################### -->
 
 * [Introduction](#/2)
-* [Work environment](#/5)
-* [Simulation](#/12)
-* [Testing and Verification](#/16)
-* [Implementation](#/23)
-* [Others](#/30)
-* [Open Hardware](#/35)
-* [Final words](#/41)
+* [Testing / Verification](#/6)
+* [HDL-to-Bitstream](#/16)
+* [Others](#/23)
+* [Hardware](#/28)
+* [Final remarks](#/34)
 
 ---
 <!-- ###################################################################### -->
@@ -55,16 +53,19 @@
 * And [several others](https://www.softwarefreedomday.org/about/why-foss)
 
 ---
-<!-- ###################################################################### -->
-## Work environment
-<!-- .slide: data-background="#581845" -->
-<!-- ###################################################################### -->
 
-[⌂](#/1)
+### Previous considerations
 
----
+* Most projects are *command-line* based (common on Linux/Unix, or you can use WSL2)
+* Git is the prefered *Version Control System*, and most projects are in *GitHub* (some in *GitLab*)
+* Containers (*Docker*, *Podman*) are commonly provided/employed (OS-level virtualization)
+* *Continuous Integration/Delivery* is almost mandatory
+* Several projects employ and/or are based on *make/Makefiles* (build system)
+* *Python* is frequently involved
 
-### Command-line
+----
+
+#### Command-line
 
 * Aka shell, terminal, console, bash...
 * Most projects provide a CLI.
@@ -73,9 +74,9 @@
   * [MSYS2](https://www.msys2.org/) ([hdl.github.io/MINGW-packages](https://hdl.github.io/MINGW-packages/)).
   * Windows Subsytem for Linux (WSL).
 
----
+----
 
-### Git
+#### Git
 
 * A distributed version control system.
 * Created in 2005 by Linus Torvalds, for the development of the Linux kernel.
@@ -89,7 +90,7 @@
 
 ----
 
-#### Commands
+#### Git Commands
 
 ```bash
 git init
@@ -116,9 +117,9 @@ git checkout <BRANCH>
 
 [try.github.io: Resources to learn Git](https://try.github.io/)
 
----
+----
 
-### Docker
+#### Docker
 
 OS-level virtualization to deliver software in packages called **containers**.
 
@@ -138,7 +139,7 @@ Containers are isolated one from another and bundle their own software, librarie
 
 ----
 
-#### Example
+#### Docker Example
 <!-- .slide: data-background="#D4AC0D" -->
 
 Install Docker (instructions [here](https://github.com/rodrigomelo9/FOSS-for-FPGAs#docker-installation)) and check the latest versions of GHDL and Yosys at [hdl/containers](https://hdl.github.io/containers/)
@@ -147,9 +148,9 @@ $ docker run --rm hdlc/ghdl:yosys ghdl -v
 $ docker run --rm hdlc/ghdl:yosys yosys --version
 ```
 
----
+----
 
-### Continuous Integration/Delivery/Deployment (CI/CD)
+#### Continuous Integration/Delivery/Deployment (CI/CD)
 
 Automatically executing actions based on repository events (push, merge, cron, etc).
 
@@ -159,7 +160,7 @@ Automatically executing actions based on repository events (push, merge, cron, e
 
 ----
 
-#### Example
+#### CI/CD Example
 <!-- .slide: data-background="#D4AC0D" -->
 
 ```yaml
@@ -190,17 +191,17 @@ jobs:
 
 **Source:** [rodrigomelo9/FOSS-for-FPGAs/.github/workflows/examples.yml](https://github.com/rodrigomelo9/FOSS-for-FPGAs/blob/main/.github/workflows/examples.yml)
 
----
+----
 
-### Make
+#### Make
 
 * A build automation tool: a Makefile contains a set of directives (targets, dependencies and rules) which are used by `make` for generating a target/goal.
 * It works upon the principle that files only need to be recreated if their dependencies are newer than the file being re/created.
 * There are newer alternatives (such as CMake, Scons, Ninja, etc.), but `make` is the most used automation tool in the FPGA ecosystem.
 
----
+----
 
-### Python
+#### Python
 
 * An interpreted, high-level and general-purpose programming language.
 * One of the most used and fastest growing languages in all fields, especially in scientific computing and Machine/Deep Learning.
@@ -211,7 +212,7 @@ jobs:
 
 ---
 <!-- ###################################################################### -->
-## Simulation
+## Testing / Verification
 <!-- .slide: data-background="#581845" -->
 <!-- ###################################################################### -->
 
@@ -229,6 +230,25 @@ jobs:
 * Full support for IEEE 1076 standard 1987, 1993, 2002 and partial for 2008.
 * It can generate executable binary models of the VHDL design, for (co-)simulation.
 * It can dump waveforms to multiple formats: VCD, FST or GHW (recommended for VHDL).
+
+----
+
+#### GHDL Example
+<!-- .slide: data-background="#D4AC0D" -->
+
+```bash
+git clone https://github.com/rodrigomelo9/FOSS-for-FPGAs.git
+cd FOSS-for-FPGAs/examples/ghdl
+make sim
+# Must ends with:
+# 0 ns --> Start of test
+# 380 ns-> End of test
+make syn
+# Check the content of _build/counter_syn.v[hdl]
+make view
+# Check waveforms
+make clean
+```
 
 ---
 
@@ -252,33 +272,6 @@ jobs:
 |---|---|
 | A fully featured wave viewer which reads</br>LXT, LXT2, VZT, FST, and GHW files as</br>well as standard Verilog VCD/EVCD | ![GTKwave](images/screens/gtkwave.png) |
 |   |   |
-
----
-
-### Example
-<!-- .slide: data-background="#D4AC0D" -->
-
-```bash
-git clone https://github.com/rodrigomelo9/FOSS-for-FPGAs.git
-cd FOSS-for-FPGAs/examples/ghdl
-make sim
-# Must ends with:
-# 0 ns --> Start of test
-# 380 ns-> End of test
-make syn
-# Check the content of _build/counter_syn.v[hdl]
-make view
-# Check waveforms
-make clean
-```
-
----
-<!-- ###################################################################### -->
-## Testing and Verification
-<!-- .slide: data-background="#581845" -->
-<!-- ###################################################################### -->
-
-[⌂](#/1)
 
 ---
 
@@ -345,7 +338,7 @@ Using formal mathematic methods (assumptions and assertions) for proving the cor
 #### Property Specification Language (PSL)
 
 * GHDL provides VHDL support for Yosys/SymbiYosys for free, through ghdl-yosys-plugin.
-* Moreover, PSL is supported.
+* GHDL supports PSL.
 
 ---
 
@@ -355,11 +348,11 @@ Using formal mathematic methods (assumptions and assertions) for proving the cor
 
 **Source:** [ The 2020 Wilson Research Group Functional Verification Study](https://blogs.sw.siemens.com/verificationhorizons/2020/12/16/part-6-the-2020-wilson-research-group-functional-verification-study/) - SIEMENS
 
-See also [GitHub Facts About the HDL Industry](https://larsasplund.github.io/github-facts/)
+**See also:** [GitHub Facts About the HDL Industry](https://larsasplund.github.io/github-facts/)
 
 ---
 <!-- ###################################################################### -->
-## Implementation
+## HDL-to-Bitstream
 <!-- .slide: data-background="#581845" -->
 <!-- ###################################################################### -->
 
@@ -367,9 +360,9 @@ See also [GitHub Facts About the HDL Industry](https://larsasplund.github.io/git
 
 ---
 
-### HDL-to-Bitstream
+### Overview
 
-![Implementation](images/diagrams/implementation.png)
+![HDL-to-Bitstream Overview](images/diagrams/implementation.png)
 
 **Source:** [hdl/awesome#98](https://github.com/hdl/awesome/issues/98)
 
@@ -557,7 +550,7 @@ fpga-bitprog --tool openflow temp/openflow.bit
 
 ---
 <!-- ###################################################################### -->
-## Open Hardware
+## Hardware
 <!-- .slide: data-background="#581845" -->
 <!-- ###################################################################### -->
 
@@ -608,7 +601,7 @@ fpga-bitprog --tool openflow temp/openflow.bit
 
 ---
 <!-- ###################################################################### -->
-## Final words
+## Final remarks
 <!-- .slide: data-background="#581845" -->
 <!-- ###################################################################### -->
 
