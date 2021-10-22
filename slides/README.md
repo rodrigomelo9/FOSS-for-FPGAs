@@ -70,9 +70,7 @@
 * Aka shell, terminal, console, bash...
 * Most projects provide a CLI.
 * Common on Linux/Unix distributions.
-* On Windows:
-  * [MSYS2](https://www.msys2.org/) ([hdl.github.io/MINGW-packages](https://hdl.github.io/MINGW-packages/)).
-  * Windows Subsytem for Linux (WSL).
+* Or use Windows Subsytem for Linux (WSL).
 
 ----
 
@@ -90,35 +88,6 @@
 
 ----
 
-#### Git Commands
-
-```bash
-git init
-git clone <REPOSITORY>
-```
-
-```bash
-git log <NONE_OR_FILEs_OR_PATHs>
-git diff <NONE_OR_FILEs_OR_PATHs>
-git status <NONE_OR_FILEs_OR_PATHs>
-```
-
-```bash
-git add <DOT_OR_FILEs>
-git commit <NONE_OR_FILEs_OR_PATHs>
-git push
-git pull
-```
-
-```bash
-git checkout -b <NEW_BRANCH>
-git checkout <BRANCH>
-```
-
-[try.github.io: Resources to learn Git](https://try.github.io/)
-
-----
-
 #### Docker
 
 OS-level virtualization to deliver software in packages called **containers**.
@@ -129,27 +98,6 @@ Containers are isolated one from another and bundle their own software, librarie
 
 ----
 
-#### hdl/containers
-
-[hdl.github.io/containers](https://hdl.github.io/containers/)
-
-* **hdlc/sim:osvb** (GHDL, Verilator, cocotb, OSVVM and VUnit)
-* **hdlc/impl** (GHDL, Yosys, nextpnr-ice40, nextpnr-ecp5, nextpnr-generic, icestorm and prjtrellis)
-* **hdlc/prog** (icestorm, openocd)
-
-----
-
-#### Docker Example
-<!-- .slide: data-background="#D4AC0D" -->
-
-Install Docker (instructions [here](https://github.com/rodrigomelo9/FOSS-for-FPGAs#docker-installation)) and check the latest versions of GHDL and Yosys at [hdl/containers](https://hdl.github.io/containers/)
-```bash
-$ docker run --rm hdlc/ghdl:yosys ghdl -v
-$ docker run --rm hdlc/ghdl:yosys yosys --version
-```
-
-----
-
 #### Continuous Integration/Delivery/Deployment (CI/CD)
 
 Automatically executing actions based on repository events (push, merge, cron, etc).
@@ -157,39 +105,6 @@ Automatically executing actions based on repository events (push, merge, cron, e
 * **Integration:** run linters, unit and/or integration tests, Hardware-in-the loop simulation.
 * **Delivery:** build binaries, documentation, packages, etc.
 * **Deployment:** build and install in production.
-
-----
-
-#### CI/CD Example
-<!-- .slide: data-background="#D4AC0D" -->
-
-```yaml
-name: 'examples'
-
-on:
-  push:
-
-jobs:
-  examples:
-    name: 'Running examples'
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        submodules: true
-        fetch-depth: 0
-    - name: Pull container images
-      run: |
-        docker pull hdlc/sim:osvb
-        docker pull hdlc/ghdl:yosys
-        docker pull hdlc/nextpnr:ice40
-        docker pull hdlc/icestorm
-    - run: make -C examples/ghdl sim
-    - run: make -C examples/ghdl syn
-    - run: make -C examples/impl
-```
-
-**Source:** [rodrigomelo9/FOSS-for-FPGAs/.github/workflows/examples.yml](https://github.com/rodrigomelo9/FOSS-for-FPGAs/blob/main/.github/workflows/examples.yml)
 
 ----
 
@@ -230,25 +145,6 @@ jobs:
 * Full support for IEEE 1076 standard 1987, 1993, 2002 and partial for 2008.
 * It can generate executable binary models of the VHDL design, for (co-)simulation.
 * It can dump waveforms to multiple formats: VCD, FST or GHW (recommended for VHDL).
-
-----
-
-#### GHDL Example
-<!-- .slide: data-background="#D4AC0D" -->
-
-```bash
-git clone https://github.com/rodrigomelo9/FOSS-for-FPGAs.git
-cd FOSS-for-FPGAs/examples/ghdl
-make sim
-# Must ends with:
-# 0 ns --> Start of test
-# 380 ns-> End of test
-make syn
-# Check the content of _build/counter_syn.v[hdl]
-make view
-# Check waveforms
-make clean
-```
 
 ---
 
@@ -326,19 +222,14 @@ make clean
 
 ### Formal verification
 
-Using formal mathematic methods (assumptions and assertions) for proving the correctness of intended algorithms/designs.
+Using formal mathematic methods (assumptions and assertions) for proving the correctness of a design.
 
-* **SymbiYosys (sby):** front-end driver program for Yosys-based formal hardware verification flows.
+* **SymbiYosys (sby):** front-end driver program for Yosys-based formal verification flows.
 * Supports Verilog (free), VHDL and SystemVerilog (through verific with a license).
 
 ![YosysHQ](images/logos/yosys-hq.png)
 
-----
-
-#### Property Specification Language (PSL)
-
-* GHDL provides VHDL support for Yosys/SymbiYosys for free, through ghdl-yosys-plugin.
-* GHDL supports PSL.
+(or try VHDL support trough ghdl-yosys-plugin)
 
 ---
 
@@ -372,20 +263,15 @@ Using formal mathematic methods (assumptions and assertions) for proving the cor
 
 |   |   |
 |---|---|
-| ![Python](images/logos/python.png) | * nMigen</br>* migen</br> * MyHDL                       |
-| ![Scala](images/logos/scala.png)   | * SpinalHDL</br>* Chisel                                |
-| Others                             | * Bluespec</br>* Silice</br> * Synthesijer</br> * Clash |
+| ![Python](images/logos/python.png)   | (n)Migen, MyHDL               |
+| ![Scala](images/logos/scala.png)     | SpinalHDL, Chisel             |
+| ![Haskell](images/logos/haskell.png) | Clash, Bluespec               |
+| Others                               | Silice, Synthesijer, and more |
 |   |   |
 
 ---
 
-### Synthesis
-
-Converting an abstract specification of a circuit (being an HDL a common input) into a design implementation in terms of the basic blocks supported by the chosen technology (being a netlist the output).
-
-----
-
-#### Yosys
+### Synthesis: Yosys
 
 * A FOSS framework for RTL synthesis tools.
 * It currently has extensive Verilog-2005 support and provides a basic set of synthesis algorithms for various application domains.
@@ -394,9 +280,9 @@ Converting an abstract specification of a circuit (being an HDL a common input) 
 
 ![Yosys](images/logos/yosys.png)
 
-----
+---
 
-#### GHDL
+### Synthesis: GHDL
 
 * Analyzer, compiler, simulator and (experimental) synthesizer for VHDL
 * Generates a generic (technology independent) synthesized VHDL (and recently, also Verilog)
@@ -409,10 +295,7 @@ Converting an abstract specification of a circuit (being an HDL a common input) 
 
 ### Place & Route
 
-|   |   |
-|---|---|
-| ![NextPnR](images/screens/nextpnr.png) | The stage where the logic elements are placed and interconnected on the FPGA |
-|   |   |
+![NextPnR](images/screens/nextpnr.png)
 
 * NextPnR (Arachne-pnr)
 * VPR, part of Verilog-to-Routing (VTR)
@@ -421,10 +304,7 @@ Converting an abstract specification of a circuit (being an HDL a common input) 
 
 ### Bitstream Generation
 
-|   |   |
-|---|---|
-| Packing the result</br>of the P&R into an</br>FPGA configuration</br>file | ![Bitstream](images/diagrams/bitstream.png) |
-|   |   |
+![Bitstream](images/diagrams/bitstream.png)
 
 <!--http://www.fabienm.eu/flf/materiel/liberation-des-fpga/-->
 
@@ -439,18 +319,6 @@ Converting an abstract specification of a circuit (being an HDL a common input) 
 * **openFPGALoader:** universal utility for programming FPGA
 * **dfu-util:** **D**evice **F**irmware **U**pgrade **Uti**lities (USB)
 
-----
-
-#### Example
-<!-- .slide: data-background="#D4AC0D" -->
-
-```bash
-# From FOSS-for-FPGAs/examples/ghdl
-cd ../impl
-make
-make prog
-```
-
 ---
 <!-- ###################################################################### -->
 ## Others
@@ -463,31 +331,14 @@ make prog
 
 ### Project Managers
 
-* **HDLmake:** tool for generating multi-purpose Makefiles for FPGA projects
 * **edalize:** a Python Library for interacting with EDA tools (was part of FuseSoC, now its build backend).
+* **HDLmake:** tool for generating multi-purpose Makefiles for FPGA projects (CERN)
 * **PyFPGA:** A Python package to use FPGA development tools programmatically
 
 |   |   |   |   |
 |---|---|---|---|
 | ![PyFPGA](images/logos/pyfpga.png) | Synthesis</br>Implementation</br>Bitstream</br>Programming | ISE, Vivado</br>Quartus</br>Libero-SoC</br>FOSS | **Helpers**</br>hdl2bit</br>prj2bit</br>bitprog |
 |   |   |   |   |
-
-----
-
-#### Demo
-<!-- .slide: data-background="#D4AC0D" -->
-
-```bash
-git clone https://github.com/PyFPGA/pyfpga.git
-cd pyfpga
-sudo pip3 install -e .
-fpga-hdl2bit --tool openflow -p hx4k-tq144 \
-    -f hdl/blinking.vhdl,examples \
-    -f hdl/examples_pkg.vhdl,examples \
-    -f examples/openflow/edu-ciaa-fpga.pcf \
-    hdl/top.vhdl
-fpga-bitprog --tool openflow temp/openflow.bit
-```
 
 ---
 
@@ -503,11 +354,7 @@ fpga-bitprog --tool openflow temp/openflow.bit
 
 ---
 
-### Softcores
-
-----
-
-#### Legacy
+### Softcores: Legacy
 
 **Leon 3** (Gaisler)
 * 32-bit VHDL processor compliant with the SPARC V8 architecture
@@ -517,28 +364,24 @@ fpga-bitprog --tool openflow temp/openflow.bit
 **OpenRISC**
 * Specification OpenRISC 1000 (32/64 bits)
 * The flagship implementation, the OR1200, is written in Verilog
-* Part of OpenRISC Reference Platform System-on-Chip (ORPSoC)
+* Part of OpenRISC Reference Platform SoC
 
-----
+---
 
-#### RISC V
+### Softcores: RISC V
 
 ![RISC-V](images/diagrams/risc-v.png)
 
 ---
 
-### Miscellaneous
-
-----
-
-#### TerosHDL
+### TerosHDL
 
 |   |   |
 |---|---|
-| ![TerosHDL](images/screens/teroshdl.png) | Atom & VS code</br></br>Suports:</br>GHDL, VUnit & GTKwave</br></br>Coming soon:</br>Verilator, cocotb, edalize |
+| ![TerosHDL](images/screens/teroshdl.png) | VS code plugin</br></br>Suports GHDL,</br>VUnit, GTKwave,</br>Verilator, cocotb,</br>edalize |
 |   |   |
 
-----
+---
 
 #### Icestudio
 
@@ -609,11 +452,17 @@ fpga-bitprog --tool openflow temp/openflow.bit
 
 ---
 
-### How to be updated?
+### How to get the tools
 
-----
+* From the system package manager (not always an option and generally outdated)
+* From the project repository (some times could be complex or tedious)
+* Get a ready to use container from [hdl.github.io/containers](https://hdl.github.io/containers/)
+  (install [Docker](https://github.com/rodrigomelo9/FOSS-for-FPGAs#docker-installation))
+* Use a package manager for Windows ([MSYS2](https://www.msys2.org/)) and install from [hdl.github.io/MINGW-packages](https://hdl.github.io/MINGW-packages/)
 
-#### Projects - Organizations
+---
+
+### How to be updated: Projects - Organizations
 
 ![HDL](images/logos/HDL.png)&nbsp;&nbsp;&nbsp;&nbsp;![IEEE-P1076.gitlab.io](images/logos/VASG.png)
 
@@ -621,9 +470,13 @@ fpga-bitprog --tool openflow temp/openflow.bit
 
 ![FOSSi](images/logos/fossi.png)&nbsp;&nbsp;&nbsp;&nbsp;![OSFPGA](images/logos/osfpga.png)
 
-----
+---
 
-#### People
+### How to be updated: Companies
+
+---
+
+### How to be updated: People
 
 |   |   |   |
 |---|---|---|
@@ -632,9 +485,9 @@ fpga-bitprog --tool openflow temp/openflow.bit
 | ![GitHub icon](images/icons/github.png)   | [umarcor](https://github.com/umarcor)        | Unai Martinez-Corral                     |
 | ![Twitter icon](images/icons/twitter.png) | [unaimarcor](https://twitter.com/unaimarcor) | ![umarcor](images/logos/umarcor.png)     |
 
-----
+---
 
-#### hdl/awesome
+### How to be updated: hdl/awesome
 
 |   |   |
 |---|---|
