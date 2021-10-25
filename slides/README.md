@@ -2,7 +2,8 @@
 
 # FOSS for FPGA development
 
-[rodrigomelo9.github.io/FOSS-for-FPGAs](https://rodrigomelo9.github.io/FOSS-for-FPGAs/)
+[github.com/rodrigomelo9/FOSS-for-FPGAs](https://github.com/rodrigomelo9/FOSS-for-FPGAs)
+[rodrigomelo9.github.io/FOSS-for-FPGAs](https://rodrigomelo9.github.io/FOSS-for-FPGAs)
 
 **Rodrigo A. Melo**, Unai Martinez-Corral
 
@@ -383,7 +384,7 @@ Using formal mathematic methods (assumptions and assertions) for proving the cor
 
 ---
 
-#### Icestudio
+### Icestudio
 
 ![Icestudio](images/screens/icestudio.png)
 
@@ -503,6 +504,12 @@ Using formal mathematic methods (assumptions and assertions) for proving the cor
 <!-- ![FPGArgentina](images/screens/FPGArgentina.png) -->
 
 <!-- [rodrigomelo9.gitlab.io/fpgargentina](https://rodrigomelo9.gitlab.io/fpgargentina) -->
+
+---
+
+### Why produce FOSS?
+
+Your reasons here.
 
 ---
 <!-- ###################################################################### -->
