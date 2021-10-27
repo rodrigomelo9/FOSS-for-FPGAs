@@ -17,7 +17,7 @@
 * [Introduction](#/2)
 * [Testing / Verification](#/6)
 * [HDL-to-Bitstream](#/16)
-* [Others](#/23)
+* [Development](#/23)
 * [Hardware](#/28)
 * [Final remarks](#/34)
 
@@ -49,9 +49,11 @@
 * Freedom matters!
 * Flexibility and Independence
 * Knowledge sharing
-* Innovation
+* Innovation (*)
 * Privacy and security
 * And [several others](https://www.softwarefreedomday.org/about/why-foss)
+
+(*) [Termux (Android) packages for EDA](https://github.com/hdl/Termux-packages)!
 
 ---
 
@@ -322,7 +324,7 @@ Using formal mathematic methods (assumptions and assertions) for proving the cor
 
 ---
 <!-- ###################################################################### -->
-## Others
+## Development
 <!-- .slide: data-background="#581845" -->
 <!-- ###################################################################### -->
 
@@ -375,12 +377,11 @@ Using formal mathematic methods (assumptions and assertions) for proving the cor
 
 ---
 
-### TerosHDL
+### TerosHDL (VScode plugin)
 
-|   |   |
-|---|---|
-| ![TerosHDL](images/screens/teroshdl.png) | VS code plugin</br></br>Suports GHDL,</br>VUnit, GTKwave,</br>Verilator, cocotb,</br>edalize |
-|   |   |
+![TerosHDL](images/screens/teroshdl.png)
+
+Suports GHDL, Yosys, VUnit, GTKwave, Verilator, cocotb, edalize, icestorm, Trellis, Symbiflow...
 
 ---
 
