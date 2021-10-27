@@ -19,8 +19,8 @@
 * [Verification](#/10)
 * [Implementation](#/15)
 * [Development](#/23)
-* [Hardware](#/30)
-* [Final remarks](#/34)
+* [Hardware](#/31)
+* [Final remarks](#/37)
 
 ---
 <!-- ###################################################################### -->
@@ -58,12 +58,12 @@
 
 ---
 
-### Previous considerations
+### Some previous considerations
 
 * Most projects are *command-line* based (common on Linux/Unix, or you can use WSL2)
 * Git is the prefered *Version Control System*, and most projects are in *GitHub* (some in *GitLab*)
 * Containers (*Docker*, *Podman*) are commonly provided/employed (OS-level virtualization)
-* *Continuous Integration/Delivery* is almost mandatory
+* *Continuous Integration* is almost mandatory
 * Several projects employ and/or are based on *make/Makefiles* (build system)
 * *Python* is frequently involved
 
@@ -393,6 +393,16 @@ Suports GHDL, Yosys, VUnit, GTKwave, Verilator, cocotb, edalize, icestorm, Trell
 [juanmard/icestudio](https://github.com/juanmard/icestudio) ([nightly](https://github.com/juanmard/icestudio/releases/tag/nightly) builds)
 
 ---
+
+### System Verilog Support
+
+* UHDM: Universal Hardware Data Model
+* Surelog: SystemVerilog 2017 Pre-processor, Parser, Elaborator, UHDM Compiler (work in progress to integrate with Yosys and Verilator)
+* Verible: SystemVerilog 2017 parser for developer tools (linter, formatter, indexer, lexical diff, others)
+
+![Chips Alliance](images/logos/chips-alliance.png)&nbsp;&nbsp;&nbsp;&nbsp;![Antmicro](images/logos/antmicro.png)
+
+---
 <!-- ###################################################################### -->
 ## Hardware
 <!-- .slide: data-background="#581845" -->
@@ -467,13 +477,9 @@ Suports GHDL, Yosys, VUnit, GTKwave, Verilator, cocotb, edalize, icestorm, Trell
 
 ![HDL](images/logos/HDL.png)&nbsp;&nbsp;&nbsp;&nbsp;![IEEE-P1076.gitlab.io](images/logos/VASG.png)
 
-![SymbiFlow](images/logos/symbiflow.png)
+![SymbiFlow](images/logos/symbiflow.png)&nbsp;&nbsp;&nbsp;&nbsp;![Chips Alliance](images/logos/chips-alliance.png)
 
 ![FOSSi](images/logos/fossi.png)&nbsp;&nbsp;&nbsp;&nbsp;![OSFPGA](images/logos/osfpga.png)
-
----
-
-### How to be updated: Companies
 
 ---
 
@@ -507,7 +513,7 @@ Suports GHDL, Yosys, VUnit, GTKwave, Verilator, cocotb, edalize, icestorm, Trell
 
 ---
 
-### Why produce FOSS?
+### Why to produce FOSS?
 
 Your reasons here.
 
