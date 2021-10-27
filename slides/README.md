@@ -15,10 +15,11 @@
 <!-- ###################################################################### -->
 
 * [Introduction](#/2)
-* [Testing / Verification](#/6)
-* [HDL-to-Bitstream](#/16)
+* [Simulation](#/6)
+* [Verification](#/10)
+* [Implementation](#/15)
 * [Development](#/23)
-* [Hardware](#/28)
+* [Hardware](#/30)
 * [Final remarks](#/34)
 
 ---
@@ -130,7 +131,7 @@ Automatically executing actions based on repository events (push, merge, cron, e
 
 ---
 <!-- ###################################################################### -->
-## Testing / Verification
+## Simulation
 <!-- .slide: data-background="#581845" -->
 <!-- ###################################################################### -->
 
@@ -171,6 +172,14 @@ Automatically executing actions based on repository events (push, merge, cron, e
 |---|---|
 | A fully featured wave viewer which reads</br>LXT, LXT2, VZT, FST, and GHW files as</br>well as standard Verilog VCD/EVCD | ![GTKwave](images/screens/gtkwave.png) |
 |   |   |
+
+---
+<!-- ###################################################################### -->
+## Verification
+<!-- .slide: data-background="#581845" -->
+<!-- ###################################################################### -->
+
+[⌂](#/1)
 
 ---
 
@@ -215,13 +224,13 @@ Automatically executing actions based on repository events (push, merge, cron, e
 
 ---
 
-### Open Source Verification Bundle (OSVB)
+### More info
 
-![OSVB](images/diagrams/OSVB.png)
+![Verification trends](images/diagrams/verification-trends.png)
 
-[umarcor.github.io/osvb](https://umarcor.github.io/osvb/)
+**Source:** [GitHub Facts About the HDL Industry](https://larsasplund.github.io/github-facts)
 
----
+**Read also:** [Open Source Verification Bundle (OSVB)](https://umarcor.github.io/osvb)
 
 ### Formal verification
 
@@ -235,18 +244,8 @@ Using formal mathematic methods (assumptions and assertions) for proving the cor
 (or try VHDL support trough ghdl-yosys-plugin)
 
 ---
-
-### Verification trends
-
-![Verification trends](images/diagrams/verification-trends.png)
-
-**Source:** [ The 2020 Wilson Research Group Functional Verification Study](https://blogs.sw.siemens.com/verificationhorizons/2020/12/16/part-6-the-2020-wilson-research-group-functional-verification-study/) - SIEMENS
-
-**See also:** [GitHub Facts About the HDL Industry](https://larsasplund.github.io/github-facts/)
-
----
 <!-- ###################################################################### -->
-## HDL-to-Bitstream
+## Implementation
 <!-- .slide: data-background="#581845" -->
 <!-- ###################################################################### -->
 
