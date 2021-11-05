@@ -18,6 +18,8 @@ jobs:
         docker pull hdlc/ghdl:yosys
         docker pull hdlc/nextpnr:ice40
         docker pull hdlc/icestorm
+    - run: cd examples/cocotb; bash run.sh
     - run: make -C examples/ghdl sim
     - run: make -C examples/ghdl syn
     - run: make -C examples/impl
+    - run: make -C examples/verilator
