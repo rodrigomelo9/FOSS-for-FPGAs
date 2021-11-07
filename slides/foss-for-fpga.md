@@ -3,7 +3,6 @@
 # FOSS for FPGA development
 
 [github.com/rodrigomelo9/FOSS-for-FPGAs](https://github.com/rodrigomelo9/FOSS-for-FPGAs)
-[rodrigomelo9.github.io/FOSS-for-FPGAs](https://rodrigomelo9.github.io/FOSS-for-FPGAs)
 
 **Rodrigo A. Melo**, Unai Martinez-Corral
 

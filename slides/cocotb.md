@@ -3,7 +3,6 @@
 # cocotb tutorial
 
 [github.com/rodrigomelo9/FOSS-for-FPGAs](https://github.com/rodrigomelo9/FOSS-for-FPGAs)
-[rodrigomelo9.github.io/FOSS-for-FPGAs/cocotb.html](https://rodrigomelo9.github.io/FOSS-for-FPGAs/cocotb.html)
 
 **Rodrigo A. Melo**
 
