@@ -7,8 +7,9 @@ vpath %.html $(ODIR)
 
 %.html: %.md
 	reveal-md $(OPTS) $<
+	reveal-md $(OPTS) index.md
 
-html: cocotb.html README.html
+html: foss-for-fpga.html cocotb.html
 
 clean:
 	rm -fr $(ODIR)
