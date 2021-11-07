@@ -1,4 +1,14 @@
 #!/usr/bin/make
 
-html:
-	reveal-md README.md --theme moon --static _build
+ODIR=_build
+OPTS=--theme moon --static $(ODIR)
+
+vpath %.html $(ODIR)
+
+%.html: %.md
+	reveal-md $(OPTS) $<
+
+html: cocotb.html README.html
+
+clean:
+	rm -fr $(ODIR)
