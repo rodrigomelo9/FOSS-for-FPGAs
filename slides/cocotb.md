@@ -11,8 +11,9 @@
 [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/)
 
 ---
-
+<!-- ###################################################################### -->
 ## Introduction
+<!-- ###################################################################### -->
 
 ![cocotb](images/logos/cocotb.png)
 
@@ -22,24 +23,34 @@ VHDL and (System)Verilog RTL using Python.
 * **Repo:** [github.com/cocotb/cocotb](https://github.com/cocotb/cocotb)
 * **Docs:** [docs.cocotb.org/en/stable](https://docs.cocotb.org/en/stable)
 
----
+----
 
+### A Brief History of cocotb
+
+---
+<!-- ###################################################################### -->
 ## How does it work?
+<!-- ###################################################################### -->
 
 ![cocotb overview](images/diagrams/cocotb_overview.png)
 
 **Source:** [docs.cocotb.org/en/stable](https://docs.cocotb.org/en/stable)
 
 ---
-
+<!-- ###################################################################### -->
 ## Installation
+<!-- ###################################################################### -->
+
+##### Debian based systems
 
 ```bash
 apt install make gcc g++ python3 python3-dev python3-pip
 pip3 install cocotb
 ```
 
-### Supported simulators
+**Others:** [docs.cocotb.org/en/stable/install.html](https://docs.cocotb.org/en/stable/install.html)
+
+##### Supported simulators
 
 [Icarus Verilog](https://github.com/steveicarus/iverilog),
 [Verilator](https://github.com/verilator/verilator),
@@ -51,16 +62,18 @@ Cadence Incisive and Xcelium,
 Tachyon [CVC](https://github.com/cambridgehackers/open-src-cvc).
 
 ---
-
+<!-- ###################################################################### -->
 ## Elements of a simulation
+<!-- ###################################################################### -->
 
 * One (top-level) or more HDL files (the DUT).
 * A Python script with one or more individual tests.
 * A `Makefile`
 
 ---
-
+<!-- ###################################################################### -->
 ## Makefile
+<!-- ###################################################################### -->
 
 ```
 SIM = <SIMULATOR_NAME>
@@ -73,7 +86,9 @@ MODULE = <PYTHON_SCRIPT_NAME_WITHOUT_PY_EXTENSION>
 include $(shell cocotb-config --makefiles)/Makefile.sim
 ```
 
-**More at:** https://docs.cocotb.org/en/stable/building.html
+##### SIMULATOR_NAME
+
+`icarus`, `verilator`, `vcs`, `riviera`, `activehdl`, `questa`, `modelsim`, `ius`, `xcelium`, `ghdl` and `cvc`
 
 ----
 
@@ -104,27 +119,61 @@ TOPLEVEL = top
 
 ### Some Other Makefile options
 
-* RANDOM_SEED: to recreate a previous test.
-* COCOTB_ENABLE_PROFILING: of the Python portion of cocotb.
-* COVERAGE: to report Python coverage data (also HDL coverage for some simulators).
-* TESTCASE: specify a particular test function.
-* GUI: enable tthis mode if supported.
-* COMPILE_ARGS, SIM_ARGS, EXTRA_ARGS: arguments or flags to pass to the compile, execution or boths phases of the simulator.
+* **RANDOM_SEED**: to recreate a previous test.
+* **COCOTB_ENABLE_PROFILING**: of the Python portion of cocotb.
+* **COVERAGE**: to report Python coverage data (also HDL coverage for some simulators).
+* **TESTCASE**: specify a particular test function.
+* **GUI**: enable this mode if supported.
+* **COMPILE_ARGS**, **SIM_ARGS**, **EXTRA_ARGS**: arguments or flags to pass to the compile, execution or boths phases of the simulator.
+* **More**: [docs.cocotb.org/en/stable/building.html](https://docs.cocotb.org/en/stable/building.html)
 
 ---
+<!-- ###################################################################### -->
+## Python Testbenches
+<!-- ###################################################################### -->
 
+```
+import cocotb
+from cocotb.<MODULE> import <CLASS>
+
+@cocotb.test()
+async def my_test1(dut):
+
+@cocotb.test()
+async def my_test2(dut):
+
+async def my_coro1(dut):
+
+async def my_coro2(dut):
+
+def my_function():
+```
+
+<!--**More at:**-->
+<!--* https://docs.cocotb.org/en/stable/library_reference.html-->
+<!--* https://docs.cocotb.org/en/stable/coroutines.html-->
+
+
+---
+<!-- ###################################################################### -->
 ## How to run
+<!-- ###################################################################### -->
 
 ```
 make
 ```
-or
 
 ```
 make SIM=icarus
 ```
 
-The `SIM` possible values are `icarus`, `verilator`, `vcs`, `riviera`, `activehdl`, `questa`, `modelsim`, `ius`, `xcelium`, `ghdl` and `cvc`.
+----
+
+### Example output
+
+----
+
+### How to run with Docker
 
 ---
 <!-- ###################################################################### -->
