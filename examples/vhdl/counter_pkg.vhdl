@@ -5,12 +5,12 @@ package COUNTER_PKG is
 
     component counter is
         generic (
-            WIDTH  : positive := 4
+            WIDTH : positive := 4
         );
         port (
             clk_i : in  std_logic;
             rst_i : in  std_logic;
-            cnt_o : out std_logic_vector(3 downto 0)
+            cnt_o : out std_logic_vector(WIDTH-1 downto 0)
         );
     end component counter;
 

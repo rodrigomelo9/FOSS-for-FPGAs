@@ -20,8 +20,8 @@ begin
     do_clock: process
     begin
         while not stop loop
-           wait for PERIOD/2;
-           clk <= not clk;
+            wait for PERIOD/2;
+            clk <= not clk;
         end loop;
         wait; -- Event Starvation
     end process do_clock;
