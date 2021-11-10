@@ -80,9 +80,227 @@ Tachyon [CVC](https://github.com/cambridgehackers/open-src-cvc).
 * A Python script with one or more individual tests.
 * A `Makefile`
 
+----
+
+### Example DUT
+
+```
+module counter #(
+    parameter          WIDTH=4
+) (
+    input              clk_i,
+    input              rst_i,
+    output [WIDTH-1:0] cnt_o
+);
+
+    reg [WIDTH-1:0] cnt;
+
+    always @(posedge clk_i) begin
+        if (rst_i == 1'b1)
+            cnt <= {WIDTH{1'b0}};
+        else
+            cnt <= cnt + 1'b1;
+    end
+
+    assign cnt_o = cnt;
+
+    `ifdef COCOTB_SIM
+    initial begin
+        $dumpfile ("counter.vcd");
+        $dumpvars (0, counter);
+    end
+    `endif
+
+endmodule
+```
+
+----
+
+### Example Python
+
+```
+import cocotb
+from cocotb.clock import Clock
+from cocotb.triggers import RisingEdge, ClockCycles
+
+
+@cocotb.test()
+async def test_reset(dut):
+    cocotb.start_soon(Clock(dut.clk_i, 10, units='ns').start())
+    await Reset(dut)
+    await RisingEdge(dut.clk_i)
+    assert dut.cnt_o.value == 0, "reset value is incorrect"
+
+
+@cocotb.test()
+async def test_counter(dut):
+    cocotb.start_soon(Clock(dut.clk_i, 10, units='ns').start())
+    await Reset(dut, 2)
+    for i in range(10):
+        await RisingEdge(dut.clk_i)
+        assert dut.cnt_o.value == i, f"counter value {i} is incorrect"
+
+
+@cocotb.test()
+async def test_overflow(dut):
+    clock = Clock(dut.clk_i, 10, units='ns')
+    cocotb.start_soon(clock.start())
+    await Reset(dut)
+    for i in range(16):
+        await RisingEdge(dut.clk_i)
+    await RisingEdge(dut.clk_i)
+    assert dut.cnt_o.value == 0, "counter value is incorrect after overflow"
+
+
+@cocotb.test()
+async def test_dummy(dut):
+    dut._log.info("It is an INFO message")
+    assert dut.WIDTH.value == dut.cnt.value.n_bits, "An impossible error"
+
+
+async def Reset(dut, cycles=1):
+    await RisingEdge(dut.clk_i)
+    dut.rst_i.value = 1
+    await ClockCycles(dut.clk_i, cycles)
+    dut.rst_i.value = 0
+```
+
+----
+
+### Example Makefile
+
+```
+VERILOG_SOURCES += ../vlog/counter.v
+TOPLEVEL = counter
+MODULE = counter
+
+include $(shell cocotb-config --makefiles)/Makefile.sim
+
+view:
+	gtkwave counter.vcd &
+
+clean::
+	@rm -fr __pycache__ *.vcd *.xml *.o counter
+```
+
+----
+
+### Example Run
+
+```
+make
+```
+
+![cocotb run](images/screens/cocotb.png)
+
+---
+
+### Structure of a Python testbench
+
+```
+import cocotb
+from cocotb.<MODULE> import <CLASS>
+
+@cocotb.test()
+async def test1(dut):
+
+@cocotb.test()
+async def test2(dut):
+
+async def coro1(dut):
+
+async def coro2(dut):
+
+def func():
+```
+
+<!--**More at:**-->
+<!--* https://docs.cocotb.org/en/stable/library_reference.html-->
+<!--* https://docs.cocotb.org/en/stable/coroutines.html-->
+
+----
+
+### Accessing the design
+
+```
+@cocotb.test()
+async def my_test1(dut):
+    # Assign a signal
+    dut.data_i.value = 1
+    # Get a reference and assign a signal
+    data_i = dut.data_i
+    data_i.value = 1
+    # Assign a value to a memory deep in the hierarchy
+    dut.memory_inst.memory.array[4].value = 2
+    # Read a signal
+    count = dut.count_o.value
+```
+
+A common mistake is forgetting the **.value**.
+
+<!-- the Python type depends on the handle's HDL type -->
+
+----
+
+### Signed and unsigned values
+
+```
+module my_module (
+    input   logic       clk,
+    input   logic       rst,
+    input   logic [2:0] data_in,
+    output  logic [2:0] data_out
+    );
+```
+
+```
+dut.data_in.value = -4
+dut.data_in.value = 7
+dut.data_in.value = 8   # raises OverflowError
+dut.data_in.value = -5  # raises OverflowError
+```
+
+`-2^(Nbits-1) <= value <= 2^Nbits-1`
+
+----
+
+### Concurrent and sequential execution
+
+----
+
+### Forcing and freezing signals
+
+```
+# Deposit action
+dut.my_signal.value = 12
+dut.my_signal.value = Deposit(12)  # equivalent syntax
+# Force action
+dut.my_signal.value = Force(12)    # stays 12 until released
+# Freeze action
+dut.my_signal.value = Freeze()     # stays at current value
+# Release action
+dut.my_signal.value = Release()    # Reverts any force/freeze
+```
+
+----
+
+### Passing and Failing Tests
+
+----
+
+### Logging
+
+----
+
+### Coroutines and Tasks
+
+----
+
+### Triggers
+
 ---
 <!-- ###################################################################### -->
-## Makefile
+## More about the Makefile
 <!-- ###################################################################### -->
 
 ```
@@ -137,52 +355,19 @@ TOPLEVEL = top
 * **COMPILE_ARGS**, **SIM_ARGS**, **EXTRA_ARGS**: arguments or flags to pass to the compile, execution or boths phases of the simulator.
 * **More**: [docs.cocotb.org/en/stable/building.html](https://docs.cocotb.org/en/stable/building.html)
 
----
-<!-- ###################################################################### -->
-## Python Testbenches
-<!-- ###################################################################### -->
-
-```
-import cocotb
-from cocotb.<MODULE> import <CLASS>
-
-@cocotb.test()
-async def my_test1(dut):
-
-@cocotb.test()
-async def my_test2(dut):
-
-async def my_coro1(dut):
-
-async def my_coro2(dut):
-
-def my_function():
-```
-
-<!--**More at:**-->
-<!--* https://docs.cocotb.org/en/stable/library_reference.html-->
-<!--* https://docs.cocotb.org/en/stable/coroutines.html-->
-
----
-<!-- ###################################################################### -->
-## How to run
-<!-- ###################################################################### -->
-
-```
-make
-```
-
-```
-make SIM=icarus
-```
-
 ----
 
-### Example output
+### Passing variables from command-line
 
-----
+```
+make SIM=verilator
 
-### How to run with Docker
+make RANDOM_SEED=<YOUR_SEED>
+
+make TESTCASE=test_reset,test_counter
+
+make COCOTB_ENABLE_PROFILING=1
+```
 
 ---
 <!-- ###################################################################### -->
