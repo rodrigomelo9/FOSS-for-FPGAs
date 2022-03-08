@@ -28,30 +28,26 @@ VHDL and (System)Verilog RTL using Python.
 ### A Brief History of cocotb
 
 * 2012: started by Chris Higgs and Stuart Hodgson (Potential Ventures).
-* 2013: Open sourced (Jun). cocotb 0.1 (Jul), 0.2 (Jul) and 0.3 (Sep).
+* 2013: Open sourced (BSD, Jun). cocotb 0.1 (Jul), 0.2 (Jul) and 0.3 (Sep).
 * 2014: cocotb 0.4 (Feb).
 * 2015: cocotb 1.0 (Feb).
 * 2018: FOSSi Foundation.
 * 2019: cocotb 1.1 (Jan), 1.2 (Jul).
 * 2020: cocotb 1.3 (Jan), 1.4 (Jul).
 * 2021: cocotb 1.5 (Mar), 1.6 (Oct).
-* cocotb 2.0 under development.
+* cocotb 1.7/2.0 under development.
 
----
-<!-- ###################################################################### -->
-## How does it work?
-<!-- ###################################################################### -->
+----
+
+### How does it work?
 
 ![cocotb overview](images/diagrams/cocotb_overview.png)
 
 **Source:** [docs.cocotb.org/en/stable](https://docs.cocotb.org/en/stable)
 
----
-<!-- ###################################################################### -->
-## Installation
-<!-- ###################################################################### -->
+----
 
-##### Debian based systems
+### Installation (Debian based systems)
 
 ```bash
 apt install make gcc g++ python3 python3-dev python3-pip
@@ -60,7 +56,7 @@ pip3 install cocotb
 
 **Others:** [docs.cocotb.org/en/stable/install.html](https://docs.cocotb.org/en/stable/install.html)
 
-##### Supported simulators
+### Supported simulators
 
 [Icarus Verilog](https://github.com/steveicarus/iverilog),
 [Verilator](https://github.com/verilator/verilator),
