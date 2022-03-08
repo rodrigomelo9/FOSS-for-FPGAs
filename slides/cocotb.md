@@ -100,13 +100,6 @@ module counter #(
 
     assign cnt_o = cnt;
 
-    `ifdef COCOTB_SIM
-    initial begin
-        $dumpfile ("counter.vcd");
-        $dumpvars (0, counter);
-    end
-    `endif
-
 endmodule
 ```
 
@@ -125,7 +118,7 @@ async def test_reset(dut):
     cocotb.start_soon(Clock(dut.clk_i, 10, units='ns').start())
     await Reset(dut)
     await RisingEdge(dut.clk_i)
-    assert dut.cnt_o.value == 0, "reset value is incorrect"
+    assert dut.cnt_o.value == 0, 'reset value is incorrect'
 
 
 @cocotb.test()
@@ -134,7 +127,7 @@ async def test_counter(dut):
     await Reset(dut, 2)
     for i in range(10):
         await RisingEdge(dut.clk_i)
-        assert dut.cnt_o.value == i, f"counter value {i} is incorrect"
+        assert dut.cnt_o.value == i, f'counter value {i} is incorrect'
 
 
 @cocotb.test()
@@ -145,13 +138,13 @@ async def test_overflow(dut):
     for i in range(16):
         await RisingEdge(dut.clk_i)
     await RisingEdge(dut.clk_i)
-    assert dut.cnt_o.value == 0, "counter value is incorrect after overflow"
+    assert dut.cnt_o.value == 0, 'counter value is incorrect after overflow'
 
 
 @cocotb.test()
 async def test_dummy(dut):
-    dut._log.info("It is an INFO message")
-    assert dut.WIDTH.value == dut.cnt.value.n_bits, "An impossible error"
+    dut._log.info('It is an INFO message')
+    assert dut.WIDTH.value == dut.cnt.value.n_bits, 'An impossible error'
 
 
 async def Reset(dut, cycles=1):
@@ -188,6 +181,16 @@ make
 ```
 
 ![cocotb run](images/screens/cocotb.png)
+
+----
+
+### Example waveforms
+
+```
+make view
+```
+
+![Waveforms](images/screens/gtkwave-counter.png)
 
 ---
 
@@ -310,8 +313,7 @@ MODULE = <PYTHON_SCRIPT_NAME_WITHOUT_PY_EXTENSION>
 include $(shell cocotb-config --makefiles)/Makefile.sim
 ```
 
-##### SIMULATOR_NAME
-
+**SIMULATOR_NAME:**
 `icarus`, `verilator`, `vcs`, `riviera`, `activehdl`, `questa`, `modelsim`, `ius`, `xcelium`, `ghdl` and `cvc`
 
 ----
