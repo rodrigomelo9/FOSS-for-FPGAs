@@ -113,14 +113,12 @@ import cocotb
 from cocotb.clock import Clock
 from cocotb.triggers import RisingEdge, ClockCycles
 
-
 @cocotb.test()
 async def test_reset(dut):
     cocotb.start_soon(Clock(dut.clk_i, 10, units='ns').start())
     await Reset(dut)
     await RisingEdge(dut.clk_i)
-    assert dut.cnt_o.value == 0, 'reset value is incorrect'
-
+    assert dut.cnt_o.value == 0, 'counter is not 0 after reset'
 
 @cocotb.test()
 async def test_counter(dut):
@@ -128,8 +126,7 @@ async def test_counter(dut):
     await Reset(dut, 2)
     for i in range(10):
         await RisingEdge(dut.clk_i)
-        assert dut.cnt_o.value == i, f'counter value {i} is incorrect'
-
+        assert dut.cnt_o.value == i, f'counter is wrong at index {i}'
 
 @cocotb.test()
 async def test_overflow(dut):
@@ -139,14 +136,7 @@ async def test_overflow(dut):
     for i in range(16):
         await RisingEdge(dut.clk_i)
     await RisingEdge(dut.clk_i)
-    assert dut.cnt_o.value == 0, 'counter value is incorrect after overflow'
-
-
-@cocotb.test()
-async def test_dummy(dut):
-    dut._log.info('It is an INFO message')
-    assert dut.WIDTH.value == dut.cnt.value.n_bits, 'An impossible error'
-
+    assert dut.cnt_o.value == 0, 'counter is not 0 after overflow'
 
 async def Reset(dut, cycles=1):
     await RisingEdge(dut.clk_i)

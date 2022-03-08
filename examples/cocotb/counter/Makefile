@@ -1,4 +1,4 @@
-VERILOG_SOURCES += ../vlog/counter.v
+VERILOG_SOURCES += ../../vlog/counter.v
 TOPLEVEL = counter
 MODULE = counter
 
