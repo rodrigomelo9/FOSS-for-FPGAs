@@ -72,8 +72,8 @@ Tachyon [CVC](https://github.com/cambridgehackers/open-src-cvc).
 ## Elements of a simulation
 <!-- ###################################################################### -->
 
-* One (top-level) or more HDL files (the DUT).
-* A Python script with one or more individual tests.
+* One (top-level) or more HDL files (the DUT)
+* A Python script with one or more individual tests
 * A `Makefile`
 
 ----
@@ -102,6 +102,7 @@ module counter #(
 
 endmodule
 ```
+<!-- .element: style="font-size: 0.40em !important;" -->
 
 ----
 
@@ -153,6 +154,7 @@ async def Reset(dut, cycles=1):
     await ClockCycles(dut.clk_i, cycles)
     dut.rst_i.value = 0
 ```
+<!-- .element: style="font-size: 0.40em !important;" -->
 
 ----
 
@@ -193,6 +195,10 @@ make view
 ![Waveforms](images/screens/gtkwave-counter.png)
 
 ---
+<!-- ###################################################################### -->
+## Writing Testbenches
+<!-- ###################################################################### -->
+----
 
 ### Structure of a Python testbench
 
@@ -291,30 +297,32 @@ dut.my_signal.value = Release()    # Reverts any force/freeze
 
 ----
 
-### Coroutines and Tasks
-
-----
-
 ### Triggers
 
 ---
 <!-- ###################################################################### -->
-## More about the Makefile
+## Coroutines and Tasks
+<!-- ###################################################################### -->
+
+---
+<!-- ###################################################################### -->
+## Build options
 <!-- ###################################################################### -->
 
 ```
-SIM = <SIMULATOR_NAME>
+SIM = icarus|verilator|vcs|riviera|activehdl|questa|modelsim|ius|xcelium|ghdl|cvc
+
 TOPLEVEL_LANG = <verilog|vhdl>
 VERILOG_SOURCES += <LIST_OF_VERILOG_SOURCES>
 VHDL_SOURCES += <LIST_OF_VHDL_SOURCES>
 VHDL_SOURCES_<LIB> += <LIST_OF_VHDL_SOURCES_IN_LIB>
+
 TOPLEVEL = <TOP_LEVEL_NAME>
 MODULE = <PYTHON_SCRIPT_NAME_WITHOUT_PY_EXTENSION>
+
 include $(shell cocotb-config --makefiles)/Makefile.sim
 ```
-
-**SIMULATOR_NAME:**
-`icarus`, `verilator`, `vcs`, `riviera`, `activehdl`, `questa`, `modelsim`, `ius`, `xcelium`, `ghdl` and `cvc`
+<!-- .element: style="font-size: 0.40em !important;" -->
 
 ----
 
@@ -327,6 +335,7 @@ VERILOG_SOURCES  = $(PATH)/file_1.v $(PATH)/file_2.v
 VERILOG_SOURCES += $(PATH)/file_3.v $(PATH)/top.v
 TOPLEVEL = top
 ```
+<!-- .element: style="font-size: 0.50em !important;" -->
 
 ### VHDL sources example
 
@@ -340,6 +349,7 @@ VHDL_SOURCES  = $(PATH)/file_1.vhdl $(PATH)/file_2.vhdl
 VHDL_SOURCES += $(PATH)/file_3.vhdl $(PATH)/top.vhdl
 TOPLEVEL = top
 ```
+<!-- .element: style="font-size: 0.50em !important;" -->
 
 ----
 
