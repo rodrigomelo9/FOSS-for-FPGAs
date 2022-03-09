@@ -187,6 +187,7 @@ make view
 ---
 <!-- ###################################################################### -->
 ## Writing Testbenches
+### (The Python side)
 <!-- ###################################################################### -->
 ----
 
@@ -291,13 +292,13 @@ dut.my_signal.value = Release()    # Reverts any force/freeze
 
 ---
 <!-- ###################################################################### -->
-## Coroutines and Tasks
+## Build options
+### (The Makefile side)
 <!-- ###################################################################### -->
 
----
-<!-- ###################################################################### -->
-## Build options
-<!-- ###################################################################### -->
+----
+
+### Common variables
 
 ```
 SIM = icarus|verilator|vcs|riviera|activehdl|questa|modelsim|ius|xcelium|ghdl|cvc
@@ -325,7 +326,7 @@ VERILOG_SOURCES  = $(PATH)/file_1.v $(PATH)/file_2.v
 VERILOG_SOURCES += $(PATH)/file_3.v $(PATH)/top.v
 TOPLEVEL = top
 ```
-<!-- .element: style="font-size: 0.50em !important;" -->
+<!-- .element: style="font-size: 0.40em !important;" -->
 
 ### VHDL sources example
 
@@ -339,33 +340,55 @@ VHDL_SOURCES  = $(PATH)/file_1.vhdl $(PATH)/file_2.vhdl
 VHDL_SOURCES += $(PATH)/file_3.vhdl $(PATH)/top.vhdl
 TOPLEVEL = top
 ```
-<!-- .element: style="font-size: 0.50em !important;" -->
-
-----
-
-### Some Other Makefile options
-
-* **RANDOM_SEED**: to recreate a previous test.
-* **COCOTB_ENABLE_PROFILING**: of the Python portion of cocotb.
-* **COVERAGE**: to report Python coverage data (also HDL coverage for some simulators).
-* **TESTCASE**: specify a particular test function.
-* **GUI**: enable this mode if supported.
-* **COMPILE_ARGS**, **SIM_ARGS**, **EXTRA_ARGS**: arguments or flags to pass to the compile, execution or boths phases of the simulator.
-* **More**: [docs.cocotb.org/en/stable/building.html](https://docs.cocotb.org/en/stable/building.html)
+<!-- .element: style="font-size: 0.40em !important;" -->
 
 ----
 
 ### Passing variables from command-line
 
 ```
+# Specify which simulator to use
 make SIM=verilator
 
-make RANDOM_SEED=<YOUR_SEED>
-
+# Select which test/s to run
 make TESTCASE=test_reset,test_counter
 
-make COCOTB_ENABLE_PROFILING=1
+# Run with a specified seed (to recreate a previous run)
+make RANDOM_SEED=<SEED>
 ```
+
+----
+
+### Other useful variables
+
+* **COMPILE_ARGS**, **SIM_ARGS**, **EXTRA_ARGS**: arguments/flags for compile, execution or boths phases of the simulator (eg: generics/parameters).
+* **COCOTB_ENABLE_PROFILING**: enable performance analysis of the Python portion.
+* **COVERAGE**: enable to report Python coverage (and HDL in some simulators).
+* **GUI**: enable this mode (if supported).
+
+[**Full list**](https://docs.cocotb.org/en/stable/building.html)
+
+---
+<!-- ###################################################################### -->
+# Miscellaneous
+<!-- ###################################################################### -->
+
+----
+
+### Extensions
+
+* [cocotb-bus](https://github.com/cocotb/cocotb-bus): reusable bus interfaces (AMBA, Avalon, others).
+* [cocotbext-axi](https://github.com/alexforencich/cocotbext-axi): AXI, AXI lite, and AXI stream simulation models.
+* [cocotbext-wishbone](https://github.com/wallento/cocotbext-wishbone): driver and monitor modules for the Wishbone bus.
+
+----
+
+### PyUVM
+
+* [PyUVM](https://github.com/pyuvm/pyuvm) is UVM (IEEE 1800.2) implemented in Python instead of SystemVerilog.
+* It uses cocotb to interact with the simulator and schedule simulation events.
+
+Supported by [Siemens](https://blogs.sw.siemens.com/verificationhorizons/2021/09/09/python-and-the-uvm/)
 
 ---
 <!-- ###################################################################### -->
