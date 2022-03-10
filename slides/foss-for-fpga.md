@@ -209,17 +209,16 @@ Automatically executing actions based on repository events (push, merge, cron, e
 
 ![cocotb](images/logos/cocotb.png)
 
-* **cocotb:** Coroutine Co-simulation Test Bench.
-* A coroutine based cosimulation library for writing VHDL and Verilog testbenches in Python, through VPI/VHPI interfaces.
-* Supported simulators: GHDL, iverilog, verilator, Synopsys VCS, Aldec Riviera-PRO, Aldec Active-HDL, Mentor Questa, Mentor ModelSim, Cadence Incisive, Cadence Xcelium, Tachyon DA CVC.
+cocotb is a COroutine based COsimulation TestBench environment for verifying VHDL and (System)Verilog RTL using Python
 
-----
+```
+Supported simulators:
+* GHDL, iverilog, verilator, Tachyon DA CVC.
+* Synopsys VCS, Aldec Riviera-PRO & Active-HDL.
+* Mentor Questa & ModelSim, Cadence Incisive & Xcelium.
+```
 
-#### How does cocotb work?
-
-![cocotb overview](images/diagrams/cocotb_overview.png)
-
-**Source:** https://docs.cocotb.org/en/stable
+[cocotb tutorial](cocotb.html)
 
 ---
 
@@ -264,10 +263,10 @@ Using formal mathematic methods (assumptions and assertions) for proving the cor
 
 |   |   |
 |---|---|
-| ![Python](images/logos/python.png)   | (n)Migen, MyHDL               |
-| ![Scala](images/logos/scala.png)     | SpinalHDL, Chisel             |
-| ![Haskell](images/logos/haskell.png) | Clash, Bluespec               |
-| Others                               | Silice, Synthesijer, and more |
+| ![Python](images/logos/python.png)   | Amaranth (nMigen), MyHDL     |
+| ![Scala](images/logos/scala.png)     | SpinalHDL, Chisel            |
+| ![Haskell](images/logos/haskell.png) | Clash, Bluespec              |
+| Others                               | Silice, PipelineC, and more! |
 |   |   |
 
 ---
