@@ -475,7 +475,7 @@ Suports GHDL, Yosys, VUnit, GTKwave, Verilator, cocotb, edalize, icestorm, Trell
 
 ![HDL](images/logos/HDL.png)&nbsp;&nbsp;&nbsp;&nbsp;![IEEE-P1076.gitlab.io](images/logos/VASG.png)
 
-![SymbiFlow](images/logos/symbiflow.png)&nbsp;&nbsp;&nbsp;&nbsp;![Chips Alliance](images/logos/chips-alliance.png)
+![F4PGA](images/logos/f4pga.png)&nbsp;&nbsp;&nbsp;&nbsp;![Chips Alliance](images/logos/chips-alliance.png)
 
 ![FOSSi](images/logos/fossi.png)&nbsp;&nbsp;&nbsp;&nbsp;![OSFPGA](images/logos/osfpga.png)
 
@@ -483,12 +483,10 @@ Suports GHDL, Yosys, VUnit, GTKwave, Verilator, cocotb, edalize, icestorm, Trell
 
 ### How to be updated: People
 
-|   |   |   |
-|---|---|---|
-| ![GitHub icon](images/icons/github.png)   | [mithro](https://github.com/mithro)          | Tim 'mithro' Ansell                      |
-| ![Twitter icon](images/icons/twitter.png) | [mithro](https://twitter.com/mithro)         | ![Symbiflow](images/logos/symbiflow.png) |
-| ![GitHub icon](images/icons/github.png)   | [umarcor](https://github.com/umarcor)        | Unai Martinez-Corral                     |
-| ![Twitter icon](images/icons/twitter.png) | [unaimarcor](https://twitter.com/unaimarcor) | ![umarcor](images/logos/umarcor.png)     |
+|   |   |     |   |   |
+|---|---|:---:|---|---|
+| ![GitHub icon](images/icons/github.png) | [mithro](https://github.com/mithro)   | Tim 'mithro' Ansell  | ![Twitter icon](images/icons/twitter.png) | [mithro](https://twitter.com/mithro) |
+| ![GitHub icon](images/icons/github.png) | [umarcor](https://github.com/umarcor) | Unai Martinez-Corral | ![Twitter icon](images/icons/twitter.png) | [unaimarcor](https://twitter.com/unaimarcor) |
 
 ---
 
