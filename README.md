@@ -9,6 +9,8 @@ Our aim is to provide a gentle introduction to the main development tools, in a 
 
 ## Talks
 
+* 2021-08-29 - [Joint ICTP, SAIFR and UNESP School on Systems-on-Chip, Embedded Microcontrollers and their Applications in Research and Industry](http://indico.ictp.it/event/9644/other-view?view=ictptimetable)
+  * [slides](http://indico.ictp.it/event/9644/session/9/contribution/36/material/slides/0.pdf)
 * 2021-05-18 - [Ciclo de charlas sobre la EDU-CIAA-FPGA](https://www.youtube.com/channel/UCmdz7OJ4p64Jh7GRFJqhHqQ)
   * [video](https://www.youtube.com/watch?v=IKDzkQ1zg2g) (Spanish)
   * [slides](https://github.com/rodrigomelo9/FOSS-for-FPGAs/tree/f92dfc4b1e12b47b9e02ebc9f9ad46cd24bb6b98) (tag 2021-05-18)
