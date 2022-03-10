@@ -69,8 +69,13 @@ Tachyon [CVC](https://github.com/cambridgehackers/open-src-cvc).
 
 ---
 <!-- ###################################################################### -->
-## Elements of a simulation
+## Example
+### (crash course)
 <!-- ###################################################################### -->
+
+----
+
+### Elements of a simulation
 
 * One (top-level) or more HDL files (the DUT)
 * A Python script with one or more individual tests
@@ -199,64 +204,71 @@ from cocotb.<MODULE> import <CLASS>
 
 @cocotb.test()
 async def test1(dut):
+    await <TRIGGER>|<CORO>
 
 @cocotb.test()
 async def test2(dut):
+    await <TRIGGER>|<CORO>
 
 async def coro1(dut):
+    await <TRIGGER>|<CORO>
+    [return <VALUE>]
 
 async def coro2(dut):
+    await <TRIGGER>|<CORO>
+    [return <VALUE>]
 
 def func():
+    return <VALUE>
 ```
-
-<!--**More at:**-->
-<!--* https://docs.cocotb.org/en/stable/library_reference.html-->
-<!--* https://docs.cocotb.org/en/stable/coroutines.html-->
+<!-- .element: style="font-size: 0.35em !important;" -->
 
 ----
 
 ### Accessing the design
 
+When cocotb initializes it finds the toplevel instantiation in the simulator and creates a handler.
+
 ```
 @cocotb.test()
 async def my_test1(dut):
-    # Assign a signal
-    dut.data_i.value = 1
-    # Get a reference and assign a signal
-    data_i = dut.data_i
-    data_i.value = 1
+    # Get a reference and assign a value
+    data = dut.data_i
+    data.value = 1
+    # Direct assignment through the hierarchy
+    dut.input_signal.value = 1
     # Assign a value to a memory deep in the hierarchy
-    dut.memory_inst.memory.array[4].value = 2
-    # Read a signal
-    count = dut.count_o.value
+    dut.sub_block.memory.array[4].value = 2
+    # Read a value
+    value = dut.output_signal.value
+    # Get the number of bits in a value
+    bits = dut.output_signal.value.n_bits
 ```
+<!-- .element: style="font-size: 0.40em !important;" -->
 
-A common mistake is forgetting the **.value**.
-
-<!-- the Python type depends on the handle's HDL type -->
+**WARNING:** a common mistake is forgetting the **.value** (which just gives you a reference to the handler).
 
 ----
 
-### Signed and unsigned values
+### Clock and reset generation
 
+----
+
+### Logging
+
+It is based on Python logging
 ```
-module my_module (
-    input   logic       clk,
-    input   logic       rst,
-    input   logic [2:0] data_in,
-    output  logic [2:0] data_out
-    );
+@cocotb.test()
+async def example(dut):
+    dut._log.debug("hello world!")
+    dut._log.info("hello world!")
+    dut._log.warning("hello world!")
+    dut._log.error("hello world!")
+    dut._log.critical("hello world!")
 ```
 
-```
-dut.data_in.value = -4
-dut.data_in.value = 7
-dut.data_in.value = 8   # raises OverflowError
-dut.data_in.value = -5  # raises OverflowError
-```
-
-`-2^(Nbits-1) <= value <= 2^Nbits-1`
+![INFO logging](images/screens/cocotb-info.png)
+![DEBUG logging](images/screens/cocotb-debug.png)
 
 ----
 
@@ -264,31 +276,64 @@ dut.data_in.value = -5  # raises OverflowError
 
 ----
 
-### Forcing and freezing signals
-
-```
-# Deposit action
-dut.my_signal.value = 12
-dut.my_signal.value = Deposit(12)  # equivalent syntax
-# Force action
-dut.my_signal.value = Force(12)    # stays 12 until released
-# Freeze action
-dut.my_signal.value = Freeze()     # stays at current value
-# Release action
-dut.my_signal.value = Release()    # Reverts any force/freeze
-```
-
-----
-
-### Passing and Failing Tests
-
-----
-
-### Logging
-
-----
-
 ### Triggers
+
+```
+from cocotb.triggers import RisingEdge, ... # Triggers are used to indicate when the cocotb
+                                            # scheduler should resume coroutine execution.
+async def coro():                           # To use a trigger, a coroutine should await it.
+    print("Some time before the edge")      # This will cause execution of the current
+    await RisingEdge(clk)                   # coroutine to pause. When the trigger fires,
+    print("Immediately after the edge")     # execution of the paused coroutine will resume.
+
+# Simulator Triggers
+# * Signals
+#   * RisingEdge(dut.clk)
+#   * FallingEdge(dut.clk)
+#   * Edge(dut.clk)
+#   * ClockCycles(dut.clk, 3)
+# * Timing
+#   * Timer(100, units='ns')
+# Python Triggers
+# * Combine(*triggers)                      <-- Fires when all of triggers have fired
+# * First(*triggers)                        <-- Fires when the first trigger in triggers fires.
+# * Join(coro)                              <-- Fires when a task (a running coro) completes
+# Synchronization
+# * with_timeout(<trigger|coro>, 100, 'ns') <-- Useful to avoid not-ending simulations
+```
+<!-- .element: style="font-size: 0.35em !important;" -->
+
+[Full list](https://docs.cocotb.org/en/latest/triggers.html)
+
+----
+
+### Failing Tests
+
+```
+@cocotb.test()                                    @cocotb.test()
+async def test(dut):                              async def test(dut):
+    assert 1 > 2, "Testing the obvious"               await not_exist()
+
+
+Test Failed: test (result was AssertionError)     Test Failed: test (result was NameError)
+Traceback (most recent call last):                Traceback (most recent call last):
+  File "test.py", line 3, in test                   File "test.py", line 3, in test
+    assert 1 > 2, "Testing the obvious"               await not_exist()
+AssertionError: Testing the obvious               NameError: name 'not_exist' is not defined
+```
+<!-- .element: style="font-size: 0.35em !important;" -->
+
+### Passing Tests
+
+```
+@cocotb.test():                                   @cocotb.test()
+async def test(dut):                              async def test(dut):
+    assert 2 > 1                                      raise TestSuccess("Reason")
+
+
+Test Passed: test                                 Test Passed: test
+```
+<!-- .element: style="font-size: 0.35em !important;" -->
 
 ---
 <!-- ###################################################################### -->
@@ -366,11 +411,11 @@ make RANDOM_SEED=<SEED>
 * **COVERAGE**: enable to report Python coverage (and HDL in some simulators).
 * **GUI**: enable this mode (if supported).
 
-[**Full list**](https://docs.cocotb.org/en/stable/building.html)
+[Full list](https://docs.cocotb.org/en/stable/building.html)
 
 ---
 <!-- ###################################################################### -->
-# Miscellaneous
+## Miscellaneous
 <!-- ###################################################################### -->
 
 ----
@@ -379,7 +424,9 @@ make RANDOM_SEED=<SEED>
 
 * [cocotb-bus](https://github.com/cocotb/cocotb-bus): reusable bus interfaces (AMBA, Avalon, others).
 * [cocotbext-axi](https://github.com/alexforencich/cocotbext-axi): AXI, AXI lite, and AXI stream simulation models.
-* [cocotbext-wishbone](https://github.com/wallento/cocotbext-wishbone): driver and monitor modules for the Wishbone bus.
+* [cocotb-coverage](https://github.com/mciepluc/cocotb-coverage): Functional Coverage and Constrained Randomization.
+
+[Others](https://github.com/cocotb/cocotb/wiki/Further-Resources#extension-modules-cocotbext)
 
 ----
 
@@ -389,6 +436,8 @@ make RANDOM_SEED=<SEED>
 * It uses cocotb to interact with the simulator and schedule simulation events.
 
 Supported by [Siemens](https://blogs.sw.siemens.com/verificationhorizons/2021/09/09/python-and-the-uvm/)
+
+See also [uvm-python](https://github.com/tpoikela/uvm-python)
 
 ---
 <!-- ###################################################################### -->
