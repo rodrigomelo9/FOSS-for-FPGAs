@@ -25,8 +25,24 @@ VHDL and (System)Verilog RTL using Python.
 
 ----
 
+### Why cocotb?
+
+* Writing Python is fast (very productive language).
+* It's easy to interface to other languages.
+* Has a huge library of existing code to re-use.
+* It's interpreted, so tests can be edited and re-run without having to recompile.
+* Far more engineers know Python than one HDL.
+
+|     |
+|:---:|
+| cocotb was specifically designed to lower the overhead of creating a test |
+|     |
+
+----
+
 ### A Brief History of cocotb
 
+```
 * 2012: started by Chris Higgs and Stuart Hodgson (Potential Ventures).
 * 2013: Open sourced (BSD, Jun). cocotb 0.1 (Jul), 0.2 (Jul) and 0.3 (Sep).
 * 2014: cocotb 0.4 (Feb).
@@ -36,6 +52,11 @@ VHDL and (System)Verilog RTL using Python.
 * 2020: cocotb 1.3 (Jan), 1.4 (Jul).
 * 2021: cocotb 1.5 (Mar), 1.6 (Oct).
 * cocotb 1.7/2.0 under development.
+```
+<!-- .element: style="font-size: 0.4em !important;" -->
+
+![cocotb unofficial](images/logos/cocotb-unofficial.png)
+![FOSSi](images/logos/fossi.png)
 
 ----
 
@@ -199,21 +220,21 @@ make view
 ### Structure of a Python testbench
 
 ```
-import cocotb
-from cocotb.<MODULE> import <CLASS>
-
-@cocotb.test()
-async def test1(dut):
-    await <TRIGGER>|<CORO>
-
-@cocotb.test()
-async def test2(dut):
-    await <TRIGGER>|<CORO>
-
-async def coro1(dut):
-    await <TRIGGER>|<CORO>
-    [return <VALUE>]
-
+import cocotb                        # Concurrent and sequential execution
+from cocotb.<MODULE> import <CLASS>  #
+                                     # An *await* will run an *async*
+@cocotb.test()                       # *coro* and wait for it to complete.
+async def test1(dut):                #
+    await <TRIGGER>|<CORO>           # The called *coro* blocks the execution
+                                     # of the current *coro*.
+@cocotb.test()                       #
+async def test2(dut):                # Wrapping the call in *start()* or
+    await <TRIGGER>|<CORO>           # *start_soon()* runs the *coro*
+                                     # concurrently.
+async def coro1(dut):                #
+    await <TRIGGER>|<CORO>           # You can *await* the result of the
+    [return <VALUE>]                 # forked *coro*, which will block until
+                                     # the forked *coro* finishes.
 async def coro2(dut):
     await <TRIGGER>|<CORO>
     [return <VALUE>]
@@ -227,9 +248,10 @@ def func():
 
 ### Accessing the design
 
-When cocotb initializes it finds the toplevel instantiation in the simulator and creates a handler.
-
 ```
+# When cocotb initializes it finds the toplevel instantiation
+# in the simulator and creates a handler.
+
 @cocotb.test()
 async def my_test1(dut):
     # Get a reference and assign a value
@@ -240,17 +262,38 @@ async def my_test1(dut):
     # Assign a value to a memory deep in the hierarchy
     dut.sub_block.memory.array[4].value = 2
     # Read a value
-    value = dut.output_signal.value
+    dout = dut.output_signal.value
+    print(dout.binstr)  # 1X1010
+    print(dout.integer) # 42
     # Get the number of bits in a value
-    bits = dut.output_signal.value.n_bits
-```
-<!-- .element: style="font-size: 0.40em !important;" -->
+    print(dout.n_bits)  # 6
 
-**WARNING:** a common mistake is forgetting the **.value** (which just gives you a reference to the handler).
+# WARNING: a common mistake is forgetting *.value*
+# (which just gives you a reference to the handler).
+```
+<!-- .element: style="font-size: 0.35em !important;" -->
 
 ----
 
 ### Clock and reset generation
+
+```
+import cocotb
+from cocotb.clock import Clock
+
+@cocotb.test()
+async def example(dut):
+    cocotb.start_soon(Clock(dut.clk_i, 1, units='ns').start())
+    await reset(dut)
+    ...
+
+async def reset(dut, cycles=1):
+    dut.rst_i.value = 1
+    await ClockCycles(dut.clk_i, cycles)
+    dut.rst_i.value = 0
+    await RisingEdge(dut.clk_i)
+    dut._log.info("the core was reset")
+```
 
 ----
 
@@ -269,10 +312,6 @@ async def example(dut):
 
 ![INFO logging](images/screens/cocotb-info.png)
 ![DEBUG logging](images/screens/cocotb-debug.png)
-
-----
-
-### Concurrent and sequential execution
 
 ----
 
