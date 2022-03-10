@@ -4,8 +4,13 @@
 [![Doc generation status](https://img.shields.io/github/workflow/status/rodrigomelo9/FOSS-for-FPGAs/doc?longCache=true&label=doc)](https://github.com/rodrigomelo9/FOSS-for-FPGAs/actions/workflows/doc.yml)
 [![Examples status](https://img.shields.io/github/workflow/status/rodrigomelo9/FOSS-for-FPGAs/doc?longCache=true&label=examples)](https://github.com/rodrigomelo9/FOSS-for-FPGAs/actions/workflows/examples.yml)
 
-The Free and Open-Source Software (FOSS) ecosystem for digital hardware design, to work with devices such as FPGAs and ASICs, is growing and can be difficult to know the alternatives and be up-to-date.
+The Free/Libre and Open-Source Software (FOSS/FLOSS) ecosystem for digital hardware design (FPGA/ASIC), is growing and can be difficult to know the alternatives and be up-to-date.
 Our aim is to provide a gentle introduction to the main development tools, in a common place.
+
+## Available presentations
+
+* [FOSS for FPGA development](https://rodrigomelo9.github.io/FOSS-for-FPGAs/foss-for-fpga.html)
+* [cocotb tutorial](https://rodrigomelo9.github.io/FOSS-for-FPGAs/cocotb.html)
 
 ## Talks
 
@@ -18,7 +23,7 @@ Our aim is to provide a gentle introduction to the main development tools, in a 
   * [video](http://video.ictp.it/WEB/2021/2021_01_25-smr3562/2021_02_10-11_00-smr3562.mp4) (English)
   * [slides](http://indico.ictp.it/event/9443/session/258/contribution/587/material/slides/0.pdf)
 
-## Requisites to reproduce the presentation and run the exercises
+## Requisites to recreate the presentation and run examples locally
 
 ### To create the presentation
 
@@ -36,7 +41,7 @@ make
 
 And open `_build/index.html` with a web browser.
 
-### To run the exercises
+### To run examples
 
 > **NOTE:** this instructions are for x86_64/amd64 architectures of Ubuntu (>= 16.04) and Debian (>= 9).
 > Other alternatives or more details at [Install Docker Engine](https://docs.docker.com/engine/install).
