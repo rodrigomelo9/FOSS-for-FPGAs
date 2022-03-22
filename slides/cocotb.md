@@ -267,11 +267,10 @@ async def my_test1(dut):
     print(dout.integer) # 42
     # Get the number of bits in a value
     print(dout.n_bits)  # 6
-
-# WARNING: a common mistake is forgetting *.value*
-# (which just gives you a reference to the handler).
 ```
 <!-- .element: style="font-size: 0.35em !important;" -->
+
+**WARNING:** a common mistake is forgetting **.value** (which just gives you a reference to the handler).
 
 ----
 
@@ -346,33 +345,137 @@ async def coro():                           # To use a trigger, a coroutine shou
 
 ----
 
-### Failing Tests
+### Passing and Failing Tests
 
 ```
-@cocotb.test()                                    @cocotb.test()
-async def test(dut):                              async def test(dut):
-    assert 1 > 2, "Testing the obvious"               await not_exist()
+import cocotb
+from cocotb.result import TestSuccess, SimTimeoutError
+from cocotb.triggers import Timer, with_timeout
 
+@cocotb.test()
+async def test_pass(dut):
+    assert 1<2
 
-Test Failed: test (result was AssertionError)     Test Failed: test (result was NameError)
-Traceback (most recent call last):                Traceback (most recent call last):
-  File "test.py", line 3, in test                   File "test.py", line 3, in test
-    assert 1 > 2, "Testing the obvious"               await not_exist()
-AssertionError: Testing the obvious               NameError: name 'not_exist' is not defined
+@cocotb.test()
+async def test_success(dut):
+    raise TestSuccess("Reason")
+    assert 1>2
+
+@cocotb.test(expect_fail=True)
+async def test_fail(dut):
+    assert 1>2
+
+@cocotb.test(expect_error=SimTimeoutError)
+async def test_error(dut):
+    await with_timeout(Timer(2, 'ns'), 1, 'ns')
 ```
-<!-- .element: style="font-size: 0.35em !important;" -->
-
-### Passing Tests
+<!-- .element: style="font-size: 0.3em !important;" -->
 
 ```
-@cocotb.test():                                   @cocotb.test()
-async def test(dut):                              async def test(dut):
-    assert 2 > 1                                      raise TestSuccess("Reason")
-
-
-Test Passed: test                                 Test Passed: test
+     0.00ns INFO     running test_pass (1/4)
+     0.00ns INFO     test_pass passed
+     0.00ns INFO     running test_success (2/4)
+     0.00ns INFO     test_success passed
+     0.00ns INFO     running test_fail (3/4)
+     0.00ns INFO     test_fail passed: failed as expected (result was AssertionError)
+     0.00ns INFO     running test_error (4/4)
+     1.00ns INFO     test_error passed: errored as expected (result was SimTimeoutError)
+     1.00ns INFO     **************************************************************************************
+                     ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                     **************************************************************************************
+                     ** example.test_pass              PASS           0.00           0.00          1.97  **
+                     ** example.test_success           PASS           0.00           0.00         14.61  **
+                     ** example.test_fail              PASS           0.00           0.00         19.15  **
+                     ** example.test_error             PASS           1.00           0.00       4373.44  **
+                     **************************************************************************************
+                     ** TESTS=4 PASS=4 FAIL=0 SKIP=0                  1.00           0.01        146.15  **
+                     **************************************************************************************
 ```
-<!-- .element: style="font-size: 0.35em !important;" -->
+<!-- .element: style="font-size: 0.3em !important;" -->
+
+----
+
+### Failing examples
+
+```
+     0.00ns INFO     running test_pass (1/4)
+     0.00ns INFO     test_pass passed
+     0.00ns INFO     running test_success (2/4)
+     0.00ns INFO     test_success passed
+     0.00ns INFO     running test_fail (3/4)
+     0.00ns INFO     test_fail failed
+                     Traceback (most recent call last):
+                       File "/<PATH>/FOSS-for-FPGAs/examples/cocotb/testend/example.py", line 16, in test_fail
+                         assert 1>2
+                     AssertionError
+     0.00ns INFO     running test_error (4/4)
+     1.00ns INFO     test_error failed
+                     Traceback (most recent call last):
+                       File "/<PATH>/FOSS-for-FPGAs/examples/cocotb/testend/example.py", line 20, in test_error
+                         await with_timeout(Timer(2, 'ns'), 1, 'ns')
+                       File "/usr/local/lib/python3.8/dist-packages/cocotb/triggers.py", line 944, in with_timeout
+                         raise cocotb.result.SimTimeoutError
+                     cocotb.result.SimTimeoutError
+     1.00ns INFO     **************************************************************************************
+                     ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                     **************************************************************************************
+                     ** example.test_pass              PASS           0.00           0.00          2.18  **
+                     ** example.test_success           PASS           0.00           0.00         14.77  **
+                     ** example.test_fail              FAIL           0.00           0.00         18.56  **
+                     ** example.test_error             FAIL           1.00           0.00       4297.34  **
+                     **************************************************************************************
+                     ** TESTS=4 PASS=2 FAIL=2 SKIP=0                  1.00           0.01        145.35  **
+                     **************************************************************************************
+```
+<!-- .element: style="font-size: 0.29em !important;" -->
+
+----
+
+### Timeout
+
+```
+import cocotb
+from cocotb.triggers import Timer, with_timeout
+
+@cocotb.test(timeout_time=3, timeout_unit='ns')
+async def test_timeout_pass(dut):
+    await Timer(2, 'ns')
+
+@cocotb.test()
+async def trigger_timeout_pass(dut):
+    await with_timeout(Timer(2, 'ns'), 3, 'ns')
+
+@cocotb.test(timeout_time=1, timeout_unit='ns', expect_error=cocotb.result.SimTimeoutError)
+async def test_timeout_fail(dut):
+    await Timer(2, 'ns')
+
+@cocotb.test(expect_error=cocotb.result.SimTimeoutError)
+async def trigger_timeout_fail(dut):
+    await with_timeout(Timer(2, 'ns'), 1, 'ns')
+```
+<!-- .element: style="font-size: 0.3em !important;" -->
+
+```
+     0.00ns INFO     running test_timeout_pass (1/4)
+     2.00ns INFO     test_timeout_pass passed
+     2.00ns INFO     running trigger_timeout_pass (2/4)
+     4.00ns INFO     trigger_timeout_pass passed
+     4.00ns INFO     running test_timeout_fail (3/4)
+     5.00ns INFO     test_timeout_fail passed: errored as expected (result was SimTimeoutError)
+     5.00ns INFO     running trigger_timeout_fail (4/4)
+     6.00ns INFO     trigger_timeout_fail passed: errored as expected (result was SimTimeoutError)
+     6.00ns INFO     **************************************************************************************
+                     ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                     **************************************************************************************
+                     ** example.test_timeout_pass      PASS           2.00           0.00       2955.21  **
+                     ** example.trigger_timeout_pass   PASS           2.00           0.00      10596.97  **
+                     ** example.test_timeout_fail      PASS           1.00           0.00       4613.73  **
+                     ** example.trigger_timeout_fail   PASS           1.00           0.00       5727.83  **
+                     **************************************************************************************
+                     ** TESTS=4 PASS=4 FAIL=0 SKIP=0                  6.00           0.01        856.96  **
+                     **************************************************************************************
+```
+<!-- .element: style="font-size: 0.3em !important;" -->
 
 ---
 <!-- ###################################################################### -->
