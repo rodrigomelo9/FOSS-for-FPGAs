@@ -254,23 +254,41 @@ def func():
 
 @cocotb.test()
 async def my_test1(dut):
-    # Get a reference and assign a value
-    data = dut.data_i
-    data.value = 1
-    # Direct assignment through the hierarchy
-    dut.input_signal.value = 1
-    # Assign a value to a memory deep in the hierarchy
+    dut.data_i.value = 1    # Write an input port
+    data = dut.data_o.value # Read an output port
+    width = dut.WIDTH.value # Read a generic/parameter
+    data = dut.data_i       # Get a reference
+    data.value = 1          # Write into the reference
+    # Assign a value deep in the hierarchy
     dut.sub_block.memory.array[4].value = 2
-    # Read a value
+    # Representations
     dout = dut.output_signal.value
     print(dout.binstr)  # 1X1010
     print(dout.integer) # 42
-    # Get the number of bits in a value
-    print(dout.n_bits)  # 6
+    print(dout.n_bits)  # 6 (number of bits)
 ```
 <!-- .element: style="font-size: 0.35em !important;" -->
 
 **WARNING:** a common mistake is forgetting **.value** (which just gives you a reference to the handler).
+
+----
+
+### Forcing and freezing signals
+
+```
+# Deposit action
+dut.my_signal.value = 12
+dut.my_signal.value = Deposit(12)  # equivalent syntax
+
+# Force action: my_signal stays 12 until released
+dut.my_signal.value = Force(12)
+
+# Release action: reverts any force/freeze assignments
+dut.my_signal.value = Release()
+
+# Freeze action: my_signal stays at current value until released
+dut.my_signal.value = Freeze()
+```
 
 ----
 
