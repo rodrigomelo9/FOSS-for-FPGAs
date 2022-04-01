@@ -495,6 +495,12 @@ async def trigger_timeout_fail(dut):
 ```
 <!-- .element: style="font-size: 0.3em !important;" -->
 
+----
+
+### TestFactory
+
+![TestFactory](images/screens/cocotb-tf.png)
+
 ---
 <!-- ###################################################################### -->
 ## Build options
