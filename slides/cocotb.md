@@ -104,9 +104,9 @@ Tachyon [CVC](https://github.com/cambridgehackers/open-src-cvc).
 
 ----
 
-### Example DUT
+### DUT (HDL)
 
-```
+```verilog
 module counter #(
     parameter          WIDTH=4
 ) (
@@ -132,9 +132,9 @@ endmodule
 
 ----
 
-### Example Python
+### Testbench (Python)
 
-```
+```python
 import cocotb
 from cocotb.clock import Clock
 from cocotb.triggers import RisingEdge, ClockCycles
@@ -143,25 +143,15 @@ from cocotb.triggers import RisingEdge, ClockCycles
 async def test_reset(dut):
     cocotb.start_soon(Clock(dut.clk_i, 10, units='ns').start())
     await Reset(dut)
-    await RisingEdge(dut.clk_i)
     assert dut.cnt_o.value == 0, 'counter is not 0 after reset'
 
 @cocotb.test()
 async def test_counter(dut):
     cocotb.start_soon(Clock(dut.clk_i, 10, units='ns').start())
     await Reset(dut, 2)
-    for i in range(10):
-        await RisingEdge(dut.clk_i)
-        assert dut.cnt_o.value == i, f'counter is wrong at index {i}'
-
-@cocotb.test()
-async def test_overflow(dut):
-    clock = Clock(dut.clk_i, 10, units='ns')
-    cocotb.start_soon(clock.start())
-    await Reset(dut)
     for i in range(16):
+        assert dut.cnt_o.value == i, f'counter is wrong at index {i}'
         await RisingEdge(dut.clk_i)
-    await RisingEdge(dut.clk_i)
     assert dut.cnt_o.value == 0, 'counter is not 0 after overflow'
 
 async def Reset(dut, cycles=1):
@@ -169,14 +159,15 @@ async def Reset(dut, cycles=1):
     dut.rst_i.value = 1
     await ClockCycles(dut.clk_i, cycles)
     dut.rst_i.value = 0
+    await RisingEdge(dut.clk_i)
 ```
-<!-- .element: style="font-size: 0.40em !important;" -->
+<!-- .element: style="font-size: 0.30em !important;" -->
 
 ----
 
-### Example Makefile
+### Makefile
 
-```
+```makefile
 VERILOG_SOURCES += ../vlog/counter.v
 TOPLEVEL = counter
 MODULE = counter
@@ -192,19 +183,19 @@ clean::
 
 ----
 
-### Example Run
+### Run
 
-```
+```bash
 make
 ```
 
-![cocotb run](images/screens/cocotb.png)
+![cocotb run](images/screens/cocotb-example.png)
 
 ----
 
-### Example waveforms
+### Waveforms
 
-```
+```bash
 make view
 ```
 
@@ -219,7 +210,7 @@ make view
 
 ### Structure of a Python testbench
 
-```
+```python
 import cocotb                        # Concurrent and sequential execution
 from cocotb.<MODULE> import <CLASS>  #
                                      # An *await* will run an *async*
@@ -248,7 +239,7 @@ def func():
 
 ### Accessing the design
 
-```
+```python
 # When cocotb initializes it finds the toplevel instantiation
 # in the simulator and creates a handler.
 
@@ -275,7 +266,7 @@ async def my_test1(dut):
 
 ### Forcing and freezing signals
 
-```
+```python
 # Deposit action
 dut.my_signal.value = 12
 dut.my_signal.value = Deposit(12)  # equivalent syntax
@@ -294,7 +285,7 @@ dut.my_signal.value = Freeze()
 
 ### Clock and reset generation
 
-```
+```python
 import cocotb
 from cocotb.clock import Clock
 
@@ -317,7 +308,7 @@ async def reset(dut, cycles=1):
 ### Logging
 
 It is based on Python logging
-```
+```python
 @cocotb.test()
 async def example(dut):
     dut._log.debug("hello world!")
@@ -334,7 +325,7 @@ async def example(dut):
 
 ### Triggers
 
-```
+```python
 from cocotb.triggers import RisingEdge, ... # Triggers are used to indicate when the cocotb
                                             # scheduler should resume coroutine execution.
 async def coro():                           # To use a trigger, a coroutine should await it.
@@ -365,7 +356,7 @@ async def coro():                           # To use a trigger, a coroutine shou
 
 ### Passing and Failing Tests
 
-```
+```python
 import cocotb
 from cocotb.result import TestSuccess, SimTimeoutError
 from cocotb.triggers import Timer, with_timeout
@@ -451,7 +442,7 @@ async def test_error(dut):
 
 ### Timeout
 
-```
+```python
 import cocotb
 from cocotb.triggers import Timer, with_timeout
 
