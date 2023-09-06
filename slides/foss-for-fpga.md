@@ -140,10 +140,10 @@ Automatically executing actions based on repository events (push, merge, cron, e
 
 ### VHDL simulator
 
-|   |   |
-|---|---|
-| ![GHDL](images/logos/ghdl.png) | Analyzer, compiler, simulator and (experimental) synthesizer for VHDL |
-|   |   |
+![GHDL](images/logos/ghdl.png)
+<!-- .element: style="float: left;" -->
+
+<br> Analyzer, compiler, simulator and (experimental) synthesizer for VHDL
 
 * Full support for IEEE 1076 standard 1987, 1993, 2002 and partial for 2008.
 * It can generate executable binary models of the VHDL design, for (co-)simulation.
@@ -153,24 +153,26 @@ Automatically executing actions based on repository events (push, merge, cron, e
 
 ### Verilog simulators
 
-|   |   |
-|---|---|
-| ![iVerilog](images/logos/iverilog.png) | IEEE-1364 simulator</br>It generates an intermediate file format wich is then interpreted |
-|   |   |
+![iVerilog](images/logos/iverilog.png)
+<!-- .element: style="float: left;" -->
 
-|   |   |
-|---|---|
-| Verilog/SystemVerilog simulator</br>Compiles into multithreaded C++</br>Performs lint code-quality checks | ![Verilator](images/logos/verilator.png) |
-|   |   |
+<br> IEEE-1364 simulator</br>It generates an intermediate file format wich is then interpreted
+
+<br>
+
+![Verilator](images/logos/verilator.png)
+<!-- .element: style="float: right;" -->
+
+Verilog/SystemVerilog simulator</br>Compiles into multithreaded C++</br>Performs lint code-quality checks
 
 ---
 
 ### Waveform viewer
 
-|   |   |
-|---|---|
-| A fully featured wave viewer which reads</br>LXT, LXT2, VZT, FST, and GHW files as</br>well as standard Verilog VCD/EVCD | ![GTKwave](images/screens/gtkwave.png) |
-|   |   |
+![GTKwave](images/screens/gtkwave.png)
+<!-- .element: style="float: right; height: 12em;" -->
+
+<br> A fully featured wave viewer which reads</br>LXT, LXT2, VZT, FST, and GHW files as</br>well as standard Verilog VCD/EVCD
 
 ---
 <!-- ###################################################################### -->
@@ -233,15 +235,15 @@ Using formal mathematic methods (assumptions and assertions) for proving the cor
 
 (or try VHDL support trough ghdl-yosys-plugin)
 
----
+<!------->
 
-### More info
+<!--### More info-->
 
-![Verification trends](images/diagrams/verification-trends.png)
+<!--![Verification trends](images/diagrams/verification-trends.png)-->
 
-**Source:** [GitHub Facts About the HDL Industry](https://larsasplund.github.io/github-facts)
+<!--**Source:** [GitHub Facts About the HDL Industry](https://larsasplund.github.io/github-facts)-->
 
-**Read also:** [Open Source Verification Bundle (OSVB)](https://umarcor.github.io/osvb)
+<!--**Read also:** [Open Source Verification Bundle (OSVB)](https://umarcor.github.io/osvb)-->
 
 ---
 <!-- ###################################################################### -->
