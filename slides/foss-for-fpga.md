@@ -222,14 +222,6 @@ Supported simulators:
 
 ---
 
-### More info
-
-![Verification trends](images/diagrams/verification-trends.png)
-
-**Source:** [GitHub Facts About the HDL Industry](https://larsasplund.github.io/github-facts)
-
-**Read also:** [Open Source Verification Bundle (OSVB)](https://umarcor.github.io/osvb)
-
 ### Formal verification
 
 Using formal mathematic methods (assumptions and assertions) for proving the correctness of a design.
@@ -240,6 +232,16 @@ Using formal mathematic methods (assumptions and assertions) for proving the cor
 ![YosysHQ](images/logos/yosys-hq.png)
 
 (or try VHDL support trough ghdl-yosys-plugin)
+
+---
+
+### More info
+
+![Verification trends](images/diagrams/verification-trends.png)
+
+**Source:** [GitHub Facts About the HDL Industry](https://larsasplund.github.io/github-facts)
+
+**Read also:** [Open Source Verification Bundle (OSVB)](https://umarcor.github.io/osvb)
 
 ---
 <!-- ###################################################################### -->
@@ -382,16 +384,6 @@ Suports GHDL, Yosys, VUnit, GTKwave, Verilator, cocotb, edalize, icestorm, Trell
 
 ---
 
-### Icestudio
-
-![Icestudio](images/screens/icestudio.png)
-
-[FPGAwars/icestudio](https://github.com/FPGAwars/icestudio)
-
-[juanmard/icestudio](https://github.com/juanmard/icestudio) ([nightly](https://github.com/juanmard/icestudio/releases/tag/nightly) builds)
-
----
-
 ### System Verilog Support
 
 * UHDM: Universal Hardware Data Model
@@ -445,13 +437,6 @@ Suports GHDL, Yosys, VUnit, GTKwave, Verilator, cocotb, edalize, icestorm, Trell
 |   |   |
 
 ---
-
-### HDL/constraints
-
-* [hdl/constraints](https://github.com/hdl/constraints): constraint files for Hardware Description Language (HDL) designs targeting FPGA boards.
-* [hdl.github.io/awesome/boards](https://hdl.github.io/awesome/boards/): list of FPGA developments boards.
-
----
 <!-- ###################################################################### -->
 ## Final remarks
 <!-- .slide: data-background="#581845" -->
@@ -473,39 +458,11 @@ Suports GHDL, Yosys, VUnit, GTKwave, Verilator, cocotb, edalize, icestorm, Trell
 
 ### How to be updated: Projects - Organizations
 
-![HDL](images/logos/HDL.png)&nbsp;&nbsp;&nbsp;&nbsp;![IEEE-P1076.gitlab.io](images/logos/VASG.png)
+![Chips Alliance](images/logos/chips-alliance.png)&nbsp;&nbsp;&nbsp;&nbsp;![FOSSi](images/logos/fossi.png)
 
-![F4PGA](images/logos/f4pga.png)&nbsp;&nbsp;&nbsp;&nbsp;![Chips Alliance](images/logos/chips-alliance.png)
+![Antmicro](images/logos/antmicro.png)&nbsp;&nbsp;&nbsp;&nbsp;![YosysHQ](images/logos/yosys-hq.png)
 
-![FOSSi](images/logos/fossi.png)&nbsp;&nbsp;&nbsp;&nbsp;![OSFPGA](images/logos/osfpga.png)
-
----
-
-### How to be updated: People
-
-|   |   |     |   |   |
-|---|---|:---:|---|---|
-| ![GitHub icon](images/icons/github.png) | [mithro](https://github.com/mithro)   | Tim 'mithro' Ansell  | ![Twitter icon](images/icons/twitter.png) | [mithro](https://twitter.com/mithro) |
-| ![GitHub icon](images/icons/github.png) | [umarcor](https://github.com/umarcor) | Unai Martinez-Corral | ![Twitter icon](images/icons/twitter.png) | [unaimarcor](https://twitter.com/unaimarcor) |
-
----
-
-### How to be updated: hdl/awesome
-
-|   |   |
-|---|---|
-| ![HDL awesome](images/screens/hdl-awesome.png) | ![GHDL in HDL awesome](images/screens/hdl-awesome-ghdl.png) |
-|   |   |
-
-[hdl.github.io/awesome](https://hdl.github.io/awesome)
-
-<!-- ---- -->
-
-<!-- #### FPGArgentina -->
-
-<!-- ![FPGArgentina](images/screens/FPGArgentina.png) -->
-
-<!-- [rodrigomelo9.gitlab.io/fpgargentina](https://rodrigomelo9.gitlab.io/fpgargentina) -->
+![F4PGA](images/logos/f4pga.png)&nbsp;&nbsp;&nbsp;&nbsp;![OSFPGA](images/logos/osfpga.png)
 
 ---
 
