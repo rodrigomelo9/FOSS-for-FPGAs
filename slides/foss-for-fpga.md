@@ -360,10 +360,13 @@ Using formal mathematic methods (assumptions and assertions) for proving the cor
 * **HDLmake:** tool for generating multi-purpose Makefiles for FPGA projects (CERN)
 * **PyFPGA:** A Python package to use FPGA development tools programmatically
 
-|   |   |   |   |
-|---|---|---|---|
-| ![PyFPGA](images/logos/pyfpga.png) | Synthesis</br>Implementation</br>Bitstream</br>Programming | ISE, Vivado</br>Quartus</br>Libero-SoC</br>FOSS | **Helpers**</br>hdl2bit</br>prj2bit</br>bitprog |
-|   |   |   |   |
+![PyFPGA](images/logos/pyfpga.png)
+<!-- .element: style="float: left;" -->
+
+<br>Synthesis - Implementation - Bitstream - Programming
+<br>ISE, Vivado, Quartus, Libero-SoC, FOSS
+<br>**Helpers:** hdl2bit - prj2bit - bitprog
+<!-- .element: style="font-size: 0.8em !important;" -->
 
 ---
 
