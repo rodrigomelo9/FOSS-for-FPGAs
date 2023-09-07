@@ -42,7 +42,7 @@
 | ![MPL](images/licenses/mozilla.png) | ![BSD](images/licenses/bsd.png)             | ![MIT](images/licenses/mit.png)       |
 |   |   |   |
 
----
+----
 
 ### Why use FOSS?
 
@@ -54,6 +54,27 @@
 * And [several others](https://www.softwarefreedomday.org/about/why-foss)
 
 (*) [Termux (Android) packages for EDA](https://github.com/hdl/Termux-packages)!
+
+---
+
+### What is an FPGA?
+
+![FPGA](images/fpga/fpga.png)
+<!-- .element: style="background-color: white;" -->
+
+----
+
+### CPU, GPU & FPGA: architecture differences
+
+![FPGA](images/fpga/vs-arch.png)
+<!-- .element: style="background-color: white;" -->
+
+----
+
+### CPU & FPGA:how acceleration is achieved
+
+![FPGA](images/fpga/vs-accel.png)
+<!-- .element: style="background-color: white;" -->
 
 ---
 
