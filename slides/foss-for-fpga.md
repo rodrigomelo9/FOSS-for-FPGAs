@@ -345,6 +345,18 @@ Using formal mathematic methods (assumptions and assertions) for proving the cor
 * **dfu-util:** **D**evice **F**irmware **U**pgrade **Uti**lities (USB)
 
 ---
+
+### System Verilog Support
+
+* UHDM: Universal Hardware Data Model
+* Surelog: SystemVerilog 2017 Pre-processor, Parser, Elaborator, UHDM Compiler (work in progress to integrate with Yosys and Verilator)
+* Verible: SystemVerilog 2017 parser for developer tools (linter, formatter, indexer, lexical diff, others)
+
+![Chips Alliance](images/logos/chips-alliance.png)&nbsp;&nbsp;&nbsp;&nbsp;![Antmicro](images/logos/antmicro.png)
+
+* sv2v: SystemVerilog to Verilog conversion (emphasis on supporting synthesizable language constructs)
+
+---
 <!-- ###################################################################### -->
 ## Development
 <!-- .slide: data-background="#581845" -->
@@ -354,7 +366,7 @@ Using formal mathematic methods (assumptions and assertions) for proving the cor
 
 ---
 
-### Project Managers
+### Building systems
 
 * **edalize:** a Python Library for interacting with EDA tools (was part of FuseSoC, now its build backend).
 * **HDLmake:** tool for generating multi-purpose Makefiles for FPGA projects (CERN)
@@ -367,6 +379,14 @@ Using formal mathematic methods (assumptions and assertions) for proving the cor
 <br>ISE, Vivado, Quartus, Libero-SoC, FOSS
 <br>**Helpers:** hdl2bit - prj2bit - bitprog
 <!-- .element: style="font-size: 0.8em !important;" -->
+
+---
+
+### TerosHDL (VScode plugin)
+
+![TerosHDL](images/screens/teroshdl.png)
+
+Suports GHDL, Yosys, VUnit, GTKwave, Verilator, cocotb, edalize, icestorm, Trellis, Symbiflow...
 
 ---
 
@@ -399,24 +419,6 @@ Using formal mathematic methods (assumptions and assertions) for proving the cor
 ### Softcores: RISC V
 
 ![RISC-V](images/diagrams/risc-v.png)
-
----
-
-### TerosHDL (VScode plugin)
-
-![TerosHDL](images/screens/teroshdl.png)
-
-Suports GHDL, Yosys, VUnit, GTKwave, Verilator, cocotb, edalize, icestorm, Trellis, Symbiflow...
-
----
-
-### System Verilog Support
-
-* UHDM: Universal Hardware Data Model
-* Surelog: SystemVerilog 2017 Pre-processor, Parser, Elaborator, UHDM Compiler (work in progress to integrate with Yosys and Verilator)
-* Verible: SystemVerilog 2017 parser for developer tools (linter, formatter, indexer, lexical diff, others)
-
-![Chips Alliance](images/logos/chips-alliance.png)&nbsp;&nbsp;&nbsp;&nbsp;![Antmicro](images/logos/antmicro.png)
 
 ---
 <!-- ###################################################################### -->
