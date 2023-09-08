@@ -392,27 +392,37 @@ Suports GHDL, Yosys, VUnit, GTKwave, Verilator, cocotb, edalize, icestorm, Trell
 
 ### Libraries, Collections, IP Cores
 
-* **PoC (Pile of Cores Library):** a library of free, open-source and platform independent IP cores.
-* **FuseSoC:** package manager and build abstraction tool (edalize) for FPGA/ASIC development.
-* **Litex:** a Migen/MiSoC based SoC builder to easily create Cores/SoCs
-* **OpenCores** and **LibreCores:** collections of IPs.
-* Several FOSS projects at GitHub and GitLab.
+> * **PULP:** (Parallel Ultra-Low-Power) is a multi-core computing platform.
+> * **Litex:** a Migen/MiSoC based SoC builder to easily create Cores/SoCs.
+> * **FuseSoC:** package manager and build abstraction tool (edalize) for FPGA/ASIC development.
+> * **PoC (Pile of Cores Library):** a library of free, open-source and platform independent IP cores.
+> * **OpenCores** and **LibreCores:** collections of IPs.
+> * Several FOSS projects at GitHub and GitLab.
+<!-- .element: style="font-size: 0.6em !important; width: 40em;" -->
 
-![LiteX](images/logos/litex.png)&nbsp;&nbsp;&nbsp;&nbsp;![OpenCores](images/logos/opencores.png)&nbsp;&nbsp;&nbsp;&nbsp;![LibreCores](images/logos/librecores.png)
+![Pulp](images/logos/pulp.png)&nbsp;&nbsp;&nbsp;&nbsp;
+![LiteX](images/logos/litex.png)&nbsp;&nbsp;&nbsp;&nbsp;
+![FuseSoC](images/logos/fusesoc.png)&nbsp;&nbsp;&nbsp;&nbsp;
+![OpenCores](images/logos/opencores.png)&nbsp;&nbsp;&nbsp;&nbsp;
+![LibreCores](images/logos/librecores.png)
 
 ---
 
-### Softcores: Legacy
+### Softcores (legacy)
 
-**Leon 3** (Gaisler)
-* 32-bit VHDL processor compliant with the SPARC V8 architecture
-* GNU GPL license for research and education
-* Part of the GRLIB
+#### Leon 3 (Gaisler)
 
-**OpenRISC**
-* Specification OpenRISC 1000 (32/64 bits)
-* The flagship implementation, the OR1200, is written in Verilog
-* Part of OpenRISC Reference Platform SoC
+> * 32-bit VHDL processor compliant with the SPARC V8 architecture
+> * GNU GPL license for research and education
+> * Part of the GRLIB
+<!-- .element: style="font-size: 0.6em !important; width: 40em;" -->
+
+#### OpenRISC
+
+> * Specification OpenRISC 1000 (32/64 bits)
+> * The flagship implementation, the OR1200, is written in Verilog
+> * Part of OpenRISC Reference Platform SoC
+<!-- .element: style="font-size: 0.6em !important; width: 40em;" -->
 
 ---
 
