@@ -41,7 +41,7 @@
 <!-- ###################################################################### -->
 
 [⌂](#/1)
-</script></section><section  data-markdown><script type="text/template">
+</script></section><section ><section data-markdown><script type="text/template">
 ### What is FOSS?
 
 * Free/Libre and Open Source Software
@@ -52,7 +52,7 @@
 | ![GPL3](images/licenses/gpl3.png)   | ![Creative Commons](images/licenses/cc.png) | ![Apache](images/licenses/apache.png) |
 | ![MPL](images/licenses/mozilla.png) | ![BSD](images/licenses/bsd.png)             | ![MIT](images/licenses/mit.png)       |
 |   |   |   |
-</script></section><section  data-markdown><script type="text/template">
+</script></section><section data-markdown><script type="text/template">
 ### Why use FOSS?
 
 * Freedom matters!
@@ -63,7 +63,22 @@
 * And [several others](https://www.softwarefreedomday.org/about/why-foss)
 
 (*) [Termux (Android) packages for EDA](https://github.com/hdl/Termux-packages)!
-</script></section><section ><section data-markdown><script type="text/template">
+</script></section></section><section ><section data-markdown><script type="text/template">
+### What is an FPGA?
+
+![FPGA](images/fpga/fpga.png)
+<!-- .element: style="background-color: white;" -->
+</script></section><section data-markdown><script type="text/template">
+### CPU, GPU & FPGA: architecture differences
+
+![FPGA](images/fpga/vs-arch.png)
+<!-- .element: style="background-color: white;" -->
+</script></section><section data-markdown><script type="text/template">
+### CPU & FPGA:how acceleration is achieved
+
+![FPGA](images/fpga/vs-accel.png)
+<!-- .element: style="background-color: white;" -->
+</script></section></section><section ><section data-markdown><script type="text/template">
 ### Some previous considerations
 
 * Most projects are *command-line* based (common on Linux/Unix, or you can use WSL2)
@@ -283,6 +298,16 @@ Using formal mathematic methods (assumptions and assertions) for proving the cor
 * **ecpprog:** programmer for the Lattice ECP5 series  (FTDI-based programmers)
 * **openFPGALoader:** universal utility for programming FPGA
 * **dfu-util:** **D**evice **F**irmware **U**pgrade **Uti**lities (USB)
+</script></section><section  data-markdown><script type="text/template">
+### System Verilog Support
+
+* UHDM: Universal Hardware Data Model
+* Surelog: SystemVerilog 2017 Pre-processor, Parser, Elaborator, UHDM Compiler (work in progress to integrate with Yosys and Verilator)
+* Verible: SystemVerilog 2017 parser for developer tools (linter, formatter, indexer, lexical diff, others)
+
+![Chips Alliance](images/logos/chips-alliance.png)&nbsp;&nbsp;&nbsp;&nbsp;![Antmicro](images/logos/antmicro.png)
+
+* sv2v: SystemVerilog to Verilog conversion (emphasis on supporting synthesizable language constructs)
 </script></section><section  data-markdown><script type="text/template"><!-- ###################################################################### -->
 ## Development
 <!-- .slide: data-background="#581845" -->
@@ -290,16 +315,25 @@ Using formal mathematic methods (assumptions and assertions) for proving the cor
 
 [⌂](#/1)
 </script></section><section  data-markdown><script type="text/template">
-### Project Managers
+### Building systems
 
 * **edalize:** a Python Library for interacting with EDA tools (was part of FuseSoC, now its build backend).
 * **HDLmake:** tool for generating multi-purpose Makefiles for FPGA projects (CERN)
 * **PyFPGA:** A Python package to use FPGA development tools programmatically
 
-|   |   |   |   |
-|---|---|---|---|
-| ![PyFPGA](images/logos/pyfpga.png) | Synthesis</br>Implementation</br>Bitstream</br>Programming | ISE, Vivado</br>Quartus</br>Libero-SoC</br>FOSS | **Helpers**</br>hdl2bit</br>prj2bit</br>bitprog |
-|   |   |   |   |
+![PyFPGA](images/logos/pyfpga.png)
+<!-- .element: style="float: left;" -->
+
+<br>Synthesis - Implementation - Bitstream - Programming
+<br>ISE, Vivado, Quartus, Libero-SoC, FOSS
+<br>**Helpers:** hdl2bit - prj2bit - bitprog
+<!-- .element: style="font-size: 0.8em !important;" -->
+</script></section><section  data-markdown><script type="text/template">
+### TerosHDL (VScode plugin)
+
+![TerosHDL](images/screens/teroshdl.png)
+
+Suports GHDL, Yosys, VUnit, GTKwave, Verilator, cocotb, edalize, icestorm, Trellis, Symbiflow...
 </script></section><section  data-markdown><script type="text/template">
 ### Libraries, Collections, IP Cores
 
@@ -326,20 +360,6 @@ Using formal mathematic methods (assumptions and assertions) for proving the cor
 ### Softcores: RISC V
 
 ![RISC-V](images/diagrams/risc-v.png)
-</script></section><section  data-markdown><script type="text/template">
-### TerosHDL (VScode plugin)
-
-![TerosHDL](images/screens/teroshdl.png)
-
-Suports GHDL, Yosys, VUnit, GTKwave, Verilator, cocotb, edalize, icestorm, Trellis, Symbiflow...
-</script></section><section  data-markdown><script type="text/template">
-### System Verilog Support
-
-* UHDM: Universal Hardware Data Model
-* Surelog: SystemVerilog 2017 Pre-processor, Parser, Elaborator, UHDM Compiler (work in progress to integrate with Yosys and Verilator)
-* Verible: SystemVerilog 2017 parser for developer tools (linter, formatter, indexer, lexical diff, others)
-
-![Chips Alliance](images/logos/chips-alliance.png)&nbsp;&nbsp;&nbsp;&nbsp;![Antmicro](images/logos/antmicro.png)
 </script></section><section  data-markdown><script type="text/template"><!-- ###################################################################### -->
 ## Hardware
 <!-- .slide: data-background="#581845" -->
