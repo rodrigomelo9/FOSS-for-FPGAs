@@ -2,7 +2,7 @@
 
 # cocotb tutorial
 
-#### (cocotb 1.6, python 3.6+)
+#### (cocotb 1.8, python 3.6+)
 
 [github.com/rodrigomelo9/FOSS-for-FPGAs](https://github.com/rodrigomelo9/FOSS-for-FPGAs)
 
@@ -51,11 +51,13 @@ VHDL and (System)Verilog RTL using Python.
 * 2019: cocotb 1.1 (Jan), 1.2 (Jul).
 * 2020: cocotb 1.3 (Jan), 1.4 (Jul).
 * 2021: cocotb 1.5 (Mar), 1.6 (Oct).
-* cocotb 1.7/2.0 under development.
+* 2022: cocotb 1.7 (Sep)
+* 2023: cocotb 1.8 (Jun)
+* cocotb 1.9/2.0 under development.
 ```
 <!-- .element: style="font-size: 0.4em !important;" -->
 
-![cocotb unofficial](images/logos/cocotb-unofficial.png)
+![cocotb unofficial](images/logos/cocotb-unofficial.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![FOSSi](images/logos/fossi.png)
 
 ----
@@ -71,7 +73,7 @@ VHDL and (System)Verilog RTL using Python.
 ### Installation (Debian based systems)
 
 ```bash
-apt install make gcc g++ python3 python3-dev python3-pip
+apt install make python3 python3-pip
 pip3 install cocotb
 ```
 
