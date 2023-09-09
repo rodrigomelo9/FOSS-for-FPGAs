@@ -382,11 +382,12 @@ Using formal mathematic methods (assumptions and assertions) for proving the cor
 
 ---
 
-### TerosHDL (VScode plugin)
+### TerosHDL (VSCode/VSCodium plugin)
 
 ![TerosHDL](images/screens/teroshdl.png)
 
-Suports GHDL, Yosys, VUnit, GTKwave, Verilator, cocotb, edalize, icestorm, Trellis, Symbiflow...
+> Simulators Raptor, Vivado, ModelSim, GHDL, Verilator, Icarus, VCS, Yosys, VUnit, cocotb, edalize, Diamond, Icestorm, ISE, Quartus, Radiant, Spyglass, Symbiflow, Trellis, Xcelium... and more!
+<!-- .element: style="font-size: 0.6em !important; width: 40em;" -->
 
 ---
 
@@ -490,17 +491,18 @@ Suports GHDL, Yosys, VUnit, GTKwave, Verilator, cocotb, edalize, icestorm, Trell
 * From the project repository (some times could be complex or tedious)
 * Get a ready to use container from [hdl.github.io/containers](https://hdl.github.io/containers/)
   (install [Docker](https://github.com/rodrigomelo9/FOSS-for-FPGAs#docker-installation))
-* Use a package manager for Windows ([MSYS2](https://www.msys2.org/)) and install from [hdl.github.io/MINGW-packages](https://hdl.github.io/MINGW-packages/)
 
 ---
 
-### How to be updated: Projects - Organizations
+### Interesting organizations / companies
 
 ![Chips Alliance](images/logos/chips-alliance.png)&nbsp;&nbsp;&nbsp;&nbsp;![FOSSi](images/logos/fossi.png)
 
-![Antmicro](images/logos/antmicro.png)&nbsp;&nbsp;&nbsp;&nbsp;![YosysHQ](images/logos/yosys-hq.png)
+![Antmicro](images/logos/antmicro.png)&nbsp;&nbsp;&nbsp;&nbsp;![YosysHQ](images/logos/yosys-hq.png)&nbsp;&nbsp;&nbsp;&nbsp;![Enjoy Digital](images/logos/enjoy-digital.png)
 
-![F4PGA](images/logos/f4pga.png)&nbsp;&nbsp;&nbsp;&nbsp;![OSFPGA](images/logos/osfpga.png)
+![F4PGA](images/logos/f4pga.png)&nbsp;&nbsp;&nbsp;&nbsp;![OSFPGA](images/logos/osfpga.png)&nbsp;&nbsp;&nbsp;&nbsp;![OpenFPGA](images/logos/OpenFPGA.png)
+
+![Quicklogic](images/logos/quicklogic.png)&nbsp;&nbsp;&nbsp;&nbsp;![Rapid Silicon](images/logos/rapid-silicon.png)&nbsp;&nbsp;&nbsp;&nbsp;![Cologne Chip](images/logos/cologne-chip.png)
 
 ---
 
