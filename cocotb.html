@@ -19,7 +19,7 @@
 
 # cocotb tutorial
 
-#### (cocotb 1.6, python 3.6+)
+#### (cocotb 1.8, python 3.6+)
 
 [github.com/rodrigomelo9/FOSS-for-FPGAs](https://github.com/rodrigomelo9/FOSS-for-FPGAs)
 
@@ -62,11 +62,13 @@ VHDL and (System)Verilog RTL using Python.
 * 2019: cocotb 1.1 (Jan), 1.2 (Jul).
 * 2020: cocotb 1.3 (Jan), 1.4 (Jul).
 * 2021: cocotb 1.5 (Mar), 1.6 (Oct).
-* cocotb 1.7/2.0 under development.
+* 2022: cocotb 1.7 (Sep)
+* 2023: cocotb 1.8 (Jun)
+* cocotb 1.9/2.0 under development.
 ```
 <!-- .element: style="font-size: 0.4em !important;" -->
 
-![cocotb unofficial](images/logos/cocotb-unofficial.png)
+![cocotb unofficial](images/logos/cocotb-unofficial.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![FOSSi](images/logos/fossi.png)
 </script></section><section data-markdown><script type="text/template">
 ### How does it work?
@@ -78,7 +80,7 @@ VHDL and (System)Verilog RTL using Python.
 ### Installation (Debian based systems)
 
 ```bash
-apt install make gcc g++ python3 python3-dev python3-pip
+apt install make python3 python3-pip
 pip3 install cocotb
 ```
 
@@ -185,6 +187,13 @@ make
 ```
 
 ![cocotb run](images/screens/cocotb-example.png)
+
+or with docker
+<!-- .element: style="font-size: 0.4em !important;" -->
+```bash
+docker run --rm -v $PWD/../../:$PWD/../../ -w $PWD hdlc/sim:osvb make
+```
+<!-- .element: style="font-size: 0.4em !important;" -->
 </script></section><section data-markdown><script type="text/template">
 ### Waveforms
 
@@ -265,6 +274,7 @@ dut.my_signal.value = Release()
 # Freeze action: my_signal stays at current value until released
 dut.my_signal.value = Freeze()
 ```
+<!-- .element: style="font-size: 0.5em !important;" -->
 </script></section><section data-markdown><script type="text/template">
 ### Clock and reset generation
 
@@ -285,6 +295,7 @@ async def reset(dut, cycles=1):
     await RisingEdge(dut.clk_i)
     dut._log.info("the core was reset")
 ```
+<!-- .element: style="font-size: 0.5em !important;" -->
 </script></section><section data-markdown><script type="text/template">
 ### Logging
 
@@ -546,10 +557,9 @@ make RANDOM_SEED=<SEED>
 
 * [PyUVM](https://github.com/pyuvm/pyuvm) is UVM (IEEE 1800.2) implemented in Python instead of SystemVerilog.
 * It uses cocotb to interact with the simulator and schedule simulation events.
+* Supported by [Siemens](https://blogs.sw.siemens.com/verificationhorizons/2021/09/09/python-and-the-uvm).
 
-Supported by [Siemens](https://blogs.sw.siemens.com/verificationhorizons/2021/09/09/python-and-the-uvm/)
-
-See also [uvm-python](https://github.com/tpoikela/uvm-python)
+![PYUVM](images/others/pyuvm.png)
 </script></section></section><section  data-markdown><script type="text/template"><!-- ###################################################################### -->
 # Questions?
 <!-- .slide: data-background="#1F618D" -->
