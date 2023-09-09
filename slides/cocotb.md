@@ -193,6 +193,13 @@ make
 
 ![cocotb run](images/screens/cocotb-example.png)
 
+or with docker
+<!-- .element: style="font-size: 0.4em !important;" -->
+```bash
+docker run --rm -v $PWD/../../:$PWD/../../ -w $PWD hdlc/sim:osvb make
+```
+<!-- .element: style="font-size: 0.4em !important;" -->
+
 ----
 
 ### Waveforms
@@ -282,6 +289,7 @@ dut.my_signal.value = Release()
 # Freeze action: my_signal stays at current value until released
 dut.my_signal.value = Freeze()
 ```
+<!-- .element: style="font-size: 0.5em !important;" -->
 
 ----
 
@@ -304,6 +312,7 @@ async def reset(dut, cycles=1):
     await RisingEdge(dut.clk_i)
     dut._log.info("the core was reset")
 ```
+<!-- .element: style="font-size: 0.5em !important;" -->
 
 ----
 
@@ -593,10 +602,9 @@ make RANDOM_SEED=<SEED>
 
 * [PyUVM](https://github.com/pyuvm/pyuvm) is UVM (IEEE 1800.2) implemented in Python instead of SystemVerilog.
 * It uses cocotb to interact with the simulator and schedule simulation events.
+* Supported by [Siemens](https://blogs.sw.siemens.com/verificationhorizons/2021/09/09/python-and-the-uvm).
 
-Supported by [Siemens](https://blogs.sw.siemens.com/verificationhorizons/2021/09/09/python-and-the-uvm/)
-
-See also [uvm-python](https://github.com/tpoikela/uvm-python)
+![PYUVM](images/others/pyuvm.png)
 
 ---
 <!-- ###################################################################### -->
