@@ -14,14 +14,13 @@ Our aim is to provide a gentle introduction to the main development tools, in a 
 
 ## Talks
 
-* 2021-08-29 - [Joint ICTP, SAIFR and UNESP School on Systems-on-Chip, Embedded Microcontrollers and their Applications in Research and Industry](http://indico.ictp.it/event/9644/other-view?view=ictptimetable)
-  * [slides](http://indico.ictp.it/event/9644/session/9/contribution/36/material/slides/0.pdf)
-* 2021-05-18 - [Ciclo de charlas sobre la EDU-CIAA-FPGA](https://www.youtube.com/channel/UCmdz7OJ4p64Jh7GRFJqhHqQ)
-  * [video](https://www.youtube.com/watch?v=IKDzkQ1zg2g) (Spanish)
-  * [slides](https://github.com/rodrigomelo9/FOSS-for-FPGAs/tree/f92dfc4b1e12b47b9e02ebc9f9ad46cd24bb6b98) (tag 2021-05-18)
-* 2021-02-10 - [Joint ICTP-IAEA School on FPGA-based SoC and its Applications for Nuclear and Related Instrumentation](http://indico.ictp.it/event/9443/other-view?view=ictptimetable)
-  * [video](http://video.ictp.it/WEB/2021/2021_01_25-smr3562/2021_02_10-11_00-smr3562.mp4) (English)
-  * [slides](http://indico.ictp.it/event/9443/session/258/contribution/587/material/slides/0.pdf)
+* 2023-09-16 - [12º Jornadas Regionales de Software Libre](https://eventol.flisol.org.ar/events/jrsl-cordoba-2023)
+  * [FOSS for FPGA development](https://eventol.flisol.org.ar/events/jrsl-cordoba-2023/activity/433)
+  * [cocotb tutorial](https://eventol.flisol.org.ar/events/jrsl-cordoba-2023/activity/434)
+* 2021-08-29 - [Joint ICTP, SAIFR and UNESP School on Systems-on-Chip, Embedded Microcontrollers and their Applications in Research and Industry](http://indico.ictp.it/event/9644/other-view?view=ictptimetable) [ [slides](http://indico.ictp.it/event/9644/session/9/contribution/36/material/slides/0.pdf) ]
+* 2021-05-18 - [Ciclo de charlas sobre la EDU-CIAA-FPGA](https://www.youtube.com/channel/UCmdz7OJ4p64Jh7GRFJqhHqQ) [ [slides](https://github.com/rodrigomelo9/FOSS-for-FPGAs/tree/f92dfc4b1e12b47b9e02ebc9f9ad46cd24bb6b98), [video](https://www.youtube.com/watch?v=IKDzkQ1zg2g) (Spanish) ]
+* 2021-02-10 - [Joint ICTP-IAEA School on FPGA-based SoC and its Applications for Nuclear and Related Instrumentation](http://indico.ictp.it/event/9443/other-view?view=ictptimetable) [ [slides](http://indico.ictp.it/event/9443/session/258/contribution/587/material/slides/0.pdf), [video](http://video.ictp.it/WEB/2021/2021_01_25-smr3562/2021_02_10-11_00-smr3562.mp4) (English) ]
+
 
 ## Requisites to recreate the presentation and run examples locally
 
